@@ -5,10 +5,6 @@
             {block name='productdetails-variation-value-name-not-hide'}
                 {$Variationswert->cName}
             {/block}
-			{else}
-            {block name='productdetails-variation-value-name-hide'}
-                <span class="sr-only">{$Variationswert->cName}</span>
-            {/block}
         {/if}
     {* variationskombination *}
     {if ($Artikel->kVaterArtikel > 0 || $Artikel->nIstVater == 1)}
@@ -49,12 +45,21 @@
             {/if}
         {/block}
     {/if}
-    {* Variationskombination mit mindestens 2 Nicht-Freifeld-Variationen *}
+    {* variationskombination mit mindestens 2 nicht-freifeld positionen *}
     {if ($Artikel->kVaterArtikel > 0 || $Artikel->nIstVater == 1) && $Artikel->nVariationOhneFreifeldAnzahl > 1 && isset($Variationswert->fAufpreisNetto)}
         {block name='productdetails-variation-value-varkombi-2-free'}
-            {* Bei mehrdimensionalen Variationen: Einstellung 2 ignorieren, immer Aufpreise anzeigen *}
-            {if ($Einstellungen.artikeldetails.artikel_variationspreisanzeige == 1 || $Einstellungen.artikeldetails.artikel_variationspreisanzeige == 2) && $Variationswert->fAufpreisNetto!=0}
-                <span class="variation-badge {if $badgeRight}badge-right{/if}">{$Variationswert->cAufpreisLocalized[$NettoPreise]}</span>
+            {if $Einstellungen.artikeldetails.artikel_variationspreisanzeige == 1 && $Variationswert->fAufpreisNetto!=0}
+                <span class="variation-badge {if $badgeRight}badge-right{/if}">{$Variationswert->cAufpreisLocalized[$NettoPreise]}
+                {if !empty($Variationswert->cPreisVPEWertAufpreis[$NettoPreise]) && $Artikel->nVariationOhneFreifeldAnzahl == 1}
+                    &nbsp;({$Variationswert->cPreisVPEWertAufpreis[$NettoPreise]})
+                {/if}
+                </span>
+            {elseif $Einstellungen.artikeldetails.artikel_variationspreisanzeige == 2 && $Variationswert->fAufpreisNetto!=0}
+                <span class="variation-badge {if $badgeRight}badge-right{/if}">{$Variationswert->cPreisInklAufpreis[$NettoPreise]}
+                {if !empty($Variationswert->cPreisVPEWertInklAufpreis[$NettoPreise]) && $Artikel->nVariationOhneFreifeldAnzahl == 1}
+                    &nbsp;({$Variationswert->cPreisVPEWertInklAufpreis[$NettoPreise]})
+                {/if}
+                </span>
             {/if}
         {/block}
     {/if}

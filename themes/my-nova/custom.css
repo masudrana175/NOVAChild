@@ -880,17 +880,26 @@ div#product-configuration-sidebar .productdetails-details-rate {
 
 @media (max-width: 991.98px) {
     header .navbar-nav .nav-link {
-        justify-content: left;
+        justify-content: flex-start !important;
+        gap: 0.5rem;
         /*ermöglicht dass Bild und Kategoriename  nebeneinander sitzen*/
     }
+    header .navbar-nav .nav-link .nav-mobile-heading {
+        margin-left: 0 !important;
+        margin-right: auto;
+        text-align: left;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
     img+.nav-mobile-heading {
-        margin-left: -1.5rem;
+        margin-left: 0 !important;
         /*Verschiebung des Kategorienamens nach links als Kompensation für breite Kategoriebilder in Wawi*/
     }
     .navbar-mobile-category_image {
         margin-left: -2rem;
         margin-top: -0.7rem;
         max-height: 30px;
+        flex: 0 0 auto;
     }
     header .navbar-nav .nav-link::after {
         margin-left: auto;
@@ -3793,171 +3802,59 @@ body[color-theme="1837"] .basket {
     margin-bottom: 6px;
 }
 
-/* One-Page-Checkout */
+/* One-Page-Checkout: Vorschau-Banner (nur Testkreis) */
 .beautek-opc-flag {
-    margin: 0 0 16px;
+    margin: 0 0 14px;
     padding: 8px 14px;
     border-radius: 8px;
-    border: 1px solid rgba(132, 24, 83, 0.18);
-    background: #faf4f7;
-    color: #841853;
-    font-size: 0.78rem;
+    background: #841853;
+    color: #fff;
+    font-size: 0.85rem;
     font-weight: 600;
     text-align: center;
 }
 
 .beautek-opc-flag__off {
     margin-left: 8px;
-    color: #841853;
+    color: #fff;
     text-decoration: underline;
-    opacity: 0.75;
+    opacity: 0.85;
 }
 
 .beautek-opc-flag__off:hover {
-    color: #841853;
+    color: #fff;
     opacity: 1;
 }
 
-body.beautek-opc-active.is-checkout {
-    background: #f6f4f5;
-}
-
-body.beautek-opc-active.is-checkout #checkout {
-    max-width: none;
-    padding: 8px 24px 64px;
-    overflow: visible;
-}
-
-.beautek-opc {
-    max-width: 1240px;
-    margin: 0 auto;
-}
-
-.beautek-opc .checkout-steps,
-.beautek-opc .card-products,
-.beautek-opc .checkout-confirmation-pre-form-hr,
-.beautek-opc .inc-billing-address-form h1,
-.beautek-opc .inc-billing-address-form .h3,
-.beautek-opc .inc-billing-address-form hr,
-.beautek-opc .inc-shipping-address .h3,
-.beautek-opc__main .row-eq-height,
-.beautek-opc__main #panel-edit-coupon,
-.beautek-opc__main #panel-edit-comment,
-.beautek-opc__main .checkout-confirmation > h1 {
-    display: none !important;
-}
-
-.beautek-opc .checkout-confirmation-items,
-.beautek-opc #panel-submit-order,
-.beautek-opc #complete-order-button,
-.beautek-opc .beautek-opc-actions,
-.beautek-opc .beautek-opc-submit {
-    display: block !important;
-    visibility: visible !important;
-}
-
-.beautek-opc .checkout-confirmation-items {
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-}
-
-.beautek-opc .checkout-confirmation-items > .card-header,
-.beautek-opc .checkout-confirmation-items .card-products {
-    display: none !important;
-}
-
+/* One-Page-Checkout: 2-Spalten-Layout (Testkreis) */
 .beautek-opc__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 18px;
     align-items: start;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 992px) {
     .beautek-opc__grid {
-        grid-template-columns: minmax(0, 1fr) 420px;
-        gap: 40px;
+        grid-template-columns: minmax(0, 1fr) 380px;
+        gap: 24px;
     }
     .beautek-opc__aside {
         position: sticky;
-        top: 24px;
+        top: 16px;
     }
 }
 
-.beautek-opc-progress {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 0 22px;
-    color: rgba(17, 17, 17, 0.38);
-}
-
-.beautek-opc-progress__item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: inherit;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-}
-
-.beautek-opc-progress__item:hover {
-    color: var(--cart-accent, #841853);
-    text-decoration: none;
-}
-
-.beautek-opc-progress__num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    border: 1.5px solid currentColor;
-    font-size: 0.75rem;
-}
-
-.beautek-opc-progress__item.is-current {
-    color: #111;
-}
-
-.beautek-opc-progress__item.is-current .beautek-opc-progress__num,
-.beautek-opc-progress__item.is-done .beautek-opc-progress__num {
-    background: var(--cart-accent, #841853);
-    border-color: var(--cart-accent, #841853);
-    color: #fff;
-}
-
-.beautek-opc-progress__item.is-done {
-    color: var(--cart-accent, #841853);
-}
-
-.beautek-opc-progress__sep {
-    flex: 0 0 28px;
-    height: 1px;
-    background: rgba(17, 17, 17, 0.14);
-}
-
-.beautek-opc-progress__sep-or {
-    margin: 8px 0 20px;
-    text-align: center;
-    font-size: 0.78rem;
-    font-weight: 650;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(17, 17, 17, 0.4);
-}
-
 .beautek-opc-card {
-    margin-bottom: 18px;
-    border: 1px solid rgba(17, 17, 17, 0.1);
-    border-radius: 16px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(17, 17, 17, 0.10);
+    border-radius: 14px;
     background: #fff;
-    overflow: visible;
+    overflow: hidden;
+}
+
+.beautek-opc__aside .beautek-opc-card:last-child {
+    margin-bottom: 0;
 }
 
 .beautek-opc-card__head {
@@ -3965,544 +3862,181 @@ body.beautek-opc-active.is-checkout #checkout {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 16px 22px;
+    padding: 12px 16px;
     border-bottom: 1px solid rgba(17, 17, 17, 0.07);
 }
 
 .beautek-opc-card__title {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 0.95rem;
+    font-weight: 650;
     color: #111;
 }
 
 .beautek-opc-card__edit {
-    font-size: 0.85rem;
+    flex: 0 0 auto;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--cart-accent, #841853);
+    white-space: nowrap;
     text-decoration: none;
 }
 
 .beautek-opc-card__edit:hover {
+    color: var(--cart-accent, #841853);
     text-decoration: underline;
 }
 
 .beautek-opc-card__body {
-    padding: 20px 22px 22px;
+    padding: 16px;
 }
 
 .beautek-opc-card__body p {
-    margin-bottom: 8px;
-    line-height: 1.5;
+    margin-bottom: 6px;
 }
 
 .beautek-opc-cols {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 576px) {
     .beautek-opc-cols {
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
     }
 }
 
 .beautek-opc-subtitle {
-    margin: 0 0 8px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: rgba(17, 17, 17, 0.5);
-}
-
-.beautek-opc-actions {
-    margin-top: 8px;
-}
-
-.beautek-opc-actions--sticky {
-    position: sticky;
-    bottom: 0;
-    z-index: 20;
-    margin-top: 12px;
-    padding: 14px 0 12px;
-    background: #fff;
-    box-shadow: 0 -12px 18px #fff;
-}
-
-.beautek-opc-submit {
-    display: block !important;
-    width: 100%;
-    border: 0 !important;
-    border-radius: 12px !important;
-    min-height: 56px;
-    padding: 16px 20px !important;
-    font-size: 1.08rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.01em;
-    color: #fff !important;
-    background: var(--cart-accent, #841853) !important;
-    box-shadow: 0 10px 24px rgba(132, 24, 83, 0.22);
-}
-
-.beautek-opc-submit:hover,
-.beautek-opc-submit:focus {
-    filter: brightness(1.05);
-    color: #fff !important;
-}
-
-.beautek-opc-summary__cta {
-    margin-top: 18px;
-}
-
-.beautek-opc .checkout-button-row,
-.beautek-opc .order-submit {
-    display: block !important;
-    visibility: visible !important;
-}
-
-.beautek-opc-backlink {
-    display: block;
-    margin-top: 12px;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: rgba(17, 17, 17, 0.55);
-    text-decoration: none;
-}
-
-.beautek-opc-backlink:hover {
-    color: var(--cart-accent, #841853);
-}
-
-.beautek-opc-trust {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 16px;
-    margin-top: 18px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(17, 17, 17, 0.08);
-}
-
-.beautek-opc-trust__item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: rgba(17, 17, 17, 0.62);
-}
-
-.beautek-opc-trust__icon {
-    display: inline-flex;
-    width: 18px;
-    height: 18px;
-    color: var(--cart-accent, #841853);
-}
-
-.beautek-opc-trust__icon svg {
-    width: 18px;
-    height: 18px;
-}
-
-.beautek-opc-legal,
-.beautek-opc .checkout-confirmation-legal-notice,
-.beautek-opc .checkout-confirmation-legal-notice + div {
-    display: block;
-    margin: 0 0 14px;
-    font-size: 0.86rem;
-    line-height: 1.55;
-    color: rgba(17, 17, 17, 0.62);
-    text-align: left;
-    justify-content: flex-start;
-}
-
-.beautek-opc-review {
-    overflow: hidden;
-}
-
-.beautek-opc-review__row {
-    display: grid;
-    grid-template-columns: 110px minmax(0, 1fr) auto;
-    gap: 12px 16px;
-    align-items: start;
-    padding: 16px 22px;
-    border-bottom: 1px solid rgba(17, 17, 17, 0.07);
-}
-
-.beautek-opc-review__row:last-child {
-    border-bottom: 0;
-}
-
-.beautek-opc-review__label {
-    padding-top: 2px;
+    margin: 0 0 4px;
     font-size: 0.78rem;
-    font-weight: 700;
+    font-weight: 650;
+    text-transform: uppercase;
     letter-spacing: 0.02em;
-    color: rgba(17, 17, 17, 0.48);
-}
-
-.beautek-opc-review__value {
-    min-width: 0;
-    font-size: 0.95rem;
-    line-height: 1.45;
-    color: #111;
-}
-
-.beautek-opc-review__value p,
-.beautek-opc-review__value ul {
-    margin: 0;
-}
-
-.beautek-opc-review__value li {
-    line-height: 1.45;
-}
-
-.beautek-opc-review__same,
-.beautek-opc-review__meta {
-    margin: 4px 0 0;
-    font-size: 0.86rem;
     color: rgba(17, 17, 17, 0.55);
-}
-
-.beautek-opc-confirm .beautek-opc-comment {
-    margin: 4px 0 18px;
-    padding: 14px 4px 0;
-}
-
-@media (max-width: 639.98px) {
-    .beautek-opc-review__row {
-        grid-template-columns: 1fr auto;
-        padding: 14px 16px;
-    }
-    .beautek-opc-review__label {
-        grid-column: 1 / -1;
-    }
-}
-
-.beautek-opc-checkboxes {
-    margin-bottom: 16px;
-}
-
-.beautek-opc-checkboxes .custom-control {
-    padding-left: 1.7rem;
-    line-height: 1.5;
-}
-
-/* Sidebar: eigene Zeilen statt JTL-Tabelle */
-.beautek-opc-summary {
-    background: #f7f5f6;
 }
 
 .beautek-opc-summary .beautek-opc-card__body {
-    padding: 8px 20px 20px;
+    padding: 8px 16px 16px;
 }
 
-.beautek-opc-lines {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.beautek-opc-line {
-    display: grid;
-    grid-template-columns: 64px minmax(0, 1fr) auto;
-    gap: 12px;
-    align-items: start;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
-}
-
-.beautek-opc-line__media {
-    position: relative;
-    width: 64px;
-    height: 64px;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid rgba(17, 17, 17, 0.08);
-}
-
-.beautek-opc-line__media img,
-.beautek-opc-line__media .image-box,
-.beautek-opc-line__media picture {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.beautek-opc-line__placeholder {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: rgba(132, 24, 83, 0.06);
-}
-
-.beautek-opc-line__qty {
-    position: absolute;
-    top: -7px;
-    right: -7px;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 6px;
-    border-radius: 999px;
-    background: #111;
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    line-height: 22px;
-    text-align: center;
-}
-
-.beautek-opc-line__info {
-    min-width: 0;
-}
-
-.beautek-opc-line__name {
-    display: block;
-    font-size: 0.92rem;
-    font-weight: 650;
-    line-height: 1.35;
-    color: #111;
-}
-
-.beautek-opc-line__meta {
-    display: block;
+.beautek-opc-final {
     margin-top: 4px;
+}
+
+.beautek-opc-legal {
+    margin: 0 0 12px;
     font-size: 0.8rem;
-    line-height: 1.4;
-    color: rgba(17, 17, 17, 0.55);
-}
-
-.beautek-opc-line__price {
-    font-size: 0.92rem;
-    font-weight: 700;
-    white-space: nowrap;
-    line-height: 1.35;
-}
-
-.beautek-opc-totals {
-    margin-top: 14px;
-}
-
-.beautek-opc-totals__row {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: rgba(17, 17, 17, 0.7);
-}
-
-.beautek-opc-totals__row--grand {
-    margin-top: 10px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(17, 17, 17, 0.12);
-    font-size: 1.12rem;
-    font-weight: 800;
-    color: #111;
-}
-
-.beautek-opc-coupon {
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(17, 17, 17, 0.08);
-}
-
-.beautek-opc .coupon-form .credit-description,
-.beautek-opc-coupon fieldset,
-.beautek-opc-coupon .form-row {
-    margin: 0;
-}
-
-.beautek-opc-coupon .credit-description {
-    display: none;
-}
-
-.beautek-opc-coupon .input-group {
-    flex-wrap: nowrap;
-}
-
-.beautek-opc-coupon #kupon,
-.beautek-opc-coupon input[name="Kuponcode"] {
-    margin-right: 0;
-    border-radius: 10px 0 0 10px !important;
-}
-
-.beautek-opc-coupon .btn {
-    border-radius: 0 10px 10px 0 !important;
-    white-space: nowrap;
-}
-
-/* Versand / Zahlung: mehr Luft, keine Überlappung */
-.beautek-opc #fieldset-payment,
-.beautek-opc #checkout-shipping-payment {
-    margin: 0;
-}
-
-.beautek-opc #fieldset-payment .h2,
-.beautek-opc #checkout-shipping-payment .h2,
-.beautek-opc #fieldset-payment > hr {
-    display: none;
-}
-
-.beautek-opc .checkout-shipping-form-change {
-    margin-bottom: 16px;
-    font-size: 0.92rem;
-    line-height: 1.5;
-}
-
-.beautek-opc .checkout-shipping-form-options-radio {
-    padding: 14px 0;
-}
-
-.beautek-opc .checkout-shipping-form-options-radio .title,
-.beautek-opc .checkout-shipping-form-options-radio small {
-    line-height: 1.5;
-}
-
-body.beautek-opc-active.is-checkout #checkout .beautek-opc #fieldset-payment .checkout-payment-method,
-body.beautek-opc-active .beautek-opc #fieldset-payment .checkout-payment-method,
-body.beautek-opc-active .beautek-opc .checkout-payment-method {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    min-width: 0;
-    width: 100%;
-    max-width: 100% !important;
-    margin: 0 0 10px 0 !important;
-    padding: 14px 16px !important;
-    overflow: hidden;
-    border: 1px solid rgba(17, 17, 17, 0.12) !important;
-    border-radius: 12px !important;
-    box-sizing: border-box;
-}
-
-body.beautek-opc-active.is-checkout #checkout .beautek-opc #fieldset-payment .checkout-payment-method label,
-body.beautek-opc-active.is-checkout #checkout .beautek-opc #fieldset-payment .checkout-payment-method label.custom-control-label,
-body.beautek-opc-active .beautek-opc #fieldset-payment .checkout-payment-method label,
-body.beautek-opc-active .beautek-opc .checkout-payment-method label,
-body.beautek-opc-active .beautek-opc .checkout-payment-method label.custom-control-label {
-    display: flex !important;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 12px 14px;
-    margin: 0;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-}
-
-body.beautek-opc-active .beautek-opc .checkout-payment-method .image-holder,
-body.beautek-opc-active .beautek-opc .checkout-payment-method .ppc-option-img {
-    flex: 0 0 auto;
-    max-width: 110px;
-    min-width: 0;
-}
-
-body.beautek-opc-active .beautek-opc .checkout-payment-method .image-holder img,
-body.beautek-opc-active .beautek-opc .checkout-payment-method .ppc-option-img img {
-    max-width: 110px;
-    max-height: 32px;
-    width: auto;
-    height: auto;
-}
-
-body.beautek-opc-active .beautek-opc .payment-cstm-name,
-body.beautek-opc-active .beautek-opc .checkout-payment-method .content {
-    flex: 1 1 140px;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-body.beautek-opc-active .beautek-opc .payment-cstm-name .custom-name {
-    display: block;
-    font-size: 0.95rem;
-    line-height: 1.35;
-    overflow-wrap: anywhere;
-}
-
-body.beautek-opc-active .beautek-opc .image-holder ~ .payment-cstm-name .custom-name,
-body.beautek-opc-active .beautek-opc .ppc-option-img ~ .payment-cstm-name .custom-name {
-    display: none;
-}
-
-body.beautek-opc-active .beautek-opc .checkout-payment-method-note,
-body.beautek-opc-active .beautek-opc .checkout-payment-method-note small {
-    display: block;
-    margin-top: 2px;
-    font-size: 0.82rem;
-    line-height: 1.45;
     color: rgba(17, 17, 17, 0.6);
 }
 
-body.beautek-opc-active .beautek-opc .checkout-payment-method.selected,
-body.beautek-opc-active .beautek-opc .checkout-payment-method:has(input:checked) {
-    border-color: var(--cart-accent, #841853) !important;
-    background: #faf4f7;
+.beautek-opc-checkboxes {
+    margin-bottom: 12px;
 }
 
-body.beautek-opc-active .beautek-opc [id*="ppc-"],
-body.beautek-opc-active .beautek-opc .paypal-buttons,
-body.beautek-opc-active .beautek-opc #fieldset-payment iframe,
-body.beautek-opc-active .beautek-opc #fieldset-payment img {
-    max-width: 100%;
+.beautek-opc-submit {
+    border-radius: 999px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    font-weight: 700 !important;
 }
 
-.beautek-opc-comment {
-    margin: 0 0 16px;
+.beautek-opc-back {
+    margin-top: 10px;
+    border-radius: 999px !important;
 }
 
-.beautek-opc-comment summary {
-    cursor: pointer;
-    font-size: 0.92rem;
-    font-weight: 650;
-    color: #111;
-    list-style: none;
+/* Bestellpositionen + Summen kompakt in der schmalen rechten Spalte.
+   Alles streng auf .beautek-opc-summary begrenzt -> kein Einfluss auf den
+   Standard-Checkout. */
+.beautek-opc-summary .checkout-items-header,
+.beautek-opc-summary .checkout-items-header-hr {
+    display: none !important;
 }
 
-.beautek-opc-comment summary::-webkit-details-marker {
+.beautek-opc-summary .checkout-items-item {
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.07);
+}
+
+.beautek-opc-summary .checkout-items-item-main p {
+    margin-bottom: 2px;
+    font-size: 0.88rem;
+    line-height: 1.3;
+}
+
+.beautek-opc-summary .checkout-items-item-main .list-unstyled {
+    margin-bottom: 0;
+    font-size: 0.78rem;
+}
+
+.beautek-opc-summary .checkout-items-item-image-wrapper img {
+    border-radius: 8px;
+}
+
+.beautek-opc-summary .checkout-items-item-price-single,
+.beautek-opc-summary .checkout-items-item-quantity {
+    font-size: 0.82rem;
+    color: rgba(17, 17, 17, 0.6);
+}
+
+.beautek-opc-summary .checkout-items-item .price-col {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+/* Doppelte Trennlinie je Position vermeiden (eigener Border reicht). */
+.beautek-opc-summary .checkout-items-item .col-12 > hr {
     display: none;
 }
 
-.beautek-opc-comment summary span {
-    font-weight: 400;
-    color: rgba(17, 17, 17, 0.5);
+/* Summen-Block auf volle Breite und rechtsbündige Werte. */
+.beautek-opc-summary .checkout-items-total-wrapper {
+    margin: 0;
 }
 
-.beautek-opc-comment .checkout-confirmation-comment {
-    margin-top: 10px;
-    min-height: 72px;
+.beautek-opc-summary .checkout-items-total {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 8px 0 0;
 }
 
-.beautek-opc-step > .alert {
-    margin-bottom: 16px;
+.beautek-opc-summary .checkout-items-total .row {
+    margin: 0;
+    align-items: baseline;
 }
 
-@media (max-width: 1099.98px) {
-    .beautek-opc__aside {
-        order: 2;
-    }
+.beautek-opc-summary .checkout-items-total .row > [class*="col"] {
+    padding-left: 0;
+    padding-right: 0;
 }
 
-@media (max-width: 575.98px) {
-    body.beautek-opc-active.is-checkout #checkout {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-    .beautek-opc-card__head,
-    .beautek-opc-card__body {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    .beautek-opc-progress__label {
-        display: none;
-    }
+.beautek-opc-summary .checkout-items-total .price-col {
+    margin-left: auto;
+    text-align: right;
+}
+
+.beautek-opc-summary .checkout-items-total .total-net,
+.beautek-opc-summary .checkout-items-total .tax,
+.beautek-opc-summary .checkout-items-total .customer-credit {
+    font-size: 0.88rem;
+    color: rgba(17, 17, 17, 0.7);
+    margin-bottom: 2px;
+}
+
+.beautek-opc-summary .checkout-items-total hr {
+    margin: 10px 0;
+    border-top-color: rgba(17, 17, 17, 0.12);
+}
+
+.beautek-opc-summary .checkout-items-total-total .price_label strong,
+.beautek-opc-summary .checkout-items-total-total .total-sum {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.beautek-opc-summary .checkout-items-total .shipping-costs small {
+    color: rgba(17, 17, 17, 0.55);
 }
 
 .basket .cart-summary .shipping-calculator-main-heading {
@@ -5065,7 +4599,8 @@ div#product-offer {
 		margin-right: 11px;
 	}
 	img+.nav-mobile-heading {
-		margin-right: auto;
+		margin-right: 0;
+		margin-left: 0 !important;
 	}
 	.product-info .accordions,.product-info div#add-to-cart {
 		padding: 0 15px;
@@ -7977,26 +7512,370 @@ body.beautek-pdp-v2 .sticky-add-to-cart__title {
 #footer #footer-boxes.boxes-custom > [class*="col"] {
     min-width: 0;
 }
-.btn-skip-to {
-    position: absolute;
+
+/* ==========================================================================
+   Beautek Konfigurator Buybox Preview (?v=cfg)
+   ========================================================================== */
+
+.beautek-cfg-pills-banner {
+    position: sticky;
     top: 0;
-    transition: transform 200ms;
-    transform: scale(0);
-    margin: 1%;
-    z-index: 1070;
-    background: #fff;
-    border: 3px solid #f8bf00;
-    font-weight: 400;
-    color: #525252;
+    z-index: 1040;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    background: #1f2a24;
+    color: #fff;
+    font-size: 0.8rem;
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
     text-align: center;
-    vertical-align: middle;
-    padding: .625rem .9375rem;
-    border-radius: .125rem;
-    font-weight: bolder;
-    text-decoration: none;
 }
-@media (min-width: 768px) {
-    .consent-banner-body {
-        flex-direction: row-reverse;
+
+.beautek-cfg-pills-banner strong { font-weight: 600; letter-spacing: 0.02em; }
+.beautek-cfg-pills-banner code { font-family: inherit; font-weight: 600; color: #9fd0b5; }
+.beautek-cfg-pills-banner a { color: #fff; text-decoration: underline; }
+.beautek-cfg-pills-banner a:hover { color: #9fd0b5; }
+
+/* Unten: großer Konfigurator weg – Auswahl sitzt in der Buybox (Inputs bleiben im DOM) */
+body.beautek-cfg-pills.beautek-cfg-buybox-ready #product-configurator,
+body.beautek-cfg-pills.beautek-cfg-buybox-ready #product-configurator-button {
+    display: none !important;
+}
+
+/* Buybox-Abstände wie bei normalen Artikeln (Menge + Warenkorb + PayPal) */
+body.beautek-cfg-pills .beautek-cfg-buybox {
+    margin: 0.15rem 0 0.65rem;
+}
+
+body.beautek-cfg-pills .beautek-cfg-buybox-group {
+    margin-bottom: 0.7rem;
+    padding-bottom: 0.65rem;
+}
+
+body.beautek-cfg-pills .product-offer .price_wrapper,
+body.beautek-cfg-pills .product-offer .shipping-badges {
+    margin-top: 0.35rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+body.beautek-cfg-pills .product-offer div#add-to-cart {
+    margin-top: 0.35rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+body.beautek-cfg-pills .product-offer #add-to-cart .basket-form-inline {
+    align-items: stretch;
+}
+
+body.beautek-cfg-pills .product-offer #add-to-cart .basket-form-inline > [class*="col"] {
+    margin-bottom: 0 !important;
+}
+
+@media (min-width: 576px) {
+    body.beautek-cfg-pills .product-offer #add-to-cart .basket-form-inline > [class*="col-sm-6"],
+    body.beautek-cfg-pills .product-offer #add-to-cart .basket-form-inline > .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
     }
 }
+
+/* Leere Zubehör-Accordion-Box nicht als Leerraum stehen lassen */
+body.beautek-cfg-pills #additional-supplies:not(:has(.panel)),
+body.beautek-cfg-pills #additional-supplies:empty,
+body.beautek-cfg-pills #additional-supplies .svg-holder:only-child {
+    display: none !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+}
+
+body.beautek-cfg-pills .product-offer .rate-info-row {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.35rem !important;
+}
+
+body.beautek-cfg-pills .product-offer .stock-information {
+    margin-top: 0.5rem !important;
+    padding-top: 0.5rem !important;
+}
+
+/* PayPal Express unter dem Warenkorb sichtbar halten */
+body.beautek-cfg-pills .product-offer #add-to-cart .paypal-buttons,
+body.beautek-cfg-pills .product-offer #add-to-cart .ppc-standalone-buttons,
+body.beautek-cfg-pills .product-offer #add-to-cart [id*="paypal"],
+body.beautek-cfg-pills .product-offer #add-to-cart [class*="paypal-button"] {
+    display: block !important;
+    margin-top: 0.55rem;
+    max-width: 100%;
+}
+
+body.beautek-cfg-pills .beautek-cfg-native-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+body.beautek-cfg-pills .beautek-cfg-hint-hidden,
+body.beautek-cfg-pills .cfg-group-info .js-group-badge-checked,
+body.beautek-cfg-pills .cfg-group-info .badge-info {
+    display: none !important;
+}
+
+/* Buybox-Mount */
+.beautek-cfg-buybox {
+    margin: 0.35rem 0 1rem;
+    font-family: Poppins, sans-serif;
+}
+
+.beautek-cfg-buybox-group {
+    margin-bottom: 0.95rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.beautek-cfg-buybox-group:last-child {
+    border-bottom: 0;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0;
+}
+
+.beautek-cfg-buybox-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 0.75rem;
+    margin-bottom: 0.55rem;
+}
+
+.beautek-cfg-buybox-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #111;
+}
+
+.beautek-cfg-buybox-selected {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.beautek-cfg-buybox-selected em {
+    font-style: normal;
+    font-weight: 600;
+    color: #841853;
+}
+
+.beautek-cfg-buybox-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+/* Text-Pills (Optionen etc.) */
+body.beautek-cfg-pills .beautek-cfg-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    max-width: 100%;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid #e4e4e4;
+    border-radius: 50px;
+    background: #fff;
+    color: #111;
+    font-family: Poppins, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+body.beautek-cfg-pills .beautek-cfg-pill.has-thumb {
+    border-radius: 14px;
+    padding: 0.4rem 0.75rem 0.4rem 0.4rem;
+}
+
+body.beautek-cfg-pills .beautek-cfg-pill-thumb {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex: 0 0 36px;
+}
+
+body.beautek-cfg-pills .beautek-cfg-pill:hover {
+    border-color: #841853;
+    color: #841853;
+}
+
+body.beautek-cfg-pills .beautek-cfg-pill.is-active {
+    border-color: #841853;
+    background: rgba(132, 24, 83, 0.06);
+    box-shadow: inset 0 0 0 1px #841853;
+    color: #841853;
+}
+
+body.beautek-cfg-pills .beautek-cfg-pill.is-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+body.beautek-cfg-pills .beautek-cfg-pill-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+}
+
+body.beautek-cfg-pills .beautek-cfg-pill-title { font-weight: 600; }
+body.beautek-cfg-pills .beautek-cfg-pill-meta {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #666;
+}
+
+/* Farb-Swatches: große sichtbare Punkte */
+body.beautek-cfg-pills .beautek-cfg-swatch {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    width: 64px;
+    padding: 0.2rem;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+}
+
+body.beautek-cfg-pills .beautek-cfg-swatch-fill {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    background: #eee center / cover no-repeat;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+body.beautek-cfg-pills .beautek-cfg-swatch:hover .beautek-cfg-swatch-fill {
+    border-color: #841853;
+    transform: scale(1.04);
+}
+
+body.beautek-cfg-pills .beautek-cfg-swatch.is-active .beautek-cfg-swatch-fill {
+    border-color: #841853;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #841853;
+}
+
+body.beautek-cfg-pills .beautek-cfg-swatch.is-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+body.beautek-cfg-pills .beautek-cfg-swatch-name {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #444;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 64px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body.beautek-cfg-pills .beautek-cfg-swatch.is-active .beautek-cfg-swatch-name {
+    color: #841853;
+    font-weight: 600;
+}
+
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-white { background-color: #fff; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-beige { background-color: #c4b8a8; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-grau { background-color: #7a7a7a; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-dunkelgrau { background-color: #3f3f3f; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-schwarz { background-color: #111; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-bordeaux { background-color: #6b1f3a; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-taupe { background-color: #8a7a6d; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-beton-hell { background-color: #c8c6c2; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-beton-dunkel { background-color: #6e6c69; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-eiche { background-color: #c49a6c; }
+body.beautek-cfg-pills .beautek-cfg-swatch-fill.is-fallback { background: #d9d9d9; }
+
+/* Fußgestell etc.: Bild-Tiles */
+body.beautek-cfg-pills .beautek-cfg-tile {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 96px;
+    padding: 0.35rem;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+body.beautek-cfg-pills .beautek-cfg-tile:hover {
+    border-color: #841853;
+}
+
+body.beautek-cfg-pills .beautek-cfg-tile.is-active {
+    border-color: #841853;
+    box-shadow: inset 0 0 0 1px #841853;
+}
+
+body.beautek-cfg-pills .beautek-cfg-tile.is-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+body.beautek-cfg-pills .beautek-cfg-tile-img,
+body.beautek-cfg-pills .beautek-cfg-tile-ph {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f6f6f6;
+}
+
+body.beautek-cfg-pills .beautek-cfg-tile-ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #999;
+}
+
+body.beautek-cfg-pills .beautek-cfg-tile-name {
+    margin-top: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #222;
+    text-align: center;
+}
+
+body.beautek-cfg-pills .beautek-cfg-tile-meta {
+    font-size: 0.62rem;
+    color: #777;
+    text-align: center;
+}
+
+body.beautek-cfg-pills .beautek-cfg-tile.is-active .beautek-cfg-tile-name {
+    color: #841853;
+}
+

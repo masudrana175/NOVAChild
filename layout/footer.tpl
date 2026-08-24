@@ -448,12 +448,9 @@
                         {form methopd="post" action="{get_static_route id='newsletter.php'}"}
                         {block name='layout-footer-form-content'}
                             {input type="hidden" name="abonnieren" value="2"}
-                            {formgroup class="newsletter-email-wrapper"
-								label-for="newsletter_email"
-                                label="{lang key='newsletter' section='newsletter'} {lang key='newsletterSendSubscribe' section='newsletter'}"
-                                label-sr-only=true}
+                            {formgroup label-sr-only="{lang key='emailadress'}" class="newsletter-email-wrapper"}
                             {inputgroup}
-                            {input type="email" name="cEmail" id="newsletter_email" placeholder="{lang key='emailadress'}" autocomplete="email"}
+                            {input type="email" name="cEmail" id="newsletter_email" placeholder="{lang key='emailadress'}" aria=['label' => {lang key='emailadress'}]}
                             {inputgroupaddon append=true}
                             {button type='submit' variant='secondary' class='min-w-sm'}
                             {lang key='newsletterSendSubscribe' section='newsletter'}
@@ -494,13 +491,6 @@
             <div class="footer-bottom-background-switch">
 
                 {container class="d-print-none container-fluid-xl" fluid=true}
-				{block name='layout-footer-withdrawal'}
-                        {row class="withdrawal-link-wrapper"}
-                            {col cols=12 sm=6 md=4 lg=3}
-                                {include file='snippets/withdrawal_link.tpl'}
-                            {/col}
-                        {/row}
-                    {/block}
                 {block name='layout-footer-additional'}
                     {row class="footer-social-media"}
                     {block name='layout-footer-copyright'}
@@ -520,7 +510,7 @@
                         {if !$isBrandFree}
                             {block name='layout-footer-copyright-brand'}
                                 {col class="col-auto ml-auto-util{if $Einstellungen.template.theme.button_scroll_top === 'Y'} pr-8{/if}" id="system-credits"}
-                                    Powered by {link href="https://jtl-url.de/jtlshop" class="text-white text-decoration-underline" title="JTL-Shop" target="_blank" rel="noopener"}JTL-Shop{/link}
+                                    Powered by {link href="https://jtl-url.de/jtlshop" class="text-decoration-underline text-white" title="JTL-Shop" target="_blank" rel="noopener nofollow"}JTL-Shop{/link}
                                 {/col}
                             {/block}
                         {/if}

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beautek – Konfigurator wie Variations-Pills (Vorschau)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #841853;
+      --brand-soft: rgba(132, 24, 83, 0.06);
+      --brand-meta: rgba(132, 24, 83, 0.75);
+      --line: #e4e4e4;
+      --text: #111;
+      --muted: #666;
+      --bg: #f7f5f6;
+      --surface: #fff;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Poppins, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, rgba(132, 24, 83, 0.08), transparent 55%),
+        linear-gradient(180deg, #faf8f9 0%, var(--bg) 40%, #f3f1f2 100%);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .preview-note {
+      margin-bottom: 1.25rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid #ead6e0;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.75);
+      font-size: 0.85rem;
+      color: #4a3a42;
+      line-height: 1.45;
+    }
+
+    .preview-note strong { color: var(--brand); }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    .media {
+      position: relative;
+      min-height: 420px;
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, #2a2a2a 0%, #4a4a4a 45%, #6b5a62 100%);
+      box-shadow: 0 18px 40px rgba(40, 20, 30, 0.12);
+    }
+
+    .media::after {
+      content: "Produktbild / Behandlungsliege";
+      position: absolute;
+      inset: auto 1.25rem 1.25rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    .media-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .buybox {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.4rem 1.35rem 1.5rem;
+      box-shadow: 0 10px 30px rgba(40, 20, 30, 0.06);
+    }
+
+    .brand {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 0.35rem;
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .sub {
+      margin: 0 0 1.1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .price {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .price small {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 0.25rem;
+    }
+
+    .cfg-hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* === Konfigurator im Variations-Look === */
+    .beautek-cfg-pills {
+      margin: 0.25rem 0 1rem;
+    }
+
+    .cfg-group {
+      margin-bottom: 1.15rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cfg-group:last-of-type {
+      border-bottom: 0;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0;
+    }
+
+    .cfg-group-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.35rem 1rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .cfg-group-head .count {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .cfg-group-head .selected {
+      width: 100%;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .cfg-group-head .selected em {
+      font-style: normal;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      max-width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      background: #fff;
+      color: #000;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.35;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+    }
+
+    .pill:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+    }
+
+    .pill.is-active {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      box-shadow: inset 0 0 0 1px var(--brand);
+      color: var(--brand);
+    }
+
+    .pill.is-disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .pill-dot {
+      flex: 0 0 12px;
+      width: 12px;
+      height: 12px;
+      margin-top: 0.2rem;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: #fff;
+    }
+
+    .pill-dot.is-weiss { background: #fff; }
+    .pill-dot.is-beige { background: #c4b8a8; }
+    .pill-dot.is-grau { background: #4a4a4a; }
+    .pill-dot.is-schwarz { background: #111; }
+    .pill-dot.is-bordeaux { background: #6b1f3a; }
+    .pill-dot.is-taupe { background: #8a7a6d; }
+
+    .pill-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      min-width: 0;
+    }
+
+    .pill-title { font-weight: 600; }
+
+    .pill-meta {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .pill.is-active .pill-meta { color: var(--brand-meta); }
+
+    .cta {
+      display: flex;
+      gap: 0.65rem;
+      margin-top: 1.15rem;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.9rem 1.25rem;
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      flex: 1;
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .btn-primary:hover { filter: brightness(1.05); }
+
+    .btn-ghost {
+      background: #f3eef1;
+      color: var(--brand);
+    }
+
+    .summary {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      background: #faf7f8;
+      border: 1px dashed #e2d0d8;
+      font-size: 0.8rem;
+      color: #4a3a42;
+      line-height: 1.5;
+    }
+
+    .summary code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      padding: 0.05rem 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="preview-note">
+      <strong>HTML-Vorschau (nicht live im Shop)</strong> —
+      Konfigurator-Gruppen (Radio-Auswahl + Aufpreis) im Look der Variations-Pills.
+      Im echten Shop würden die Pills weiterhin die JTL-Felder
+      <code style="font-family:monospace">item[gruppe][]</code> setzen — ohne 4200 Kinderartikel.
+    </div>
+
+    <div class="layout">
+      <div class="media" aria-hidden="true">
+        <div class="media-grid"></div>
+      </div>
+
+      <section class="buybox" aria-label="Konfigurator Vorschau">
+        <div class="brand">Beautek</div>
+        <h1>Behandlungsliege Comfort Pro</h1>
+        <p class="sub">Konfigurator-UX wie bei Variationsartikeln — Auswahl bleibt komponentenbasiert.</p>
+
+        <div class="price-row">
+          <div class="price" id="priceDisplay">1.249,00 € <small>*</small></div>
+          <div class="cfg-hint">inkl. gewählter Optionen</div>
+        </div>
+
+        <div class="beautek-cfg-pills" id="configurator">
+          <!-- Gruppe 1: Farbe -->
+          <div class="cfg-group" data-group="farbe" data-base="0">
+            <div class="cfg-group-head">
+              <span>Polsterfarbe</span>
+              <span class="count">6 Optionen</span>
+              <span class="selected">Gewählt: <em data-selected-label>Weiß</em></span>
+            </div>
+            <div class="pills" role="listbox" aria-label="Polsterfarbe">
+              <button type="button" class="pill is-active" role="option" data-price="0" data-label="Weiß" aria-selected="true">
+                <span class="pill-dot is-weiss" aria-hidden="true"></span>
+                <span class="pill-text">
+                  <span class="pill-title">Weiß</span>
+                  <span class="pill-meta">im Preis enthalten</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="0" data-label="Beige" aria-selected="false">
+                <span class="pill-dot is-beige" aria-hidden="true"></span>
+                <span class="pill-text">
+                  <span class="pill-title">Beige</span>
+                  <span class="pill-meta">im Preis enthalten</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="29" data-label="Taupe" aria-selected="false">
+                <span class="pill-dot is-taupe" aria-hidden="true"></span>
+                <span class="pill-text">
+                  <span class="pill-title">Taupe</span>
+                  <span class="pill-meta">+ 29,00 €</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="29" data-label="Grau" aria-selected="false">
+                <span class="pill-dot is-grau" aria-hidden="true"></span>
+                <span class="pill-text">
+                  <span class="pill-title">Grau</span>
+                  <span class="pill-meta">+ 29,00 €</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="49" data-label="Bordeaux" aria-selected="false">
+                <span class="pill-dot is-bordeaux" aria-hidden="true"></span>
+                <span class="pill-text">
+                  <span class="pill-title">Bordeaux</span>
+                  <span class="pill-meta">+ 49,00 €</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="49" data-label="Schwarz" aria-selected="false">
+                <span class="pill-dot is-schwarz" aria-hidden="true"></span>
+                <span class="pill-text">
+                  <span class="pill-title">Schwarz</span>
+                  <span class="pill-meta">+ 49,00 €</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Gruppe 2: Polster -->
+          <div class="cfg-group" data-group="polster">
+            <div class="cfg-group-head">
+              <span>Polsterung</span>
+              <span class="count">3 Optionen</span>
+              <span class="selected">Gewählt: <em data-selected-label>Comfort Schaum</em></span>
+            </div>
+            <div class="pills" role="listbox" aria-label="Polsterung">
+              <button type="button" class="pill is-active" role="option" data-price="0" data-label="Comfort Schaum" aria-selected="true">
+                <span class="pill-text">
+                  <span class="pill-title">Comfort Schaum</span>
+                  <span class="pill-meta">Standard</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="89" data-label="Memory Foam" aria-selected="false">
+                <span class="pill-text">
+                  <span class="pill-title">Memory Foam</span>
+                  <span class="pill-meta">+ 89,00 €</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="149" data-label="Visco Premium" aria-selected="false">
+                <span class="pill-text">
+                  <span class="pill-title">Visco Premium</span>
+                  <span class="pill-meta">+ 149,00 €</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Gruppe 3: Fuß -->
+          <div class="cfg-group" data-group="fuss">
+            <div class="cfg-group-head">
+              <span>Fußgestell</span>
+              <span class="count">4 Optionen</span>
+              <span class="selected">Gewählt: <em data-selected-label>Holzfuß Eiche</em></span>
+            </div>
+            <div class="pills" role="listbox" aria-label="Fußgestell">
+              <button type="button" class="pill is-active" role="option" data-price="0" data-label="Holzfuß Eiche" aria-selected="true">
+                <span class="pill-text">
+                  <span class="pill-title">Holzfuß Eiche</span>
+                  <span class="pill-meta">im Preis enthalten</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="39" data-label="Holzfuß Nussbaum" aria-selected="false">
+                <span class="pill-text">
+                  <span class="pill-title">Holzfuß Nussbaum</span>
+                  <span class="pill-meta">+ 39,00 €</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="69" data-label="Metall Chrom" aria-selected="false">
+                <span class="pill-text">
+                  <span class="pill-title">Metall Chrom</span>
+                  <span class="pill-meta">+ 69,00 €</span>
+                </span>
+              </button>
+              <button type="button" class="pill is-disabled" role="option" data-price="99" data-label="Metall Schwarz" disabled aria-selected="false">
+                <span class="pill-text">
+                  <span class="pill-title">Metall Schwarz</span>
+                  <span class="pill-meta">derzeit nicht verfügbar</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Gruppe 4: Extra (optional / multi-feel als single für Demo) -->
+          <div class="cfg-group" data-group="extra">
+            <div class="cfg-group-head">
+              <span>Kopfstütze</span>
+              <span class="count">optional</span>
+              <span class="selected">Gewählt: <em data-selected-label>Ohne</em></span>
+            </div>
+            <div class="pills" role="listbox" aria-label="Kopfstütze">
+              <button type="button" class="pill is-active" role="option" data-price="0" data-label="Ohne" aria-selected="true">
+                <span class="pill-text">
+                  <span class="pill-title">Ohne</span>
+                  <span class="pill-meta">keine Aufpreis</span>
+                </span>
+              </button>
+              <button type="button" class="pill" role="option" data-price="59" data-label="Integrierte Kopfstütze" aria-selected="false">
+                <span class="pill-text">
+                  <span class="pill-title">Integrierte Kopfstütze</span>
+                  <span class="pill-meta">+ 59,00 €</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <button type="button" class="btn btn-primary">In den Warenkorb</button>
+          <button type="button" class="btn btn-ghost" id="resetBtn">Zurücksetzen</button>
+        </div>
+
+        <div class="summary" id="summary">
+          Demo-Logik: Auswahl aktualisiert Preis und Label — im Shop würde JTL den echten Konfigurator-Preis berechnen.
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var BASE = 1249;
+      var priceEl = document.getElementById("priceDisplay");
+      var summaryEl = document.getElementById("summary");
+
+      function euro(n) {
+        return n.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+      }
+
+      function recalc() {
+        var total = BASE;
+        var picks = [];
+        document.querySelectorAll(".cfg-group").forEach(function (group) {
+          var active = group.querySelector(".pill.is-active");
+          if (!active) return;
+          var price = Number(active.getAttribute("data-price") || 0);
+          var label = active.getAttribute("data-label") || "";
+          total += price;
+          picks.push(label + (price ? " (+" + euro(price) + ")" : ""));
+          var sel = group.querySelector("[data-selected-label]");
+          if (sel) sel.textContent = label;
+        });
+        priceEl.innerHTML = euro(total) + " <small>*</small>";
+        summaryEl.innerHTML =
+          "Aktuelle Konfiguration: <code>" + picks.join(" · ") + "</code><br>" +
+          "Basis " + euro(BASE) + " + Aufpreise = <strong>" + euro(total) + "</strong> — statt 4.200 Kinderartikel.";
+      }
+
+      document.getElementById("configurator").addEventListener("click", function (e) {
+        var pill = e.target.closest(".pill");
+        if (!pill || pill.classList.contains("is-disabled") || pill.disabled) return;
+        var group = pill.closest(".cfg-group");
+        group.querySelectorAll(".pill").forEach(function (p) {
+          p.classList.remove("is-active");
+          p.setAttribute("aria-selected", "false");
+        });
+        pill.classList.add("is-active");
+        pill.setAttribute("aria-selected", "true");
+        recalc();
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", function () {
+        document.querySelectorAll(".cfg-group").forEach(function (group) {
+          var pills = group.querySelectorAll(".pill:not(.is-disabled)");
+          pills.forEach(function (p, i) {
+            p.classList.toggle("is-active", i === 0);
+            p.setAttribute("aria-selected", i === 0 ? "true" : "false");
+          });
+        });
+        recalc();
+      });
+
+      recalc();
+    })();
+  </script>
+</body>
+</html>

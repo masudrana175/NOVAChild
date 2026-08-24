@@ -289,7 +289,7 @@
                             {/if}
 
                             {if $useMediaGroup}
-                                {block name='productdetails-tabs-media-group'}
+                                {block name='productdetails-tabs-media-gorup'}
                                     {foreach $Artikel->getMediaTypes() as $mediaType}
                                         {$cMedienTypId = $mediaType->name|seofy}
                                         {card no-body=true}

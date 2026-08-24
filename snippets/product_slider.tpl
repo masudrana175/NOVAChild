@@ -64,7 +64,7 @@
                                 {if $productlist|count < 3}slider-no-preview{/if}"
                             data=[
                                 "slick-type" => $smarty.capture.productSliderClass,
-                                "display-counts" => $displayCounts|default:[]|join:','
+                                "display-counts" => implode(',', $displayCounts|default:[])
                             ]
                             style=$style
                         }

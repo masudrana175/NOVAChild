@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beautek – PDP Konfigurator Buybox (?v=cfg)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #841853;
+      --brand-soft: rgba(132, 24, 83, 0.06);
+      --line: #e8e8e8;
+      --muted: #666;
+      --text: #111;
+      --bg: #f5f3f4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Poppins, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #faf8f9 0%, var(--bg) 45%, #f1eff0 100%);
+    }
+    .banner {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1rem;
+      justify-content: center;
+      align-items: center;
+      padding: 0.55rem 1rem;
+      background: #1f2a24;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 300;
+      text-align: center;
+    }
+    .banner strong { font-weight: 600; }
+    .banner code { font-weight: 600; color: #9fd0b5; }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.15rem 3.5rem;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+    .gallery {
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #2a2a2a, #5a4a52 55%, #3a3a3a);
+      min-height: 480px;
+      position: relative;
+      box-shadow: 0 16px 36px rgba(40, 20, 30, 0.12);
+    }
+    .gallery::after {
+      content: "Produktbild";
+      position: absolute;
+      left: 1.1rem;
+      bottom: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.78rem;
+    }
+    .thumbs {
+      display: flex;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    .thumbs span {
+      flex: 1;
+      height: 64px;
+      border-radius: 10px;
+      background: #ddd;
+      opacity: 0.7;
+    }
+    .thumbs span:nth-child(1) { background: #3a3a3a; opacity: 1; outline: 2px solid var(--brand); outline-offset: 2px; }
+    .thumbs span:nth-child(2) { background: #6b6b6b; }
+    .thumbs span:nth-child(3) { background: #8a7a6d; }
+    .thumbs span:nth-child(4) { background: #c4b8a8; }
+    .buybox {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.25rem 1.2rem 1.35rem;
+      box-shadow: 0 10px 28px rgba(40, 20, 30, 0.06);
+    }
+    .brand {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 0.3rem;
+    }
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brand);
+    }
+    .price small { font-size: 0.72rem; font-weight: 400; color: var(--muted); }
+    .ship { font-size: 0.75rem; color: var(--muted); }
+
+    /* Buybox Config */
+    .cfg-group {
+      margin-bottom: 0.95rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .cfg-group:last-of-type { border-bottom: 0; margin-bottom: 0.4rem; padding-bottom: 0; }
+    .cfg-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.25rem 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+    .cfg-label { font-size: 0.88rem; font-weight: 600; }
+    .cfg-selected { font-size: 0.75rem; color: var(--muted); }
+    .cfg-selected em { font-style: normal; font-weight: 600; color: var(--brand); }
+    .cfg-options { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+    /* Color swatches */
+    .swatch {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      width: 64px;
+      padding: 0.2rem;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+    }
+    .swatch-fill {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      background: #eee center / cover no-repeat;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+    .swatch:hover .swatch-fill { border-color: var(--brand); transform: scale(1.04); }
+    .swatch.is-active .swatch-fill {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--brand);
+    }
+    .swatch-name {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: #444;
+      text-align: center;
+      max-width: 64px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .swatch.is-active .swatch-name { color: var(--brand); font-weight: 600; }
+    .c-beton-hell { background-color: #c8c6c2; }
+    .c-beton-dunkel { background-color: #6e6c69; }
+    .c-schwarz { background-color: #111; }
+    .c-weiss { background-color: #fff; }
+    .c-beige { background-color: #c4b8a8; }
+    .c-bordeaux { background-color: #6b1f3a; }
+    .c-p3 { background: linear-gradient(135deg, #2b2b2b, #555); }
+    .c-p4 { background: linear-gradient(135deg, #6b4e3d, #a0785a); }
+    .c-p5 { background: linear-gradient(135deg, #1f3a5f, #3d6ea5); }
+    .c-p8 { background: linear-gradient(135deg, #3a2a22, #7a5a45); }
+    .c-p12 { background: linear-gradient(135deg, #5a5a5a, #9a9a9a); }
+
+    /* Image tiles (Fußgestell) */
+    .tile {
+      display: inline-flex;
+      flex-direction: column;
+      width: 96px;
+      padding: 0.35rem;
+      border: 1px solid #e4e4e4;
+      border-radius: 12px;
+      background: #fff;
+      cursor: pointer;
+      font: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .tile:hover { border-color: var(--brand); }
+    .tile.is-active {
+      border-color: var(--brand);
+      box-shadow: inset 0 0 0 1px var(--brand);
+    }
+    .tile-img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      background: #f0eeef center / 70% no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 0.35rem;
+    }
+    .tile-img svg { width: 70%; height: auto; }
+    .tile-name {
+      margin-top: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.25;
+    }
+    .tile.is-active .tile-name { color: var(--brand); }
+
+    /* Text pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 0.8rem 0.5rem 0.4rem;
+      border: 1px solid #e4e4e4;
+      border-radius: 14px;
+      background: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+    }
+    .pill-thumb {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #ececec;
+      flex: 0 0 36px;
+    }
+    .pill-thumb.a { background: linear-gradient(135deg, #333, #777); }
+    .pill-thumb.b { background: linear-gradient(135deg, #555, #bbb); }
+    .pill:hover { border-color: var(--brand); color: var(--brand); }
+    .pill.is-active {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      box-shadow: inset 0 0 0 1px var(--brand);
+      color: var(--brand);
+    }
+    .pill-title { font-weight: 600; display: block; }
+    .pill-meta { font-size: 0.7rem; color: var(--muted); font-weight: 400; }
+    .pill.is-active .pill-meta { color: rgba(132, 24, 83, 0.75); }
+
+    .cta {
+      display: flex;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.9rem 1.2rem;
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+    .btn-primary { flex: 1; background: var(--brand); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .qty {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .qty button {
+      width: 40px;
+      height: 44px;
+      border: 0;
+      background: #f7f7f7;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .qty span {
+      min-width: 36px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .note {
+      margin-top: 0.9rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <strong>Konfigurator-Buybox aktiv</strong>
+    <span>Kompakt oben · Farben als Punkte · Fußgestell als Bild · Parameter <code>?v=cfg</code></span>
+  </div>
+
+  <div class="page">
+    <div class="layout">
+      <div>
+        <div class="gallery" aria-hidden="true"></div>
+        <div class="thumbs" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <section class="buybox" aria-label="Produkt konfigurieren">
+        <div class="brand">Beautek</div>
+        <h1>Ayala Rezeption 18014 AY mit Swarovski Elements</h1>
+
+        <div class="price-row">
+          <div class="price" id="price">2.156,00 € <small>*</small></div>
+          <div class="ship">Lieferzeit 6–7 Wochen</div>
+        </div>
+
+        <!-- Farbe Korpus -->
+        <div class="cfg-group" data-group="korpus" data-extra="0">
+          <div class="cfg-head">
+            <span class="cfg-label">Farbe Korpus</span>
+            <span class="cfg-selected">Gewählt: <em data-sel>Beton Grau Dunkel</em></span>
+          </div>
+          <div class="cfg-options" data-mode="color">
+            <button type="button" class="swatch" data-label="Beton Grau Hell" data-price="0">
+              <span class="swatch-fill c-beton-hell"></span>
+              <span class="swatch-name">Hell</span>
+            </button>
+            <button type="button" class="swatch is-active" data-label="Beton Grau Dunkel" data-price="0">
+              <span class="swatch-fill c-beton-dunkel"></span>
+              <span class="swatch-name">Dunkel</span>
+            </button>
+            <button type="button" class="swatch" data-label="Schwarz" data-price="49">
+              <span class="swatch-fill c-schwarz"></span>
+              <span class="swatch-name">Schwarz</span>
+            </button>
+            <button type="button" class="swatch" data-label="Weiß" data-price="0">
+              <span class="swatch-fill c-weiss"></span>
+              <span class="swatch-name">Weiß</span>
+            </button>
+            <button type="button" class="swatch" data-label="Beige" data-price="29">
+              <span class="swatch-fill c-beige"></span>
+              <span class="swatch-name">Beige</span>
+            </button>
+            <button type="button" class="swatch" data-label="Bordeaux" data-price="49">
+              <span class="swatch-fill c-bordeaux"></span>
+              <span class="swatch-name">Bordeaux</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Polsterfarbe -->
+        <div class="cfg-group" data-group="polster" data-extra="0">
+          <div class="cfg-head">
+            <span class="cfg-label">Polsterfarbe</span>
+            <span class="cfg-selected">Gewählt: <em data-sel>P 8</em></span>
+          </div>
+          <div class="cfg-options" data-mode="color">
+            <button type="button" class="swatch" data-label="P 3" data-price="0"><span class="swatch-fill c-p3"></span><span class="swatch-name">P 3</span></button>
+            <button type="button" class="swatch" data-label="P 4" data-price="0"><span class="swatch-fill c-p4"></span><span class="swatch-name">P 4</span></button>
+            <button type="button" class="swatch" data-label="P 5" data-price="0"><span class="swatch-fill c-p5"></span><span class="swatch-name">P 5</span></button>
+            <button type="button" class="swatch is-active" data-label="P 8" data-price="0"><span class="swatch-fill c-p8"></span><span class="swatch-name">P 8</span></button>
+            <button type="button" class="swatch" data-label="P 12" data-price="0"><span class="swatch-fill c-p12"></span><span class="swatch-name">P 12</span></button>
+          </div>
+        </div>
+
+        <!-- Fußgestell als Bild -->
+        <div class="cfg-group" data-group="fuss" data-extra="0">
+          <div class="cfg-head">
+            <span class="cfg-label">Fußgestell</span>
+            <span class="cfg-selected">Gewählt: <em data-sel>Holzfuß Eiche</em></span>
+          </div>
+          <div class="cfg-options" data-mode="image">
+            <button type="button" class="tile is-active" data-label="Holzfuß Eiche" data-price="0">
+              <span class="tile-img" style="background-color:#f3ebe0">
+                <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="8" width="60" height="8" rx="2" fill="#c49a6c"/><rect x="18" y="16" width="8" height="36" rx="2" fill="#b88958"/><rect x="54" y="16" width="8" height="36" rx="2" fill="#b88958"/></svg>
+              </span>
+              <span class="tile-name">Holzfuß Eiche</span>
+            </button>
+            <button type="button" class="tile" data-label="Holzfuß Nussbaum" data-price="39">
+              <span class="tile-img" style="background-color:#efe8e0">
+                <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="8" width="60" height="8" rx="2" fill="#6b4e3d"/><rect x="18" y="16" width="8" height="36" rx="2" fill="#5a3f30"/><rect x="54" y="16" width="8" height="36" rx="2" fill="#5a3f30"/></svg>
+              </span>
+              <span class="tile-name">Nussbaum</span>
+            </button>
+            <button type="button" class="tile" data-label="Metall Chrom" data-price="69">
+              <span class="tile-img" style="background-color:#f0f0f0">
+                <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="10" width="56" height="6" rx="1" fill="#b8b8b8"/><rect x="20" y="16" width="5" height="34" fill="#9a9a9a"/><rect x="55" y="16" width="5" height="34" fill="#9a9a9a"/></svg>
+              </span>
+              <span class="tile-name">Metall Chrom</span>
+            </button>
+            <button type="button" class="tile" data-label="Metall Schwarz" data-price="79">
+              <span class="tile-img" style="background-color:#ececec">
+                <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="10" width="56" height="6" rx="1" fill="#222"/><rect x="20" y="16" width="5" height="34" fill="#111"/><rect x="55" y="16" width="5" height="34" fill="#111"/></svg>
+              </span>
+              <span class="tile-name">Metall Schwarz</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Option als Pill mit Thumb -->
+        <div class="cfg-group" data-group="option" data-extra="0">
+          <div class="cfg-head">
+            <span class="cfg-label">Option</span>
+            <span class="cfg-selected">Gewählt: <em data-sel>Schublade abschließbar</em></span>
+          </div>
+          <div class="cfg-options" data-mode="pill">
+            <button type="button" class="pill is-active" data-label="Schublade abschließbar" data-price="0">
+              <span class="pill-thumb a"></span>
+              <span>
+                <span class="pill-title">Schublade abschließbar</span>
+                <span class="pill-meta">im Preis enthalten</span>
+              </span>
+            </button>
+            <button type="button" class="pill" data-label="Schublade nicht abschließbar" data-price="0">
+              <span class="pill-thumb b"></span>
+              <span>
+                <span class="pill-title">Nicht abschließbar</span>
+                <span class="pill-meta">im Preis enthalten</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="cta">
+          <div class="qty" aria-label="Menge">
+            <button type="button" id="minus">−</button>
+            <span id="qty">1</span>
+            <button type="button" id="plus">+</button>
+          </div>
+          <button type="button" class="btn btn-primary">In den Warenkorb</button>
+        </div>
+        <p class="note">HTML-Vorschau der Produktseite mit Buybox-Konfigurator. Im Shop: Artikel-URL + <code>?v=cfg</code>.</p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var BASE = 2156;
+      var priceEl = document.getElementById("price");
+      var qtyEl = document.getElementById("qty");
+      var qty = 1;
+
+      function euro(n) {
+        return n.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+      }
+
+      function recalc() {
+        var extra = 0;
+        document.querySelectorAll(".cfg-group").forEach(function (g) {
+          var active = g.querySelector(".is-active");
+          if (active) extra += Number(active.getAttribute("data-price") || 0);
+        });
+        priceEl.innerHTML = euro((BASE + extra) * qty) + " <small>*</small>";
+      }
+
+      document.querySelectorAll(".cfg-group").forEach(function (group) {
+        group.addEventListener("click", function (e) {
+          var btn = e.target.closest("button");
+          if (!btn || !group.contains(btn)) return;
+          group.querySelectorAll("button").forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          var sel = group.querySelector("[data-sel]");
+          if (sel) sel.textContent = btn.getAttribute("data-label") || "";
+          recalc();
+        });
+      });
+
+      document.getElementById("minus").onclick = function () {
+        qty = Math.max(1, qty - 1);
+        qtyEl.textContent = qty;
+        recalc();
+      };
+      document.getElementById("plus").onclick = function () {
+        qty += 1;
+        qtyEl.textContent = qty;
+        recalc();
+      };
+
+      recalc();
+    })();
+  </script>
+</body>
+</html>

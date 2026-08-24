@@ -3,7 +3,7 @@
         {row class="gallery-with-action-main"}
         {block name='productdetails-image-button'}
             {col cols=12 class="product-detail-image-topbar"}
-                {button id="image_fullscreen_close" variant="link" aria=["label"=>"{lang section='aria' key='close'}"]}
+                {button id="image_fullscreen_close" variant="link" aria=["label"=>"close"]}
                     <span aria-hidden="true"><i class="fa fa-times"></i></span>
                 {/button}
             {/col}
@@ -87,7 +87,7 @@
                          class="product-thumbnails slick-smooth-loading carousel carousel-thumbnails slick-lazy {if $imageCount <= $imageCountDefault}slick-count-default{/if}"
                          data-slick-type="gallery_preview">
                         {if $imageCount > $imageCountDefault}
-                            <button class="slick-prev slick-arrow slick-inital-arrow" aria-label="{lang section='aria' key='prev'}" type="button" style="">Previous</button>
+                            <button class="slick-prev slick-arrow slick-inital-arrow" aria-label="Previous" type="button" style="">Previous</button>
                         {/if}
                         {block name='productdetails-image-preview-images'}
                             {foreach $Artikel->Bilder as $image}
@@ -110,7 +110,7 @@
                             {/foreach}
                         {/block}
                         {if $imageCount > $imageCountDefault}
-                           <button class="slick-next slick-arrow slick-inital-arrow" aria-label="{lang section='aria' key='next'}" type="button" style="">Next</button>
+                            <button class="slick-next slick-arrow slick-inital-arrow" aria-label="Next" type="button" style="">Next</button>
                         {/if}
                     </div>
                 </div>

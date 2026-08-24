@@ -3,7 +3,7 @@
     <div class="search-wrapper" style="max-width: calc(100% - 46px - 1rem);">
         {form action="{$ShopURL}/" method='get' class='main-search flex-grow-1' slide=true}
             {inputgroup}
-                {input id="{$id}" name="qs" type="text" class="ac_input" placeholder="{lang key='search'}" autocomplete="off" aria=["label"=>"{lang key='search'} Mobile"]}
+                {input id="{$id}" name="qs" type="text" class="ac_input" placeholder="{lang key='search'}" autocomplete="off" aria=["label"=>"{lang key='search'}"]}
                 {inputgroupaddon append=true}
                     {button type="submit" name="search" variant="secondary" aria=["label"=>{lang key='search'}]}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.94 20.34" width="17.552" height="16.272" fill="white"><g><path d="M21.94,18.81l-5.71-4.82c1-1.44,1.6-3.19,1.6-5.08C17.83,4,13.83,0,8.92,0S0,4,0,8.92s4,8.92,8.92,8.92c2.31,0,4.41-.89,5.99-2.33l5.74,4.84,1.29-1.53ZM2,8.92c0-3.81,3.1-6.92,6.92-6.92s6.92,3.1,6.92,6.92-3.1,6.92-6.92,6.92-6.92-3.1-6.92-6.92Z"/></g></svg>

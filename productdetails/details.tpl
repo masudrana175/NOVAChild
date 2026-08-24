@@ -47,7 +47,6 @@
                     variant="hidden"
                     type="submit"
                     value="{lang key='addToCart'}"
-					tabindex="-1"
                     disabled=$Artikel->bHasKonfig && !$isConfigCorrect|default:false
                     class="js-cfg-validate btn-hidden-default"
                     tabindex="-1"

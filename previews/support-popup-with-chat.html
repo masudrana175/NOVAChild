@@ -1,0 +1,429 @@
+<!-- SUPPORT POPUP – Responsive & Mobile-optimiert + Inline-Chat -->
+<div class="support-popup-section" style="--brand:#841853; --brand-2:#c8799c; font-family:Poppins, Inter, system-ui, sans-serif; text-align:center;">
+  <style>
+    .support-popup-section *{box-sizing:border-box;}
+    .support-popup-section{
+      padding:40px 16px;
+      background:linear-gradient(180deg,#fff 0%,#faf6fb 100%);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .support-popup-section h2{
+      color:var(--brand);
+      font-size:32px;
+      margin-bottom:16px;
+      font-weight:800;
+    }
+    .support-popup-section > p{
+      color:#444;
+      max-width:720px;
+      margin:0 auto 32px;
+      font-size:17px;
+      line-height:1.7;
+    }
+
+    .support-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      justify-content:center;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .arrow-hint-right{display:inline-block;font-size:28px;color:var(--brand);margin-right:12px;vertical-align:middle;animation:wiggle 1.2s infinite ease-in-out;}
+    @keyframes wiggle{0%,100%{transform:translateX(0);}50%{transform:translateX(8px);}}
+    .support-popup-section button#openSupport{
+      background:#fff;
+      color:var(--brand);
+      border:2px solid var(--brand);
+      border-radius:12px;
+      padding:14px 26px;font-size:16px;font-weight:700;
+      cursor:pointer;transition:all .3s ease;
+      box-shadow:none;
+    }
+    .support-popup-section button#openSupport:hover{
+      background:var(--brand);
+      color:#fff;
+      transform:translateY(-1px);
+      box-shadow:0 8px 18px rgba(132,24,83,.2);
+    }
+
+    .support-popup-section .hint{margin-top:10px;color:#666;font-size:15px;}
+
+    .support-form-fallback{
+      max-width:720px;
+      margin:40px auto 0;
+      padding-top:28px;
+      border-top:1px solid #ead8e4;
+    }
+    .support-form-fallback h3{
+      margin:0 0 8px;
+      color:#333;
+      font-size:18px;
+      font-weight:700;
+    }
+    .support-form-fallback .fallback-text{
+      color:#666;
+      font-size:15px;
+      line-height:1.55;
+      margin:0 auto 18px;
+      max-width:560px;
+    }
+
+    /* Inline Chat – primär */
+    .support-chat-wrap{
+      max-width:920px;
+      margin:8px auto 0;
+      text-align:left;
+    }
+    .support-chat-wrap .chat-kicker{
+      display:inline-block;
+      margin:0 auto 10px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(132,24,83,.08);
+      color:var(--brand);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.02em;
+    }
+    .support-chat-wrap h3{
+      margin:0 0 8px;
+      color:var(--brand);
+      font-size:22px;
+      font-weight:700;
+      text-align:center;
+    }
+    .support-chat-wrap .chat-intro{
+      text-align:center;
+      color:#555;
+      font-size:15px;
+      margin:0 auto 16px;
+      max-width:560px;
+      line-height:1.55;
+    }
+    .support-chat-frame{
+      border:1px solid #ead8e4;
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 10px 28px rgba(132,24,83,.1);
+      max-width:420px;
+      margin:0 auto;
+      min-height:600px;
+      position:relative;
+    }
+    .support-chat-frame iframe{
+      display:block;
+      width:100%;
+      height:600px;
+      border:0;
+      max-width:100%;
+      background:#fff;
+    }
+    .support-chat-placeholder{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      min-height:600px;
+      padding:24px;
+      text-align:center;
+      color:#555;
+      font-size:15px;
+      line-height:1.5;
+    }
+    .support-chat-placeholder button{
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#fff;
+      border:0;
+      border-radius:12px;
+      padding:14px 24px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(132,24,83,.25);
+    }
+    .support-chat-placeholder button:hover{filter:brightness(1.05);}
+    .support-chat-frame.is-loading .support-chat-placeholder{opacity:.7;}
+    .support-chat-frame.is-ready .support-chat-placeholder{display:none;}
+
+    /* Overlay */
+    .support-overlay{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,0.6);
+      display:flex; justify-content:center; align-items:center;
+      z-index:9999; opacity:0; pointer-events:none;
+      transition:opacity .4s ease;
+    }
+    .support-overlay.active{opacity:1;pointer-events:auto;}
+    body.modal-open{overflow:hidden;}
+
+    .support-popup {
+      background:#fff;
+      border-radius:12px;
+      width:94%;
+      max-width:920px;
+      height:95vh;
+      max-height:95vh;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      box-shadow:0 25px 45px rgba(0,0,0,0.3);
+      transform:translateY(40px);
+      opacity:0;
+      transition:all .4s ease;
+    }
+    .support-overlay.active .support-popup {
+      transform:translateY(0);
+      opacity:1;
+    }
+
+    .support-popup header {
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#fff !important;
+      padding:12px 22px;
+      display:flex;justify-content:space-between;align-items:center;
+      flex-shrink:0;
+    }
+    .support-popup header h3 {
+      margin:0;
+      font-size:20px;
+      font-weight:700;
+      color:#fff !important;
+      text-shadow:0 2px 6px rgba(0,0,0,0.2);
+    }
+    .support-popup header #closeSupport{
+      background:transparent;
+      border:0;
+      color:#fff;
+      font-size:28px;
+      line-height:1;
+      cursor:pointer;
+      padding:0 4px;
+    }
+
+    .support-popup .content{
+      flex:1 1 auto;
+      overflow:hidden;
+      background:rgb(239,227,233);
+      padding:20px 0;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .support-popup iframe{
+      border:none;
+      width:100%;
+      flex:1 1 auto;
+      height:auto;
+      min-height:500px;
+      display:block;
+      background:transparent;
+    }
+
+    .manufacturer-mini {
+      background:#faf6fb;
+      border-top:1px solid #ead8e4;
+      padding:16px 20px 22px;
+      font-size:14px;
+      position:sticky;
+      bottom:0;
+      z-index:10;
+      box-shadow:0 -4px 12px rgba(0,0,0,.05);
+    }
+    .manufacturer-mini h4 {
+      color:var(--brand);
+      font-size:16px;
+      text-align:center;
+      margin:0 0 12px;
+      font-weight:700;
+    }
+    .manufacturer-mini .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px;
+    }
+    .manufacturer-mini .card {
+      background:#fff;
+      border:1px solid #f1dce6;
+      border-radius:8px;
+      padding:12px 14px;
+      box-shadow:0 4px 10px rgba(0,0,0,.05);
+      text-align:left;
+    }
+    .manufacturer-mini .card h5 {
+      display:flex;align-items:center;gap:8px;
+      margin:0 0 6px;color:var(--brand);
+      font-size:14.5px;font-weight:700;
+    }
+    .manufacturer-mini .card img {height:20px;width:auto;}
+    .manufacturer-mini p {margin:0;font-size:13.5px;color:#444;line-height:1.5;}
+    .manufacturer-mini a {color:var(--brand);font-weight:600;text-decoration:none;}
+    .manufacturer-mini a:hover {text-decoration:underline;}
+
+    @media (max-width: 768px) {
+      .support-popup-section h2{font-size:26px;}
+      .support-popup {
+        width:96%;
+        max-height:95vh;
+        border-radius:10px;
+      }
+      .support-popup header h3 {font-size:18px;}
+      .support-popup iframe {height:60vh;min-height:320px;}
+      .manufacturer-mini {
+        position:relative;
+        bottom:auto;
+        box-shadow:none;
+      }
+      .manufacturer-mini .grid {grid-template-columns:1fr;}
+      .support-chat-frame iframe{height:520px;}
+    }
+  </style>
+
+  <h2>Brauchst du Hilfe?</h2>
+  <p>
+    Technisches Problem, Schaden oder Frage zu deinem Gerät?
+    <strong>Probiere zuerst unseren Chatbot</strong> – oft ist das der schnellste Weg zur Lösung.
+    Unser Team steht dir natürlich weiterhin zur Seite, falls du danach ein Formular brauchst.
+  </p>
+
+  <!-- Inline Chat zuerst -->
+  <div class="support-chat-wrap">
+    <div style="text-align:center;">
+      <span class="chat-kicker">Schritt 1 · Empfohlen</span>
+    </div>
+    <h3>Chatbot starten</h3>
+    <p class="chat-intro">Schreib uns kurz dein Anliegen. Viele Fragen zu Bestellung, Gerät &amp; Service lassen sich so sofort klären – bevor du ein Formular ausfüllst.</p>
+    <div class="support-chat-frame" id="beautekChatFrame">
+      <div class="support-chat-placeholder" id="beautekChatPlaceholder">
+        <div>Chatbot ist bereit – wird erst geladen, wenn du startest.<br><small style="color:#888;">So bleibt die Seite ohne Dauerladen.</small></div>
+        <button type="button" id="beautekChatStart">Chatbot starten</button>
+      </div>
+      <iframe
+        id="beautekSupportChat"
+        src="about:blank"
+        data-src="https://dashboard.eesel.ai/agent-inline-chat/a37df35a-fc66-42bd-8415-7cdb250a34dd?triggerId=4fa28916-4ac4-40bc-a1b1-4223c6de3ae0"
+        width="420"
+        height="600"
+        style="border:0;max-width:100%;display:none;"
+        allow="clipboard-write"
+        title="Beautek Support Chat"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- Formular nur als Fallback -->
+  <div class="support-form-fallback">
+    <h3>Noch nicht gelöst?</h3>
+    <p class="fallback-text">
+      Wenn der Chat nicht reicht – z.&nbsp;B. bei Schadenmeldung oder ausführlicher Dokumentation –
+      öffne unser Support-Formular. <strong>Tipp:</strong> Kunden- oder Auftragsnummer beschleunigt die Bearbeitung.
+    </p>
+    <div class="support-actions">
+      <span class="arrow-hint-right" aria-hidden="true">➡️</span>
+      <button type="button" id="openSupport">Support-Formular öffnen</button>
+    </div>
+    <div class="hint">Schritt 2 · Formular öffnet sich direkt auf dieser Seite.</div>
+  </div>
+
+  <!-- Popup -->
+  <div class="support-overlay" id="supportOverlay">
+    <div class="support-popup" role="dialog" aria-modal="true" aria-labelledby="supportPopupTitle">
+      <header>
+        <h3 id="supportPopupTitle">BEAUTEK Supportformular</h3>
+        <button type="button" id="closeSupport" aria-label="Schließen">&times;</button>
+      </header>
+
+      <div class="content">
+        <iframe
+          id="beautekSupportForm"
+          src="about:blank"
+          data-src="https://form.jotform.com/260223727679363"
+          title="BEAUTEK Supportformular"
+        ></iframe>
+
+        <div class="manufacturer-mini">
+          <h4>Herstellerspezifische Anfragen</h4>
+          <div class="grid">
+            <div class="card">
+              <h5><img src="https://www.beautek.de/media/image/storage/opc/LOGOS%20Firmen/enbio_monochromatyczny-pc3ehh6uk0jqwf8jh77hunylklhy9bcw7ldjxverri.png" alt="ENBIO Logo" loading="lazy">ENBIO</h5>
+              <p>Bei Wartungs- oder Reparaturanfragen sowie bei Fehlermeldungen zu ENBIO-Geräten nutze bitte ausschließlich das offizielle Serviceformular des Herstellers.</p>
+              <a href="https://enbio.com/de/pages/service" target="_blank" rel="noopener">Zum ENBIO-Formular</a>
+            </div>
+            <div class="card">
+              <h5><img src="https://www.beautek.de/media/image/storage/opc/LOGOS%20Firmen/naggura%20logo.png" alt="Naggura Logo" loading="lazy">Naggura</h5>
+              <p>Bitte gib die <strong>Seriennummer</strong> im Formular an (Typenschild Rück-/Unterseite).</p>
+            </div>
+            <div class="card">
+              <h5><img src="https://www.beautek.de/media/image/storage/opc/LOGOS%20Firmen/lemi%20logo.png" alt="LEMI Logo" loading="lazy">LEMI</h5>
+              <p>Auch hier ist die <strong>Seriennummer</strong> erforderlich – auf dem Typenschild zu finden.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const openBtn = document.getElementById('openSupport');
+      const closeBtn = document.getElementById('closeSupport');
+      const overlay = document.getElementById('supportOverlay');
+      const formFrame = document.getElementById('beautekSupportForm');
+      const chatFrame = document.getElementById('beautekSupportChat');
+      const chatWrap = document.getElementById('beautekChatFrame');
+      const chatStart = document.getElementById('beautekChatStart');
+      if (!openBtn || !overlay) return;
+
+      const loadFrame = (frame) => {
+        if (!frame) return;
+        const src = frame.getAttribute('data-src');
+        if (src && frame.getAttribute('src') !== src) {
+          frame.setAttribute('src', src);
+        }
+      };
+
+      const unloadFrame = (frame) => {
+        if (!frame) return;
+        frame.setAttribute('src', 'about:blank');
+      };
+
+      const startChat = () => {
+        if (!chatFrame || !chatWrap) return;
+        chatWrap.classList.add('is-loading');
+        loadFrame(chatFrame);
+        chatFrame.style.display = 'block';
+        chatWrap.classList.add('is-ready');
+        chatWrap.classList.remove('is-loading');
+      };
+
+      if (chatStart) chatStart.addEventListener('click', startChat);
+
+      const open = () => {
+        loadFrame(formFrame);
+        overlay.classList.add('active');
+        document.body.classList.add('modal-open');
+      };
+      const close = () => {
+        overlay.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        // Jotform entladen → stoppt Daueraktivität im Tab
+        unloadFrame(formFrame);
+      };
+
+      openBtn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) close();
+      });
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("popup") === "support") open();
+      if (params.get("chat") === "1") startChat();
+    });
+  </script>
+</div>

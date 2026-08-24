@@ -4,13 +4,6 @@
     <div class="product-attributes">
     {block name='productdetails-attributes-table'}
         <table class="table table-sm table-striped table-bordered-outline">
-            <thead>
-                <tr>
-                    <th scope="col" class="sr-only">{lang section="productDetails" key='itemInformation'}</th>
-                    <th scope="col" class="sr-only">{lang section="productDetails" key='itemValue'}</th>
-                </tr>
-            </thead>
-            <tbody>		
             {if $Einstellungen.artikeldetails.merkmale_anzeigen === 'Y'}
                 {block name='productdetails-attributes-characteristics'}
                     {foreach $Artikel->oMerkmale_arr as $characteristic}
@@ -130,7 +123,6 @@
                     {/foreach}
                 {/block}
             {/if}
-			</tbody>
         </table>
     {/block}
     </div>

@@ -62,7 +62,7 @@
                                                     {col cols=6}
                                                         {progress now=$percent|round min=0 max=100}
                                                     {/col}
-                                                    {col cols=2 class="text-nowrap"}
+                                                    {col cols=2}
                                                         {if !empty($nSterne)}{$nSterne}{else}0{/if}
                                                     {/col}
                                                 {/row}
@@ -135,7 +135,7 @@
             && $Artikel->HilfreichsteBewertung->oBewertung_arr[0]->nHilfreich > 0 )
             || $ratingPagination->getPageItemCount() > 0
         }
-        {form id="reviews-list" method="post" action="{$Artikel->cURLFull}#tab-votes" class="reviews-list" slide=true}
+        {form id="reviews-list" method="post" action="{get_static_route id='bewertung.php'}#tab-votes" class="reviews-list" slide=true}
                 {input type="hidden" name="bhjn" value="1"}
                 {input type="hidden" name="a" value=$Artikel->kArtikel}
                 {input type="hidden" name="btgsterne" value=$BlaetterNavi->nSterne}

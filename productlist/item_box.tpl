@@ -27,9 +27,8 @@
 		(!isset($Artikel->Variationen[1]) || ($Artikel->Variationen[1]->cTyp === 'IMGSWATCHES' || $Artikel->Variationen[1]->cTyp === 'TEXTSWATCHES' || $Artikel->Variationen[1]->cTyp === 'SELECTBOX')))}	
     {/if}
     {if $Artikel->kArtikel|default:FALSE}
-    <div id="{$idPrefix|default:''}result-wrapper_buy_form_{$Artikel->kArtikel}" data-wrapper="true" role="button"
-		tabindex="0"
-        class="productbox productbox-column {if !empty($hasOnlyListableVariations) && empty($Artikel->FunktionsAttribute[\FKT_ATTRIBUT_NO_GAL_VAR_PREVIEW])}productbox-show-variations {/if} productbox-hover{if isset($class)} {$class}{/if} {if $showVariationCollapse}show-variation-collapse{/if}">
+    <div id="{$idPrefix|default:''}result-wrapper_buy_form_{$Artikel->kArtikel}" data-wrapper="true"
+         class="productbox productbox-column {if !empty($hasOnlyListableVariations) && empty($Artikel->FunktionsAttribute[\FKT_ATTRIBUT_NO_GAL_VAR_PREVIEW])}productbox-show-variations {/if} productbox-hover{if isset($class)} {$class}{/if} {if $showVariationCollapse}show-variation-collapse{/if}">
         {block name='productlist-item-box-include-productlist-actions'}
             <div class="productbox-quick-actions productbox-onhover d-none d-md-flex">
                 {include file='productlist/productlist_actions.tpl'}
@@ -43,7 +42,7 @@
         <div class="productbox-inner">
             {row}
                 {col cols=12}
-                    <div class="productbox-image" data-target="#variations-collapse-{$Artikel->kArtikel}" aria-expanded="false" aria-controls="variations-collapse-{$Artikel->kArtikel}" role="button">
+                    <div class="productbox-image" data-target="#variations-collapse-{$Artikel->kArtikel}">
                         {if isset($Artikel->Bilder[0]->cAltAttribut)}
                             {assign var=alt value=$Artikel->Bilder[0]->cAltAttribut}
                         {else}
@@ -55,7 +54,7 @@
                                     {include file='snippets/ribbon.tpl'}
                                 {/block}
                             <div class="productbox-images list-gallery">
-                                {link href=$Artikel->cURLFull tabindex=-1}
+                                {link href=$productHref}
                                     {block name="productlist-item-list-image"}
                                         {strip}
                                             {$image = $Artikel->Bilder[0]}

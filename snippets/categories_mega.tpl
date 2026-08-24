@@ -72,11 +72,10 @@
                             || (isset($activeParent)
                                 && $activeParent->getID() === $category->getID())} active{/if}">
                                 {link href=$category->getURL()
+                                    title=$category->getName()|escape:'html'
                                     class="nav-link dropdown-toggle"
                                     target="_self"
-									tabindex="0"
-                                    data=["category-id"=>$category->getID()]
-                                    aria=['controls' => "category-dropdown-{$category->getID()}", 'expanded' => 'false']}
+                                    data=["category-id"=>$category->getID()]}
                                     {if $isMobile}
                                         {include file='snippets/image.tpl'
                                         class='navbar-mobile-category_image'
@@ -90,12 +89,12 @@
                                     {/if}
                                     <span class="nav-mobile-heading">{$category->getShortName()}</span>
                                 {/link}
-                                <div id="category-dropdown-{$category->getID()}" class="dropdown-menu">
+                                <div class="dropdown-menu">
                                     <div class="dropdown-body">
                                         {container class="subcategory-wrapper"}
                                             {row class="lg-row-lg nav"}
                                                 {col lg=4 xl=3 class="nav-item-lg-m nav-item dropdown d-lg-none"}
-                                                    {link href=$category->getURL() class="d-block"}
+                                                    {link href=$category->getURL()}
                                                         <strong class="nav-mobile-heading">{lang key='menuShow' printf=$category->getShortName()}</strong>
                                                     {/link}
                                                 {/col}
@@ -131,8 +130,7 @@
                                     title=$category->getName()|escape:'html'
                                     class="nav-link"
                                     target="_self"
-                                    data=["category-id"=>$category->getID()]
-                                    aria=['controls' => "category-dropdown-{$category->getID()}", 'expanded' => 'false']}
+                                    data=["category-id"=>$category->getID()]}
                                     {if $isMobile}
                                         {include file='snippets/image.tpl'
                                         class='navbar-mobile-category_image'
@@ -159,7 +157,7 @@
     {block name='snippets-categories-mega-manufacturers'}
     {if $Einstellungen.template.megamenu.show_manufacturers !== 'N'
         && ($Einstellungen.global.global_sichtbarkeit != 3 || JTL\Session\Frontend::getCustomer()->getID() > 0)}
-        {get_manufacturers assign='manufacturers' limit=$Einstellungen.template.megamenu.manufacturer_dropdown_max assignTotal='manufacturersTotal'}
+        {get_manufacturers assign='manufacturers'}
         {if !empty($manufacturers)}
             {assign var=manufacturerOverview value=null}
             {if isset($oSpezialseiten_arr[$smarty.const.LINKTYP_HERSTELLER])}
@@ -167,11 +165,7 @@
             {/if}
             {block name='snippets-categories-mega-manufacturers-inner'}
                 <li class="nav-item nav-scrollbar-item dropdown dropdown-full {if $nSeitenTyp === $smarty.const.PAGE_HERSTELLER}active{/if}">
-                    {link href="{if $manufacturerOverview !== null}{$manufacturerOverview->getURL()}{else}#{/if}" 
-                        class="nav-link dropdown-toggle" 
-                        target="_self"
-						tabindex="0"
-                        aria=['controls' => 'manufacturers-dropdown', 'expanded' => 'false']}
+                    {link href="{if $manufacturerOverview !== null}{$manufacturerOverview->getURL()}{else}#{/if}" title={lang key='manufacturers'} class="nav-link dropdown-toggle" target="_self"}
                         <span class="text-truncate nav-mobile-heading">
                             {if $manufacturerOverview !== null && !empty($manufacturerOverview->getName())}
                                 {$manufacturerOverview->getName()}
@@ -180,7 +174,7 @@
                             {/if}
                         </span>
                     {/link}
-                    <div id="manufacturers-dropdown" class="dropdown-menu">
+                    <div class="dropdown-menu">
                         <div class="dropdown-body">
                             {container}
                                 {row class="lg-row-lg nav"}
@@ -210,8 +204,7 @@
                                                             class='submenu-headline-image'
                                                             item=$mft
                                                             square=false
-                                                                            srcSize='sm'
-    alt="{lang section='productOverview' key='manufacturerSingle'}: {$mft->getName()|escape:'html'}"}
+                                                            srcSize='sm'}
                                                     {/if}
                                                     {$mft->getName()}
                                                 {/link}
@@ -219,18 +212,6 @@
                                         {/col}
                                     {/foreach}
                                 {/row}
-								{block name='snippets-categories-mega-manufacturers-show-all'}
-                                    {if $manufacturerOverview !== null
-                                        && $manufacturersTotal|default:0 > count($manufacturers)}
-                                        {row}
-                                            {col class='text-center mt-3'}
-                                                {link href="{$manufacturerOverview->getURL()}" class='submenu-headline submenu-headline-toplevel nav-link btn btn-link'}
-                                                    {lang key='showManufacturerButton'}
-                                                {/link}
-                                            {/col}
-                                        {/row}
-                                    {/if}
-                                {/block}
                             {/container}
                         </div>
                     </div>
@@ -276,7 +257,7 @@
         {if $linkgroups->getLinkGroupByTemplate('Kopf') !== null}
         {block name='snippets-categories-mega-top-links'}
             {foreach $linkgroups->getLinkGroupByTemplate('Kopf')->getLinks() as $Link}
-                {navitem class="nav-scrollbar-item d-lg-none" active=$Link->getIsActive() href=$Link->getURL() target=$Link->getTarget()}
+                {navitem class="nav-scrollbar-item d-lg-none" active=$Link->getIsActive() href=$Link->getURL() title=$Link->getTitle() target=$Link->getTarget()}
                     {$Link->getName()}
                 {/navitem}
             {/foreach}
@@ -287,12 +268,12 @@
                 {if JTL\Session\Frontend::getCurrencies()|count > 1}
                     <li class="currency-nav-scrollbar-item nav-item nav-scrollbar-item dropdown dropdown-full d-lg-none">
                         {block name='layout-header-top-bar-user-settings-currency-link'}
-                            {link id='currency-dropdown' href='#' class="nav-link dropdown-toggle" target="_self" tabindex="0" aria=['controls' => 'currency-dropdown-menu', 'expanded' => 'false']}
+                            {link id='currency-dropdown' href='#' title={lang key='currency'} class="nav-link dropdown-toggle" target="_self"}
                                 {lang key='currency'}
                             {/link}
                         {/block}
                         {block name='layout-header-top-bar-user-settings-currency-body'}
-                            <div id="currency-dropdown-menu" class="dropdown-menu">
+                            <div class="dropdown-menu">
                                 <div class="dropdown-body">
                                     {container}
                                         {row class="lg-row-lg nav"}

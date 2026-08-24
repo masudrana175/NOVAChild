@@ -5,8 +5,8 @@
     <URL>https://jtl-software.de</URL>
     <Parent>NOVA</Parent>
     <Preview>preview.png</Preview>
-    <Version>5.2.6</Version> 
-    <MinShopVersion>5.7.2</MinShopVersion>
+    <Version>5.2.14</Version> 
+    <MinShopVersion>5.4.1</MinShopVersion>
     <Description>Dies ist ein für Beautek angepasstes Nova Child Theme.</Description>
     <Settings>
         <Section Name="Theme" Key="theme">

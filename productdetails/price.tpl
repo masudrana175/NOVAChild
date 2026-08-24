@@ -205,14 +205,15 @@
                             {/block}
 
                             {if $Einstellungen.artikeldetails.artikeldetails_uvp_anzeigen === 'Y'
-                             && $Artikel->showUVP()}
+                            && $Artikel->fUVP > 0
+                            && $Artikel->Preise->fVKBrutto < $Artikel->fUVP}
                                 {block name='productdetails-price-uvp'}
                                     <div class="suggested-price">
                                         <span>{lang key='suggestedPrice' section='productDetails'}</span>:
-                                        <span class="value text-nowrap-util">{$Artikel->getUVPLocalized($NettoPreise)}</span>
+                                        <span class="value text-nowrap-util">{$Artikel->cUVPLocalized}</span>
                                     </div>
                                     {* Preisersparnis zur UVP anzeigen? *}
-                                    {if isset($Artikel->SieSparenX) && $Artikel->SieSparenX->anzeigen == 1 && $Artikel->SieSparenX->nProzent > 0}
+                                    {if isset($Artikel->SieSparenX) && $Artikel->SieSparenX->anzeigen == 1 && $Artikel->SieSparenX->nProzent > 0 && !$NettoPreise && $Artikel->taxData['tax'] > 0}
                                         <div class="yousave">({lang key='youSave' section='productDetails'}
                                             <span class="percent">{$Artikel->SieSparenX->nProzent}%</span>, {lang key='thatIs' section='productDetails'}
                                             <span class="value text-nowrap-util">{$Artikel->SieSparenX->cLocalizedSparbetrag}</span>)
@@ -299,7 +300,7 @@
                         {* Grundpreis *}
                         {if $basePriceLocalized !== ''}
                             {block name='productdetails-price-list-base-price'}
-                                <div class="base-price" itemprop="priceSpecification" itemscope itemtype="https://schema.org/UnitPriceSpecification">
+                                <div class="base_price" itemprop="priceSpecification" itemscope itemtype="https://schema.org/UnitPriceSpecification">
                                     <meta itemprop="price" content="{($Artikel->Preise->oPriceRange->getMinLocalized($NettoPreise)|formatForMicrodata/$Artikel->fVPEWert)|string_format:"%.2f"}">
                                     <meta itemprop="priceCurrency" content="{JTL\Session\Frontend::getCurrency()->getName()}">
                                     <span class="value" itemprop="referenceQuantity" itemscope itemtype="https://schema.org/QuantitativeValue">

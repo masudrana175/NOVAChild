@@ -1,6 +1,6 @@
 {block name='layout-header-shop-nav-account'}
     {navitemdropdown tag="li"
-        aria=['controls' => 'account-dropdown-menu']
+        aria=['expanded' => 'false']
         router-aria=['label' => {lang key='myAccount'}]
         no-caret=true
         right=true
@@ -8,15 +8,10 @@
         class="account-icon-dropdown"}
         {if JTL\Session\Frontend::getCustomer()->getID() === 0}
             {block name='layout-header-shop-nav-account-logged-out'}
-                <div id="account-dropdown-menu" class="dropdown-body lg-min-w-lg">
+                <div class="dropdown-body lg-min-w-lg">
                     {form action="{get_static_route id='jtl.php' secure=true}" method="post" class="jtl-validate" slide=true}
                         {block name='layout-header-shop-nav-account-form-content'}
                             <fieldset id="quick-login">
-                                {block name='header-shop-nav-account-quick-login'}
-                                    <legend>
-                                        {lang key='loginForRegisteredCustomers' section='checkout'}
-                                    </legend>
-                                {/block}							
                                 {block name='layout-header-nav-account-form-email'}
                                     {formgroup label-for="email_quick" label={lang key='emailadress'}}
                                         {input type="email" name="email" id="email_quick" size-class="sm"
@@ -39,7 +34,7 @@
                                     {/if}
                                 {/block}
                                 {block name='layout-header-shop-nav-account-form-submit'}
-                                    
+                                    {formgroup}
                                         {input type="hidden" name="login" value="1"}
                                         {if !empty($oRedirect->cURL)}
                                             {foreach $oRedirect->oParameter_arr as $oParameter}
@@ -49,7 +44,7 @@
                                             {input type="hidden" name="cURL" value=$oRedirect->cURL}
                                         {/if}
                                         {button type="submit" size="sm" id="submit-btn" block=true variant="primary"}{lang key='login'}{/button}
-                                   
+                                    {/formgroup}
                                 {/block}
                             </fieldset>
                         {/block}
@@ -71,7 +66,6 @@
             {/block}
         {else}
             {block name='layout-header-shop-nav-account-logged-in'}
-				<div id="account-dropdown-menu">
                 {get_static_route id='jtl.php' secure=true assign='secureAccountURL'}
                 {dropdownitem href=$secureAccountURL title="{lang key='myAccount'}"}
                     {lang key='myAccount'}
@@ -85,11 +79,6 @@
 				{dropdownitem href="{$secureAccountURL}?editLieferadresse=1" title="{lang key='myAccount'}"}
                      {lang key='myShippingAddresses'}
                  {/dropdownitem}
-                {if $Einstellungen.global.global_rma_enabled === 'Y'}
-                    {dropdownitem href="{$secureAccountURL}?returns=1" title="{lang key='myAccount'}"}
-                        {lang key='myReturns' section='rma'}
-                    {/dropdownitem}
-                {/if}				 
                 {if $Einstellungen.global.global_wunschliste_anzeigen === 'Y'}
                     {dropdownitem href="{$secureAccountURL}#my-wishlists" title="{lang key='myAccount'}"}
                         {lang key='myWishlists'}
@@ -99,7 +88,6 @@
                 {dropdownitem href="{$secureAccountURL}?logout=1" title="{lang key='logOut'}" class="account-icon-dropdown-logout"}
                     {lang key='logOut'}
                 {/dropdownitem}
-				</div>
             {/block}
         {/if}
     {/navitemdropdown}

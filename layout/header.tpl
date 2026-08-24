@@ -188,88 +188,87 @@
             </noscript>
         {/foreach}
             <script>
-                window.jtlShopBaseUrl = '{$ShopURL}';
-                /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
-                (function (w) {
-                    "use strict";
-                    if (!w.loadCSS) {
-                        w.loadCSS = function (){};
+              /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+              (function (w) {
+                "use strict";
+                if (!w.loadCSS) {
+                  w.loadCSS = function (){};
+                }
+                var rp = loadCSS.relpreload = {};
+                rp.support                  = (function () {
+                  var ret;
+                  try {
+                    ret = w.document.createElement("link").relList.supports("preload");
+                  } catch (e) {
+                    ret = false;
+                  }
+                  return function () {
+                    return ret;
+                  };
+                })();
+                rp.bindMediaToggle          = function (link) {
+                  var finalMedia = link.media || "all";
+
+                  function enableStylesheet() {
+                    if (link.addEventListener) {
+                      link.removeEventListener("load", enableStylesheet);
+                    } else if (link.attachEvent) {
+                      link.detachEvent("onload", enableStylesheet);
                     }
-                    var rp = loadCSS.relpreload = {};
-                    rp.support                  = (function () {
-                        var ret;
-                        try {
-                            ret = w.document.createElement("link").relList.supports("preload");
-                        } catch (e) {
-                            ret = false;
-                        }
-                        return function () {
-                            return ret;
-                        };
-                    })();
-                    rp.bindMediaToggle          = function (link) {
-                        var finalMedia = link.media || "all";
+                    link.setAttribute("onload", null);
+                    link.media = finalMedia;
+                  }
 
-                        function enableStylesheet() {
-                            if (link.addEventListener) {
-                                link.removeEventListener("load", enableStylesheet);
-                            } else if (link.attachEvent) {
-                                link.detachEvent("onload", enableStylesheet);
-                            }
-                            link.setAttribute("onload", null);
-                            link.media = finalMedia;
-                        }
+                  if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet);
+                  } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet);
+                  }
+                  setTimeout(function () {
+                    link.rel   = "stylesheet";
+                    link.media = "only x";
+                  });
+                  setTimeout(enableStylesheet, 3000);
+                };
 
-                        if (link.addEventListener) {
-                            link.addEventListener("load", enableStylesheet);
-                        } else if (link.attachEvent) {
-                            link.attachEvent("onload", enableStylesheet);
-                        }
-                        setTimeout(function () {
-                            link.rel   = "stylesheet";
-                            link.media = "only x";
-                        });
-                        setTimeout(enableStylesheet, 3000);
-                    };
-
-                    rp.poly = function () {
-                        if (rp.support()) {
-                            return;
-                        }
-                        var links = w.document.getElementsByTagName("link");
-                        for (var i = 0; i < links.length; i++) {
-                            var link = links[i];
-                            if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
-                                link.setAttribute("data-loadcss", true);
-                                rp.bindMediaToggle(link);
-                            }
-                        }
-                    };
-
-                    if (!rp.support()) {
-                        rp.poly();
-
-                        var run = w.setInterval(rp.poly, 500);
-                        if (w.addEventListener) {
-                            w.addEventListener("load", function () {
-                                rp.poly();
-                                w.clearInterval(run);
-                            });
-                        } else if (w.attachEvent) {
-                            w.attachEvent("onload", function () {
-                                rp.poly();
-                                w.clearInterval(run);
-                            });
-                        }
+                rp.poly = function () {
+                  if (rp.support()) {
+                    return;
+                  }
+                  var links = w.document.getElementsByTagName("link");
+                  for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
+                      link.setAttribute("data-loadcss", true);
+                      rp.bindMediaToggle(link);
                     }
+                  }
+                };
 
-                    if (typeof exports !== "undefined") {
-                        exports.loadCSS = loadCSS;
-                    }
-                    else {
-                        w.loadCSS = loadCSS;
-                    }
-                }(typeof global !== "undefined" ? global : this));
+                if (!rp.support()) {
+                  rp.poly();
+
+                  var run = w.setInterval(rp.poly, 500);
+                  if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                      rp.poly();
+                      w.clearInterval(run);
+                    });
+                  } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                      rp.poly();
+                      w.clearInterval(run);
+                    });
+                  }
+                }
+
+                if (typeof exports !== "undefined") {
+                  exports.loadCSS = loadCSS;
+                }
+                else {
+                  w.loadCSS = loadCSS;
+                }
+              }(typeof global !== "undefined" ? global : this));
             </script>
             {* RSS *}
         {if isset($Einstellungen.rss.rss_nutzen) && $Einstellungen.rss.rss_nutzen === 'Y'}
@@ -369,7 +368,7 @@
         {/block}
         {if !empty($oUploadSchema_arr)}
             <script defer src="{$ShopURL}/{$templateDir}js/fileinput/fileinput.min.js"></script>
-            <script defer src="{$ShopURL}/{$templateDir}js/fileinput/themes/fa5/theme.min.js"></script>
+            <script defer src="{$ShopURL}/{$templateDir}js/fileinput/themes/fas/theme.min.js"></script>
             <script defer src="{$ShopURL}/{$templateDir}js/fileinput/locales/{$uploaderLang}.js"></script>
         {/if}
         {if $Einstellungen.preisverlauf.preisverlauf_anzeigen === 'Y' && !empty($bPreisverlauf)}
@@ -542,7 +541,6 @@
 {* Preview-Flags: Variable setzen (Cookie-Script erst nach <body>) *}
 {include file='snippets/beautek_pdp_v2_flag.tpl' beautekPdpV2EmitCookie=false}
 {include file='snippets/beautek_cfg_pills_flag.tpl' beautekCfgPillsEmitCookie=false}
-{include file='checkout/inc_opc_flag.tpl' beautekOpcEmitCookie=false beautekOpcShowBanner=false}
 
 <body class="{if $Einstellungen.template.theme.button_animated === 'Y'}btn-animated{/if}
                      {if $Einstellungen.template.theme.wish_compare_animation === 'mobile'
@@ -550,85 +548,15 @@
                      {if $Einstellungen.template.theme.wish_compare_animation === 'desktop'
 || $Einstellungen.template.theme.wish_compare_animation === 'both'}wish-compare-animation-desktop{/if}
                      {if $isMobile}is-mobile{/if}
-                     {if $nSeitenTyp === $smarty.const.PAGE_BESTELLVORGANG} is-checkout{/if} is-nova{if !empty($beautekPdpV2)} beautek-pdp-v2{/if}{if !empty($beautekCfgPills)} beautek-cfg-pills{/if}{if !empty($beautekOpc)} beautek-opc-active{/if}"
+                     {if $nSeitenTyp === $smarty.const.PAGE_BESTELLVORGANG} is-checkout{/if} is-nova{if !empty($beautekPdpV2)} beautek-pdp-v2{/if}{if !empty($beautekCfgPills)} beautek-cfg-pills{/if}"
       data-page="{$nSeitenTyp}"
       {if isset($Link) && !empty($Link->getIdentifier())}id="{$Link->getIdentifier()}"{/if}
       color-theme="{if isset($Brotnavi[1]) && $Brotnavi[1]->name == 'FRISEUR'}217{elseif isset($Brotnavi[1]) && ($Brotnavi[1]->name == 'TATTOO' || $Brotnavi[1]->name == 'MEDIZIN')}1837{else}1563{/if}">
 
 {/block}
 {if !$bExclusive}
-        {block name="layout-header-skip-to-links"}
-            {link href="#main-wrapper" class="btn-skip-to"}
-                {lang key='skipToContent'}
-            {/link}
-            {if $nSeitenTyp !== $smarty.const.PAGE_BESTELLVORGANG}
-				{if !$isMobile}
-					{link href="#search-header" class="btn-skip-to"}
-						{lang key='skipToSearch'}
-					{/link}
-				{/if}
-                {if $isMobile}
-                    {link href="#mainNavigation" class="btn-skip-to collapsed" type="button" data=["toggle"=>"collapse", "target"=>"#mainNavigation"] aria=["controls"=>"mainNavigation", "expanded"=>"false"]}
-                        {lang key='skipToNav'}
-                    {/link}
-				{else}				
-					{link href="#mainNavigation" class="btn-skip-to"}
-						{lang key='skipToNav'}
-					{/link}
-				{/if}
-			{/if}
-        {/block}
-        {block name='header-footer-consent-manager'}
-            {if $Einstellungen.consentmanager.consent_manager_active === 'Y' && !$isAjax && $consentItems->isNotEmpty()}
-                <input id="consent-manager-show-banner" type="hidden" value="{$Einstellungen.consentmanager.consent_manager_show_banner}">
-                {include file='snippets/consent_manager.tpl'}
-                {inline_script}
-                    <script>
-                        setTimeout(function() {
-                            $('#consent-manager, #consent-settings-btn').removeClass('d-none');
-                        }, 100)
-                        document.addEventListener('consent.updated', function(e) {
-                            $.post('{$ShopURLSSL}/_updateconsent', {
-                                    'action': 'updateconsent',
-                                    'jtl_token': '{$smarty.session.jtl_token}',
-                                    'data': e.detail
-                                }
-                            );
-                        });
-                        {if !isset($smarty.session.consents)}
-                        document.addEventListener('consent.ready', function(e) {
-                            document.dispatchEvent(new CustomEvent('consent.updated', { detail: e.detail }));
-                        });
-                        {/if}
-
-                        window.CM = new ConsentManager({
-                            version: {$smarty.session.consentVersion|default:1}
-                        });
-                        var trigger = document.querySelectorAll('.trigger')
-                        var triggerCall = function(e) {
-                            e.preventDefault();
-                            let type = e.target.dataset.consent;
-                            if (CM.getSettings(type) === false) {
-                                CM.openConfirmationModal(type, function() {
-                                    let data = CM._getLocalData();
-                                    if (data === null ) {
-                                        data = { settings: {} };
-                                    }
-                                    data.settings[type] = true;
-                                    document.dispatchEvent(new CustomEvent('consent.updated', { detail: data.settings }));
-                                });
-                            }
-                        }
-                        for (let i = 0; i < trigger.length; ++i) {
-                            trigger[i].addEventListener('click', triggerCall)
-                        }
-                    </script>
-                {/inline_script}
-            {/if}
-        {/block}
     {include file='snippets/beautek_pdp_v2_flag.tpl' beautekPdpV2EmitCookie=true}
     {include file='snippets/beautek_cfg_pills_flag.tpl' beautekCfgPillsEmitCookie=true}
-    {include file='checkout/inc_opc_flag.tpl' beautekOpcEmitCookie=true beautekOpcShowBanner=false}
     {if !$isMobile}
         {include file=$opcDir|cat:'tpl/startmenu.tpl'}
     {/if}
@@ -664,7 +592,7 @@
                 </div>
             </div>
         {/block}
-        <header class="d-print-none sticky-top fixed-navbar" id="jtl-nav-wrapper" role="banner">
+        <header class="d-print-none sticky-top fixed-navbar" id="jtl-nav-wrapper">
             {block name='layout-header-container-inner'}
                 <div class="container-fluid d-flex {if $Einstellungen.template.megamenu.header_full_width === 'N'}container-fluid-xl{/if}">
                     {block name='layout-header-category-nav'}
@@ -896,7 +824,7 @@
                                         {block name='layout-header-secure-checkout'}
                                             <div class="secure-checkout-icon ml-auto-util ml-lg-0">
                                                 {block name='layout-header-secure-checkout-title'}
-                                                    <i class="fas fa-lock icon-mr-2" aria-label="{lang key='secureCheckout' section='checkout'}" role="img" title="{lang key='secureCheckout' section='checkout'}"></i>{lang key='secureCheckout' section='checkout'}
+                                                    <i class="fas fa-lock icon-mr-2"></i>{lang key='secureCheckout' section='checkout'}
                                                 {/block}
                                             </div>
                                             <div class="secure-checkout-topbar ml-auto-util d-none d-lg-block">
@@ -931,7 +859,7 @@
 {/if}
 
 {block name='layout-header-main-wrapper-starttag'}
-<main id="main-wrapper" tabindex="-1" class="{if $bExclusive} exclusive{/if}{if $hasLeftPanel} aside-active{/if}">
+<main id="main-wrapper" class="{if $bExclusive} exclusive{/if}{if $hasLeftPanel} aside-active{/if}">
     {opcMountPoint id='opc_before_main' inContainer=false}
     {/block}
 
