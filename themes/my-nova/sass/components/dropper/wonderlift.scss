@@ -1,0 +1,305 @@
+/*************************************/
+/* Dropper - Wonderlift Styles */
+/*************************************/
+a.active {
+  color: var(--beauty-main-bg-color);
+}
+
+.wo_tabs .nav.nav-tabs.bottom15 {
+  padding: 10px;
+  // border-style: solid;
+  border-color: #ebebeb;
+  border-width: 1px 0;
+  text-decoration: none !important;
+}
+
+.wo_tabs .nav.nav-tabs.bottom15 a {
+  text-decoration: none;
+  font-size: larger;
+}
+
+.wo_tabs .nav.nav-tabs.bottom15 a:hover {
+  text-decoration: underline;
+}
+
+.wo_tabs .nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+@media only screen and (max-width: #{map-get($breakpoints, md)}) {
+  .wo_tabs .nav {
+    justify-content: start;
+    gap: 3rem;
+  }
+}
+.presentation {
+  justify-content: space-around;
+  padding-left: 10px;
+  color: white;
+}
+
+.wo_tabs .nav.nav-tabs.bottom15 li {
+  color: white !important;
+  font-size: large;
+}
+
+.wo_slide_image {
+  align-self: center;
+  position: relative;
+}
+
+.wo_caption_start h2 {
+  text-align: center;
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 42px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.wo_caption_start p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.wo_caption {
+  text-align: center;
+  max-width: 70%;
+  margin: 4rem auto;
+}
+
+.wo_caption h2 {
+  color: #841853;
+}
+
+.grid-space.wo_bg_need._dgs,
+.grid-space.wo_bg_myo._dgs,
+.grid-space.wo_bg_test._dgs,
+.grid-space.wo_bg_meso._dgs,
+.grid-space.wo_bg_iso_a._dgs,
+.grid-space.wo_bg_iso._dgs {
+  text-align: -webkit-center;
+  margin-bottom: 10px;
+}
+
+.grid-space.wo_bg_need_a._dgs .wo_caption {
+  text-align: unset;
+  margin-top: -30px;
+  margin-bottom: 40px;
+}
+
+.grid-space.wo_bg_need_a._dgs .wo_caption h2 {
+  font-size: revert;
+}
+
+.three_section .content {
+  width: 100%;
+  max-width: 100%;
+  background: rgba(0, 0, 0, 0) !important;
+  margin-left: 0px !important;
+  left: 0 !important;
+  text-align: center !important;
+  top: 0 !important;
+  margin-top: 0px !important;
+  height: 100%;
+  padding-top: 60px !important;
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto !important;
+  float: none;
+}
+
+.grid-space.price_tag,
+.grid-space.featured {
+  text-align: center;
+}
+
+.grid-space.point {
+  max-width: 33%;
+  padding: 15px 15px;
+  text-align: center;
+}
+
+.grid-space.desc_wo._dgs {
+  text-align: center !important;
+  padding: 60px 0 0 0;
+  width: 100% !important;
+  margin-bottom: 30px;
+}
+
+.grid-space.desc_wo._dgs h2 {
+  max-width: 70% !important;
+  font-size: 60px !important;
+  color: #841853 !important;
+  line-height: 1.3em !important;
+  max-width: 50% !important;
+  margin: auto !important;
+}
+@media only screen and (max-width: #{map-get($breakpoints, md)}) {
+  .grid-space.desc_wo._dgs {
+    h2 {
+      font-size: 26px !important;
+      margin: 0 !important;
+      text-align: start;
+    }
+    p {
+      margin: 0 !important;
+      text-align: start;
+    }
+  }
+}
+
+.grid-space.desc_wo._dgs p {
+  padding: 20px 0 0px 0;
+  width: 100%;
+  max-width: 70%;
+  margin: 0;
+  float: none;
+  margin: 0 auto;
+}
+
+.grid-space.price_tag,
+.grid-space.featured {
+  max-width: 33%;
+  padding: 80px;
+}
+
+.grid-space.price_tag._dgs ul,
+.grid-space.featured._dgs ul {
+  list-style: none;
+}
+
+.grid-space.price_tag h2,
+.grid-space.featured h2 {
+  font-size: x-large;
+  text-decoration: underline;
+  text-align: center;
+}
+
+span .wo_price .desc {
+  color: rgb(82, 82, 82);
+  padding: 20px 0 0px 0;
+  width: 100%;
+  max-width: 70%;
+  margin: 0;
+  float: none;
+  margin: 0 auto;
+}
+
+// Wonderlift dropper
+.wonderlift {
+  margin: 0 !important;
+}
+.grid-space.wo_gradient._dgs.equal-space {
+  position: relative;
+  img {
+    width: 100%;
+  }
+  .wo_caption_start {
+    background: #30d9b7;
+    position: absolute;
+    bottom: 200px;
+    width: 100%;
+    max-width: 35%;
+    right: 155px;
+    border-radius: 30px;
+    text-shadow: none;
+    padding: 30px;
+    word-wrap: break-word;
+    p {
+      margin: 0;
+    }
+  }
+  @media only screen and (max-width: #{map-get($breakpoints, xxl)}) {
+    .wo_caption_start {
+      position: relative;
+      max-width: 100%;
+      bottom: -2rem;
+      right: 0;
+    }
+  }
+  @media only screen and (max-width: #{map-get($breakpoints, md)}) {
+    .wo_caption_start h2 {
+      font-size: 32px;
+    }
+  }
+}
+.grid-space.point._dgs._dg-max-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    margin-bottom: 2rem;
+  }
+}
+.grid-space.subline_wo._dgs {
+  h2 {
+    text-align: center;
+  }
+}
+.grid-space.wo_bg_need_a._dgs {
+  .wo_caption {
+    margin-top: 0;
+  }
+}
+.tab-content-wrapper {
+  background: #eee;
+  padding: 35px;
+}
+.tab-main-hl {
+  h2 {
+    font-size: 2.5rem;
+  }
+  p {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+.use {
+  margin-top: 2rem !important;
+  h2 {
+    color: #841853;
+    font-size: 1.5rem !important;
+    text-align: center;
+    font-weight: 500;
+  }
+  p {
+    text-align: center;
+  }
+}
+.separator_tab-text {
+  .separator_line {
+    margin-bottom: 4rem;
+  }
+  .ger_separator_text {
+    margin-bottom: 3rem;
+  }
+}
+.price_wrap {
+  ul {
+    padding: 0;
+  }
+}
+.yb_img_wrap {
+  .grid-space {
+    display: flex;
+    justify-content: center;
+  }
+}
+._dg-max-4 {
+  flex: 1 1 33%;
+  width: 33%;
+  max-width: 33%;
+}
+@media only screen and (max-width: #{map-get($breakpoints, md)}) {
+  ._dg-max-4 {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100% !important;
+  }
+}

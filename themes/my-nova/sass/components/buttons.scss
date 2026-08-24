@@ -1,0 +1,260 @@
+.btn {
+    &:not(.badge):not(.btn-link):not(.btn-decrement):not(.btn-) {
+        padding: rem(12px) map-get($spacers, 3);
+        border-radius: 2rem;
+
+        &.wishlist-search-button {
+            padding: 0.625rem 0.9375rem;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    &.btn-primary,
+    &.btn-secondary {
+        color: #fff;
+
+        * {
+            color: inherit;
+        }
+    }
+
+    &.btn-danger {
+        background-color: $black;
+        border-color: $black;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: lighten($black, 8%);
+            border-color: lighten($black, 8%);
+            color: #fff;
+        }
+    }
+
+    &.btn-outline-danger {
+        border-color: $black;
+        color: $black;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: lighten($black, 8%);
+            border-color: lighten($black, 8%);
+            color: #fff;
+        }
+    }
+}
+
+#add-to-cart .choose_quantity .btn {
+    &:not(.badge):not(.btn-link) {
+        border-radius: 0;
+    }
+}
+
+.slick-dots {
+    button {
+        background-color: $beauty-primary;
+        border-color: $beauty-primary;
+        padding: 0.75rem 1rem;
+        border-radius: 2rem;
+
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: darken($beauty-primary, 8%);
+            border-color: darken($beauty-primary, 8%);
+            color: #fff;
+        }
+    }
+}
+
+
+body[color-theme="1563"] {
+    .btn {
+
+        &.btn-primary,
+        &.btn-secondary {
+            background-color: $beauty-primary;
+            border-color: $beauty-primary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: darken($beauty-primary, 8%);
+                border-color: darken($beauty-primary, 8%);
+                color: #fff;
+            }
+        }
+
+        // &.btn-secondary{
+        //     background-color: $beauty-secondary;
+        //     border-color: $beauty-secondary;
+        //     &:hover, &:focus, &:active{
+        //         background-color: darken($beauty-secondary, 8%);
+        //         border-color: darken($beauty-secondary, 8%);
+        //         color: #fff;
+        //     }
+        // }
+
+        &.btn-outline-primary {
+            border-color: $beauty-primary;
+            color: $beauty-primary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $beauty-primary;
+                border-color: $beauty-primary;
+                color: #fff;
+            }
+
+        }
+
+        &.btn-outline-secondary {
+            border-color: $beauty-secondary;
+            color: $beauty-secondary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $beauty-secondary;
+                color: #fff;
+            }
+        }
+
+        &.btn-link {
+            color: $beauty-primary;
+        }
+    }
+}
+
+body[color-theme="310"] {
+    .btn {
+
+        &.btn-primary,
+        &.btn-secondary {
+            background-color: $medical-primary;
+            border-color: $medical-primary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: darken($medical-primary, 8%);
+                border-color: darken($medical-primary, 8%);
+                color: #fff;
+            }
+        }
+
+        // &.btn-secondary{
+        //     background-color: $medical-secondary;
+        //     border-color: $medical-secondary;
+
+        //     &:hover, &:focus, &:active{
+        //         background-color: darken($medical-secondary, 8%);
+        //         border-color: darken($medical-secondary, 8%);
+        //         color: #fff;
+        //     }
+        // }
+
+        &.btn-outline-primary {
+            border-color: $medical-primary;
+            color: $medical-primary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $medical-primary;
+                border-color: $medical-primary;
+                color: #fff;
+            }
+
+        }
+
+        &.btn-outline-secondary {
+            border-color: $medical-secondary;
+            color: $medical-secondary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $medical-secondary;
+                color: #fff;
+            }
+        }
+
+        &.btn-link {
+            color: $medical-primary;
+        }
+    }
+}
+
+body[color-theme="217"] {
+    .btn {
+
+        &.btn-primary,
+        &.btn-secondary {
+            background-color: $hair-primary;
+            border-color: $hair-primary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: darken($hair-primary, 8%);
+                border-color: darken($hair-primary, 8%);
+                color: #fff;
+            }
+        }
+
+        // &.btn-secondary{
+        //     background-color: $hair-secondary;
+        //     border-color: $hair-secondary;
+
+        //     &:hover, &:focus, &:active{
+        //         background-color: darken($hair-secondary, 8%);
+        //         border-color: darken($hair-secondary, 8%);
+        //         color: #fff;
+        //     }
+        // }
+
+        &.btn-outline-primary {
+            border-color: $hair-primary;
+            color: $hair-primary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $hair-primary;
+                border-color: $hair-primary;
+                color: #fff;
+            }
+
+        }
+
+        &.btn-outline-secondary {
+            border-color: $hair-secondary;
+            color: $hair-secondary;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $hair-secondary;
+                color: #fff;
+            }
+        }
+
+        &.btn-link {
+            color: $hair-primary;
+        }
+    }
+}
+
+.btn.btn-primary.value.text-nowrap-util {
+    cursor: default;
+    // background-color: $hair-primary;
+}
+
+.btn.btn-primary.value.text-nowrap-util :hover {
+    // background-color: $hair-secondary;
+}

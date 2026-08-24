@@ -1,0 +1,25 @@
+.cstm-footer {
+  .kk-image-banner {
+    display: none;
+  }
+  .payment-container {
+    padding: 0;
+
+    .payments-holder {
+      margin: 2rem 0;
+      gap: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+
+      .svg-holder {
+        background-color: $light;
+        svg {
+          height: 24px;
+          width: auto;
+        }
+      }
+    }
+  }
+}

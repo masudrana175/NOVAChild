@@ -1,0 +1,106 @@
+{block name='layout-header-shop-nav-account'}
+    {navitemdropdown tag="li"
+        aria=['controls' => 'account-dropdown-menu']
+        router-aria=['label' => {lang key='myAccount'}]
+        no-caret=true
+        right=true
+        text='<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="16.448" height="18.224" viewBox="0 0 20.56 22.78"><g><g><path d="M10.23,13.02s-.05,0-.08,0c-4.46,.03-9.55,3.04-10.15,9.58l1.99,.19c.5-5.32,4.46-7.73,8.18-7.76,.02,0,.04,0,.07,0,3.75,0,7.76,2.37,8.34,7.68l1.99-.22c-.71-6.52-5.83-9.47-10.33-9.47Z"/><path d="M10.29,11.06c3.05,0,5.53-2.48,5.53-5.53S13.34,0,10.29,0,4.76,2.48,4.76,5.53s2.48,5.53,5.53,5.53Zm0-9.06c1.95,0,3.53,1.58,3.53,3.53s-1.58,3.53-3.53,3.53-3.53-1.58-3.53-3.53,1.58-3.53,3.53-3.53Z"/></g></g></svg>'
+        class="account-icon-dropdown"}
+        {if JTL\Session\Frontend::getCustomer()->getID() === 0}
+            {block name='layout-header-shop-nav-account-logged-out'}
+                <div id="account-dropdown-menu" class="dropdown-body lg-min-w-lg">
+                    {form action="{get_static_route id='jtl.php' secure=true}" method="post" class="jtl-validate" slide=true}
+                        {block name='layout-header-shop-nav-account-form-content'}
+                            <fieldset id="quick-login">
+                                {block name='header-shop-nav-account-quick-login'}
+                                    <legend>
+                                        {lang key='loginForRegisteredCustomers' section='checkout'}
+                                    </legend>
+                                {/block}							
+                                {block name='layout-header-nav-account-form-email'}
+                                    {formgroup label-for="email_quick" label={lang key='emailadress'}}
+                                        {input type="email" name="email" id="email_quick" size-class="sm"
+                                               placeholder=" " required=true
+                                               autocomplete="email"}
+                                    {/formgroup}
+                                {/block}
+                                {block name='layout-header-nav-account-form-password'}
+                                    {formgroup label-for="password_quick" label={lang key='password'} class="account-icon-dropdown-pass"}
+                                        {input type="password" name="passwort" id="password_quick" size-class="sm"
+                                               required=true placeholder=" "
+                                               autocomplete="current-password"}
+                                    {/formgroup}
+                                {/block}
+                                {block name='layout-header-nav-account-form-captcha'}
+                                    {if isset($showLoginCaptcha) && $showLoginCaptcha}
+                                        {formgroup class="simple-captcha-wrapper"}
+                                            {captchaMarkup getBody=true}
+                                        {/formgroup}
+                                    {/if}
+                                {/block}
+                                {block name='layout-header-shop-nav-account-form-submit'}
+                                    
+                                        {input type="hidden" name="login" value="1"}
+                                        {if !empty($oRedirect->cURL)}
+                                            {foreach $oRedirect->oParameter_arr as $oParameter}
+                                                {input type="hidden" name=$oParameter->Name value=$oParameter->Wert}
+                                            {/foreach}
+                                            {input type="hidden" name="r" value=$oRedirect->nRedirect}
+                                            {input type="hidden" name="cURL" value=$oRedirect->cURL}
+                                        {/if}
+                                        {button type="submit" size="sm" id="submit-btn" block=true variant="primary"}{lang key='login'}{/button}
+                                   
+                                {/block}
+                            </fieldset>
+                        {/block}
+                    {/form}
+                    {block name='layout-header-nav-account-link-forgot-password'}
+                        {link href="{get_static_route id='pass.php'}" rel="nofollow" title="{lang key='forgotPassword'}"}
+                            {lang key='forgotPassword'}
+                        {/link}
+                    {/block}
+                </div>
+                {block name='layout-header-nav-account-link-register'}
+                    <div class="dropdown-footer">
+                        {lang key='newHere'}
+                        {link href="{get_static_route id='registrieren.php'}" rel="nofollow" title="{lang key='registerNow'}"}
+                            {lang key='registerNow'}
+                        {/link}
+                    </div>
+                {/block}
+            {/block}
+        {else}
+            {block name='layout-header-shop-nav-account-logged-in'}
+				<div id="account-dropdown-menu">
+                {get_static_route id='jtl.php' secure=true assign='secureAccountURL'}
+                {dropdownitem href=$secureAccountURL title="{lang key='myAccount'}"}
+                    {lang key='myAccount'}
+                {/dropdownitem}
+                {dropdownitem href="{$secureAccountURL}?bestellungen=1" title="{lang key='myAccount'}"}
+                    {lang key='myOrders'}
+                {/dropdownitem}
+                {dropdownitem href="{$secureAccountURL}?editRechnungsadresse=1" title="{lang key='myAccount'}"}
+                    {lang key='myPersonalData'}
+                {/dropdownitem}
+				{dropdownitem href="{$secureAccountURL}?editLieferadresse=1" title="{lang key='myAccount'}"}
+                     {lang key='myShippingAddresses'}
+                 {/dropdownitem}
+                {if $Einstellungen.global.global_rma_enabled === 'Y'}
+                    {dropdownitem href="{$secureAccountURL}?returns=1" title="{lang key='myAccount'}"}
+                        {lang key='myReturns' section='rma'}
+                    {/dropdownitem}
+                {/if}				 
+                {if $Einstellungen.global.global_wunschliste_anzeigen === 'Y'}
+                    {dropdownitem href="{$secureAccountURL}#my-wishlists" title="{lang key='myAccount'}"}
+                        {lang key='myWishlists'}
+                    {/dropdownitem}
+                {/if}
+                {dropdowndivider}
+                {dropdownitem href="{$secureAccountURL}?logout=1" title="{lang key='logOut'}" class="account-icon-dropdown-logout"}
+                    {lang key='logOut'}
+                {/dropdownitem}
+				</div>
+            {/block}
+        {/if}
+    {/navitemdropdown}
+{/block}

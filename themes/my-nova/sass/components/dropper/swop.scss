@@ -1,0 +1,25 @@
+.kk-flexlayout.kk-swop{
+    .kk-powerslide.kk-last-slide{
+        .content.top-right{
+            @include media-breakpoint-down(md) {
+                max-width: 48%;
+                right: 13%;
+            }
+            @include media-breakpoint-down(sm) {
+                max-width: 76%;
+                right: 13%;
+            }
+            h1{
+                @include media-breakpoint-down(lg) {
+                    font-size: 26px;
+                    line-height: 1.5;
+                }
+            }
+            h1, p{
+                @include media-breakpoint-down(xxl) {
+                    margin-right: 0;
+                } 
+            }
+        }
+    }
+}

@@ -1,0 +1,142 @@
+#checkout {
+  fieldset#fieldset-payment {
+    display: flex;
+    flex-direction: column;
+
+    .mondu-payment-method-groups {
+      margin-bottom: 0;
+      border: 0;
+      padding-right: 0;
+      padding-top: 0;
+      order: 3;
+
+      .mondu-highlight {
+        width: 100%;
+
+        .mondu-logo {
+          flex-basis: 16%;
+          img {
+			  width: 5rem;
+			  margin-left: -.5rem;
+          }
+        }
+        .mondu-description {
+          flex-basis: 84%;
+        }
+      }
+
+      .mondu-description {
+        display: flex;
+        align-items: center;
+      }
+
+      .mondu-method-title {
+        font-size: 14px;
+        color: #525252;
+      }
+    }
+    .checkout-payment-options {
+      margin-top: 2rem;
+      order: 2;
+      margin-bottom: 0;
+      > div[role="group"] {
+        width: 100%;
+      }
+      .checkout-payment-method:not(:first-of-type) {
+        // border: 0 !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+        padding: 1rem 0 !important;
+      }
+      .checkout-payment-method:first-of-type {
+        margin-bottom: 1rem;
+      }
+      .checkout-payment-method {
+        cursor: pointer;
+        max-width: 100%;
+        margin-bottom: 0;
+        .custom-radio {
+          label::before {
+            display: none;
+          }
+        }
+        .checkout-payment-method-note {
+          display: flex;
+          align-items: center;
+          flex-basis: 85%;
+        }
+        .ppc-option-img,
+        .image-holder {
+          flex-basis: 15%;
+        }
+        &:hover {
+          background: #f9f9f9;
+        }
+        label {
+          cursor: pointer;
+			.payment-cstm-name{
+				flex-basis: 80%;
+			}
+        }
+
+        &.selected {
+          border: 1px solid var(--beauty-main-bg-color) !important;
+          background: #f9f9f9;
+        }
+      }
+      small {
+        font-size: 14px;
+      }
+    }
+  }
+	.custom-control-label,.mondu-card .mondu-payment-method .mondu-highlight{
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		@media screen and (min-width: 768px) {
+			flex-direction: row
+		}
+	}
+}
+
+@media screen and (max-width: 548px) {
+  body.is-checkout .tnt_coupons {
+    display: none !important;
+  }
+  #checkout fieldset#fieldset-payment .checkout-payment-options .checkout-payment-method {
+    max-width: 92%;
+  }
+}
+
+@media screen and (max-width: 1768px) {
+  .mondu-payment-method {
+    label.custom-control-label {
+      flex-direction: column;
+      gap: 1rem;
+      .mondu-benefits-text {
+        ul {
+          padding-top: 0;
+        }
+      }
+      span.title {
+        margin-bottom: 0 !important;
+      }
+      br {
+        display: none;
+      }
+    }
+    .mondu-description {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+  }
+}
+
+.payment-cstm-name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  .custom-name {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,350 @@
+#footer {
+    #footer-top {
+        color: #fff;
+    }
+    #footer-boxes {
+        &:not(.boxes-custom) {
+            > .col {
+                flex: 0 0 20%;
+                max-width: 20%;
+                color: #fff;
+                @include media-breakpoint-down(lg) {
+                    flex: 0 0 25%;
+                    max-width: 25%;
+                    &:first-child {
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                        margin-bottom: 1rem;
+                    }
+                }
+                @include media-breakpoint-down(md) {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+                @include media-breakpoint-down(sm) {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    &:first-child {
+                        margin-bottom: 2rem;
+                    }
+                }
+                .productlist-filter-headline {
+                    margin-bottom: 1rem;
+                }
+                .box-nav-item {
+                    @include media-breakpoint-down(sm) {
+                        margin-top: 0;
+                        padding-top: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    .footer-payment-row {
+        text-align: center;
+    }
+    .footer-social-media {
+        padding: 0.5rem 0;
+        @include media-breakpoint-down(xs) {
+            padding-top: 1rem;
+        }
+        .footer-additional-wrapper {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            margin-top: 0;
+            font-weight: 500;
+
+            &#copyright {
+                flex: 0 1 auto;
+                width: auto;
+                margin-top: 0;
+            }
+            &.col-sm-6 {
+                flex-grow: 1;
+                max-width: 75%;
+                @include media-breakpoint-down(xs) {
+                    max-width: 100%;
+                }
+            }
+            &#social-media-wrapper {
+                justify-content: flex-end;
+                ul li {
+                    margin-right: 0;
+                    a {
+                        padding-right: 0.25rem;
+                        padding-left: 0.25rem;
+                        border: 0;
+                    }
+                }
+            }
+            + .footer-additional-wrapper {
+                @include media-breakpoint-down(xs) {
+                    padding-top: 1rem;
+                }
+            }
+        }
+    }
+    .scroll-to-top {
+        width: 44px;
+        padding-top: 1px;
+        border-radius: 100%;
+        color: #fff;
+        font-size: 1.2rem;
+        span {
+            display: block;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+body[color-theme="1563"] {
+    #footer {
+        #footer-top {
+            color: $beauty-primary;
+        }
+        .footer-bottom-background-switch {
+            background-color: $beauty-primary;
+        }
+        .scroll-to-top {
+            background-color: $beauty-secondary;
+        }
+    }
+}
+
+body[color-theme="310"] {
+    #footer {
+        #footer-top,
+        #footer-boxes .productlist-filter-headline,
+        #footer-boxes > .col,
+        #footer-boxes a {
+            color: white;
+        }
+        #footer-boxes a {
+            &:hover,
+            &:focus,
+            &:active {
+                // color: darken($medical-primary, 12%);
+                font-weight: bold;
+            }
+        }
+        .footer-bottom-background-switch {
+            background-color: $medical-primary;
+        }
+        .scroll-to-top {
+            background-color: $medical-secondary;
+        }
+    }
+}
+
+body[color-theme="217"] {
+    #footer {
+        #footer-top {
+            color: $hair-primary;
+        }
+        .footer-bottom-background-switch {
+            background-color: $hair-primary;
+        }
+        .scroll-to-top {
+            background-color: $hair-secondary;
+        }
+    }
+}
+
+// Anpassungen Juli 2024
+.cstm-footer {
+    padding-top: 4rem !important;
+    background: $blue !important;
+
+    #sib-form {
+        font-family: "Poppins", sans-serif;
+        padding: 0 !important;
+
+        .entry__field {
+            border-radius: 0 !important;
+        }
+
+        .entry__choice {
+            p {
+                font-size: 14px;
+                font-family: "Poppins", sans-serif;
+                color: $light;
+            }
+        }
+
+        input#EMAIL::placeholder {
+            color: $blue;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .entry__specification {
+            margin-top: 24px;
+            div {
+                color: $light;
+                font-size: 14px;
+            }
+        }
+
+        .form__entry.entry_block {
+            width: 100%;
+        }
+
+        .sib-form-block {
+            padding: 0 !important;
+        }
+
+        #sib-container {
+            padding: 0 !important;
+        }
+
+        button {
+            background-color: $light;
+            fill: $blue;
+            border-radius: 0 !important;
+            padding: 0.5rem 1rem;
+            border: 0;
+
+            svg {
+                height: 10px;
+                width: 10px;
+            }
+        }
+
+        .sib-input.sib-form-block {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    }
+
+    .box-linkgroup {
+        a:hover {
+            color: $light !important;
+            font-weight: 600;
+        }
+    }
+
+    .socials {
+        display: flex;
+        margin-top: 1rem;
+
+        a {
+            padding-left: 0 !important;
+
+            i {
+                &:before {
+                    color: $light;
+                }
+            }
+        }
+    }
+
+    .productlist-filter-headline {
+        text-transform: none !important;
+    }
+
+    .newsletter-footer {
+        display: flex;
+        flex-direction: column;
+
+        form {
+            .newsletter-note {
+                margin-top: 1rem;
+                color: $light;
+                @include media-breakpoint-down(md) {
+                    text-align: left;
+                }
+            }
+        }
+
+        .newsletter-email-wrapper {
+            #newsletter_email {
+                border: 1px solid $light;
+
+                &::placeholder {
+                    font-weight: 600;
+                    color: $blue;
+                }
+            }
+
+            .input-group-append.button-input {
+                button {
+                    background-color: $light;
+                    fill: $blue;
+                    border-radius: 0 !important;
+                    padding: 0.5rem 1rem;
+                    border: 0;
+
+                    svg {
+                        height: 10px;
+                        width: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .newsletter-footer-heading {
+        font-weight: 700;
+        font-size: 1.25rem;
+    }
+    .newsletter-footer-heading,
+    a {
+        color: $light !important;
+    }
+
+    .footer-bottom-background-switch {
+        background: $blue !important;
+    }
+
+    .footer-social-media {
+        border-top: 2px solid $light;
+        justify-content: space-between;
+    }
+
+    #footer-menu-wrapper {
+        justify-content: flex-end;
+        padding: 0;
+        margin-top: 2rem !important;
+        margin-bottom: 2rem;
+
+        .footer-bottom-menu {
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+
+            .col {
+                padding: 0;
+                .productlist-filter-headline {
+                    display: none !important;
+                }
+
+                .nav {
+                    flex-direction: row !important;
+                    justify-content: flex-end;
+
+                    @include media-breakpoint-down(md) {
+                        justify-content: flex-start;
+                        gap: 0.75rem;
+                        margin-top: 1rem;
+                        flex-direction: column !important;
+                    }
+                }
+
+                .box-normal {
+                    margin-bottom: 0;
+
+                    li {
+                        margin-bottom: 0;
+                        margin-right: 4.5rem;
+
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

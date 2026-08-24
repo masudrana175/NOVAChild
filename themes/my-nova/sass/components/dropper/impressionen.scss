@@ -1,0 +1,17 @@
+.impressionen-container {
+  .headline-wrapper {
+    margin-left: 1rem;
+  }
+  .grid-space {
+    iframe,
+    img {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .grid-system-row {
+      gap: 1rem;
+    }
+  }
+}

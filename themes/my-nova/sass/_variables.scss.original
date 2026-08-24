@@ -1,0 +1,55 @@
+//
+// Platz für eigene Variablen in SCSS-Notation
+//
+// Alle Änderungen hier müssen anschließend mit einem SCSS-Compiler
+// (z.B. dem JTL-Theme-Editor Plugin) nach my-nova.css kompiliert werden
+// --------------------------------------------------
+
+// my-nova Theme
+// Hier können alle Variablen notiert werden, die nur Auswirkungen auf dieses Theme haben
+// -------------------Beginn eigene Variablen----------------------------------
+
+$primary:#841853;
+$secondary:#c8799c;
+
+$beauty-primary:#841853;
+$beauty-primary-nh: 841853;
+// $beauty-secondary:#9e2965;
+$beauty-secondary:#c8799c;
+
+$hair-primary:#ef5b5b;
+$hair-primary-nh: ef5b5b;
+// $hair-secondary:#f16f6f;
+$hair-secondary:#f4a7a8;
+
+$medical-primary:#30d9b7;
+$medical-primary-nh: 30d9b7;
+// $medical-secondary:#3edbb8;
+$medical-secondary:#d5f0e7;
+
+$text-color:#525252;
+$black:#000;
+
+// Breakpoints
+$breakpoints: ("xs": 480px, "sm": 576px, "md": 768px, "lg": 992px, "xl": 1200px, "xxl": 1500px, "xxxl": 1700px);
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (  xs: 0,  sm: 576px,  md: 768px,  lg: 992px,  xl: 1200px,  xxl: 1500px,  xxxl: 1700px) !default;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (  sm: 100%,  md: 100%,  lg: 100%,  xl: 1140px,  xxl: 1440px,  xxxl: 1650px) !default;
+
+// -------------------Ende eigene Variablen----------------------------------
+
+// Lädt clear-Variablen
+@import '../../../../NOVA/themes/clear/sass/variables';
+
+// passt die Pfade an
+$nova-theme-path:                   "../../../NOVA/themes";
+$nova-theme-path-child:             "../../../NOVAChild/themes";
+$fa-font-path:                      "../../../NOVA/themes/base/fontawesome/webfonts";

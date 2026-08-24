@@ -1,0 +1,465 @@
+@charset "UTF-8";
+:root {
+  --beauty-main-bg-color: #841853;
+  --hair-main-bg-color: #e69e0d;
+  --medical-main-bg-color: #000000;
+  --beauty-second-bg-color: #9e2965;
+  --hair-second-bg-color: #e69e0d;
+  --medical-second-bg-color: #000000;
+  --main-text-color-grey: #525252;
+  --hair-tertiary-bg-color: #de9b17;
+  --hair-neutral-bg-color: #ede3d4;
+}
+body {
+  font-family: Poppins, sans-serif;
+}
+body .productbox-price, body #footer .productlist-filter-headline {
+  font-family: Poppins, sans-serif;
+}
+body[color-theme="1563"] a:hover {
+  color: var(--beauty-main-bg-color);
+}
+body[color-theme="1563"] a:hover {
+  color: var(--medical-main-bg-color);
+}
+body[color-theme="217"] a:hover {
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="1563"] aside .nav-panel > .nav > .active > .nav-link {
+  border-bottom: 0.375rem solid var(--beauty-main-bg-color);
+}
+body[color-theme="1837"] aside .nav-panel > .nav > .active > .nav-link {
+  border-bottom: 0.375rem solid var(--medical-main-bg-color);
+}
+body[color-theme="217"] aside .nav-panel > .nav > .active > .nav-link {
+  border-bottom: 0.375rem solid var(--hair-main-bg-color);
+}
+body[color-theme="1563"] .btn-link:hover {
+  color: var(--beauty-main-bg-color);
+}
+body[color-theme="1837"] .btn-link:hover {
+  color: #4b4d4c;
+}
+body[color-theme="217"] .btn-link:hover {
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="1563"] .first-layer-menu-list .nav-item.active {
+  background-color: var(--beauty-main-bg-color);
+  color: #fff;
+}
+body .first-layer-menu-list .nav-item.active a {
+  color: #fff;
+}
+body .first-layer-menu-list .nav-item a {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+body[color-theme="217"] .first-layer-menu-list .nav-item.active {
+  background-color: var(--hair-main-bg-color);
+  color: #fff;
+}
+body[color-theme="1837"] .first-layer-menu-list .nav-item.active {
+  background-color: var(----medicine-main-bg-color);
+  color: #fff;
+}
+body[color-theme="1563"] .nav-link:hover:not(.dropdown-item):not(.btn) {
+  color: var(--beauty-main-bg-color);
+}
+body[color-theme="1563"] header .navbar-nav > .nav-item > .nav-link::before {
+  border-color: var(--beauty-main-bg-color);
+}
+body[color-theme="1837"] .nav-link:hover:not(.dropdown-item):not(.btn) {
+  color: #30d9b7;
+}
+body[color-theme="1837"] header .navbar-nav > .nav-item > .nav-link::before {
+  border-color: #30d9b7;
+}
+body[color-theme="217"] .nav-link:hover:not(.dropdown-item):not(.btn) {
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="217"] header .navbar-nav > .nav-item > .nav-link::before {
+  border-color: var(--hair-main-bg-color);
+}
+body[color-theme="1563"] .noUi-horizontal .noUi-connect {
+  background-color: var(--beauty-main-bg-color);
+}
+body[color-theme="1563"] .noUi-horizontal .noUi-handle {
+  background: var(--beauty-main-bg-color);
+  box-shadow: 0 0 0 5px rgba(200, 121, 156, 0.5);
+}
+body[color-theme="1837"] .noUi-horizontal .noUi-connect {
+  background-color: #30d9b7;
+}
+body[color-theme="1837"] .noUi-horizontal .noUi-handle {
+  background: #30d9b7;
+  box-shadow: 0 0 0 5px rgba(48, 217, 183, 0.5);
+}
+body[color-theme="217"] .noUi-horizontal .noUi-connect {
+  background-color: var(--hair-main-bg-color);
+}
+body[color-theme="217"] .noUi-horizontal .noUi-handle {
+  background: var(--hair-main-bg-color);
+  box-shadow: 0 0 0 5px rgba(239, 91, 91, 0.5);
+}
+#footer #social-media-wrapper .btn-icon-beautek {
+  border-color: transparent;
+  color: #fff;
+}
+#footer #social-media-wrapper .btn-icon-beautek:hover {
+  color: var(--beauty-main-bg-color);
+}
+.navbar-nav .dropdown-menu.show {
+  position: absolute;
+}
+.offcanvas-first-layer .first-layer-menu-list {
+  list-style: none;
+  padding-left: 0;
+}
+.shop-first-layer-navigation {
+  display: flex;
+  align-items: end;
+}
+.shop-first-layer-navigation .first-layer-menu-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.shop-first-layer-navigation .first-layer-menu-list .nav-item.active .nav-link {
+  color: #fff !important;
+}
+header .navbar-nav > .nav-item > .nav-link {
+  padding: 0.9rem;
+}
+footer#footer {
+  padding-top: 0;
+}
+footer#footer .row#footer-top {
+  border-bottom: 2px solid white;
+  margin-bottom: 25px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 25px 0;
+}
+footer#footer .productlist-filter-headline {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+footer#footer .nav-item a {
+  color: #fff;
+}
+footer#footer .footer-beautek-logo {
+  max-width: 35px;
+  height: auto;
+}
+body[color-theme="1563"] .shop-first-layer-navigation .first-layer-menu-list .nav-item .nav-link:hover {
+  color: #c8799c;
+}
+body[color-theme="1563"] #header-top-bar {
+  color: var(--beauty-main-bg-color);
+}
+body[color-theme="1563"] #header-top-bar a.nav-link {
+  color: var(--beauty-main-bg-color);
+}
+body[color-theme="1563"] #header-top-bar a.nav-link:hover {
+  color: #c8799c;
+}
+body[color-theme="1563"] header a:hover:not(.dropdown-item):not(.btn) {
+  color: #c8799c;
+}
+body[color-theme="1563"] header .nav-item {
+  background-color: var(--beauty-main-bg-color);
+  color: white;
+}
+body[color-theme="1563"] footer#footer {
+  background: #c8799c;
+}
+body[color-theme="1563"] footer#footer .nav-item a:hover {
+  color: var(--beauty-main-bg-color);
+}
+body[color-theme="1563"] footer#footer .box-linkgroup a {
+  color: #fff;
+}
+body[color-theme="1563"] footer#footer .container-fluid.footer-bottom-background-switch {
+  background: var(--beauty-main-bg-color);
+}
+body[color-theme="1563"] #footer #social-media-wrapper .btn-icon-beautek:hover {
+  color: #c8799c;
+}
+body[color-theme="1563"] footer#footer .footnote-vat a:hover {
+  color: #c8799c;
+  text-decoration: underline;
+}
+body[color-theme="1837"] #shop-logo {
+  content: url("/media/image/opc/lg/Logos/BEAUTEK_logo_mint_RGB.svg");
+}
+body[color-theme="217"] #shop-logo {
+  content: url("/media/image/opc/lg/Logos/BEAUTEK_logo_black_RGB.svg");
+}
+body[color-theme="1837"] #shop-logo, body[color-theme="217"] #shop-logo {
+  height: 1.3rem !important;
+  width: auto !important;
+}
+body[color-theme="1201"] .shop-first-layer-navigation .first-layer-menu-list .nav-item .nav-link:hover {
+  color: #131313;
+}
+body[color-theme="1201"] #header-top-bar {
+  color: #30d9b7;
+}
+body[color-theme="1201"] #header-top-bar a.nav-link {
+  color: #30d9b7;
+}
+body[color-theme="1201"] #header-top-bar a.nav-link:hover {
+  color: #131313;
+}
+body[color-theme="1201"] header a:hover:not(.dropdown-item):not(.btn) {
+  color: #30d9b7;
+}
+body[color-theme="1201"] footer#footer {
+  background: #d5f0e7;
+}
+body[color-theme="1201"] footer#footer .productlist-filter-headline {
+  color: #525252;
+}
+body[color-theme="1201"] footer#footer .nav-item a {
+  color: #525252;
+}
+body[color-theme="1201"] footer#footer .nav-item a:hover {
+  color: #131313;
+}
+body[color-theme="1201"] footer#footer .container-fluid.footer-bottom-background-switch {
+  background: #30d9b7;
+}
+body[color-theme="1201"] footer#footer .footnote-vat a:hover {
+  color: #525252;
+  text-decoration: underline;
+}
+body[color-theme="1201"] #footer #social-media-wrapper .btn-icon-beautek:hover {
+  color: #525252;
+}
+body[color-theme="1201"] footer#footer .footer-beautek-logo {
+  content: url("/media/image/opc/lg/Logos/beautek_icon_mint_rgb.png");
+}
+body[color-theme="217"] .shop-first-layer-navigation .first-layer-menu-list .nav-item .nav-link:hover {
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="217"] #header-top-bar {
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="217"] #header-top-bar a.nav-link {
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="217"] #header-top-bar a.nav-link:hover {
+  color: var(--hair-tertiary-bg-color);
+}
+body[color-theme="217"] header a:hover:not(.dropdown-item):not(.btn) {
+  color: var(--hair-tertiary-bg-color);
+}
+body[color-theme="217"] footer#footer {
+  background: var(--hair-main-bg-color);
+}
+body[color-theme="217"] footer#footer .productlist-filter-headline {
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+body[color-theme="217"] footer#footer .nav-item a:hover {
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="217"] footer#footer .box-linkgroup a {
+  color: #fff;
+}
+body[color-theme="217"] footer#footer .container-fluid.footer-bottom-background-switch {
+  background: var(--hair-tertiary-bg-color);
+}
+body[color-theme="217"] #footer #social-media-wrapper .btn-icon-beautek:hover {
+  color: var(--hair-tertiary-bg-color);
+}
+body[color-theme="217"] footer#footer .footnote-vat a:hover {
+  color: var(--hair-tertiary-bg-color);
+  text-decoration: underline;
+}
+body[color-theme="217"] footer#footer .footer-beautek-logo {
+  content: url("/media/image/opc/lg/Logos/beautek_icon_white_rgb.png");
+}
+@media (min-width: 992px) {
+  body[color-theme="1837"] #shop-logo {
+    height: 50px !important;
+    width: 180px !important;
+  }
+}
+@media (min-width: 992px) {
+  body[color-theme="217"] #shop-logo {
+    height: 50px !important;
+    width: 180px !important;
+  }
+}
+#footer #social-media-wrapper {
+  display: flex;
+}
+@media (max-width: 576px) {
+  #footer #social-media-wrapper {
+    justify-content: center !important;
+  }
+  #footer #copyright, #footer .footnote-vat {
+    text-align: center;
+    font-size: 0.825rem;
+  }
+}
+.productbox-inner .productbox-images.list-gallery {
+  filter: brightness(0.94);
+  background: #f3f3f3;
+}
+.beautek-outline-white .btn {
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  transition: all 0.125s;
+  background: transparent;
+  padding: 10px 20px;
+}
+.beautek-outline-white .btn:hover {
+  color: var(--hair-main-bg-color);
+  background: white;
+  border-color: white;
+}
+body[color-theme="1563"] .btn-primary {
+  background: var(--beauty-main-bg-color);
+  border-color: var(--beauty-main-bg-color);
+  color: white;
+}
+body[color-theme="1563"] .btn-primary:hover {
+  background: var(--beauty-second-bg-color);
+  color: white;
+}
+body[color-theme="1837"] .btn-primary {
+  background: var(--medical-main-bg-color);
+  border-color: var(--medical-second-bg-color);
+  color: white;
+}
+body[color-theme="1837"] .btn-primary:hover {
+  background: var(--medical-second-bg-color);
+  color: white;
+}
+body[color-theme="217"] .btn-primary {
+  background: var(--hair-main-bg-color);
+  border-color: var(--hair-second-bg-color);
+  color: white;
+}
+body[color-theme="217"] .btn-primary:hover {
+  background: var(--hair-tertiary-bg-color);
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="1563"] .badge-primary {
+  background: var(--beauty-main-bg-color);
+  color: #fff;
+}
+body[color-theme="1563"] .badge-primary:hover {
+  color: white;
+  background: var(--beauty-second-bg-color);
+}
+body[color-theme="1201"] .badge-primary {
+  background: var(--medical-main-bg-color);
+}
+body[color-theme="1201"] .badge-primary:hover {
+  color: white;
+}
+body[color-theme="217"] .badge-primary {
+  background: var(--hair-main-bg-color);
+  color: #fff;
+}
+body[color-theme="217"] .badge-primary:hover {
+  color: var(--main-text-color-grey);
+}
+body[color-theme="1563"] #result-wrapper .nav-link.active {
+  border-color: var(--beauty-main-bg-color);
+  color: var(--main-text-color-grey);
+  cursor: default;
+}
+body[color-theme="1563"] #result-wrapper .nav-link.active:after {
+  border-color: var(--beauty-main-bg-color);
+}
+body[color-theme="1837"] #result-wrapper .nav-link.active {
+  border-color: var(--medical-main-bg-color);
+  color: var(--main-text-color-grey);
+  cursor: default;
+}
+body[color-theme="1837"] #result-wrapper .nav-link.active:after {
+  border-color: var(--medical-main-bg-color);
+}
+body[color-theme="217"] #result-wrapper .nav-link.active {
+  border-color: var(--hair-main-bg-color);
+  color: var(--main-text-color-grey);
+  cursor: default;
+}
+body[color-theme="217"] #result-wrapper .nav-link.active:after {
+  border-color: var(--hair-main-bg-color);
+}
+body[color-theme="1563"] #product-configurator .nav-link.active {
+  background-color: var(--beauty-main-bg-color);
+  color: #fff;
+}
+body[color-theme="1837"] #product-configurator .nav-link.active {
+  background-color: var(--medical-main-bg-color);
+  color: #fff;
+}
+body[color-theme="217"] #product-configurator .nav-link.active {
+  background-color: var(--hair-tertiary-bg-color);
+  color: var(--hair-main-bg-color);
+}
+body[color-theme="1563"] .modal-header .close:hover {
+  background: var(--beauty-main-bg-color);
+}
+body[color-theme="1837"] .modal-header .close:hover {
+  background: var(--medical-main-bg-color);
+}
+body[color-theme="217"] .modal-header .close:hover {
+  background: var(--hair-main-bg-color);
+}
+body[color-theme="1563"] .form-control:focus {
+  border-color: var(--beauty-main-bg-color);
+}
+body[color-theme="1837"] .form-control:focus {
+  border-color: var(--medical-main-bg-color);
+}
+body[color-theme="217"] .form-control:focus {
+  border-color: var(--hair-main-bg-color);
+}
+body[color-theme="1563"] .nav-item.active {
+  background: var(--beauty-second-bg-color);
+  border-color: var(--beauty-second-bg-color);
+  color: white;
+}
+body[color-theme="1563"] .nav-item.active:hover {
+  background: var(--beauty-second-bg-color);
+  color: white;
+}
+body[color-theme="1563"] .nav-item.activebody[color-theme="1837"] .biysIT.biysIT.biysIT {
+  background-color: var(--medical-main-bg-color);
+}
+@media (max-width: 576px) {
+  .beautek-outline-white .btn {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+}
+#mainNavigation {
+  opacity: 0;
+  height: 0;
+  transition: height 0.25s linear, opacity 0.25s linear;
+}
+#mainNavigation.hover-active {
+  opacity: 1;
+  height: auto;
+}
+#mainNavigation.collapse.show {
+  height: 100vh !important;
+  opacity: 1;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+}
+/*# sourceMappingURL=all.css.map */

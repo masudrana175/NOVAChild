@@ -1,0 +1,23 @@
+body[color-theme="1563"] {
+    .slick-slider{
+        .slick-arrow:hover{
+            background: $beauty-primary;
+        }
+    }
+}
+
+body[color-theme="310"] {
+    .slick-slider{
+        .slick-arrow:hover{
+            background: $medical-primary;
+        }
+    }
+}
+
+body[color-theme="217"] {
+    .slick-slider{
+        .slick-arrow:hover{
+            background: $hair-primary;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+body #main-wrapper .carousel + .slick-dots {
+	li {
+		button.btn.btn-secondary {
+			padding: 0; 
+			border-radius: 50%; 
+			background-color: #ebebeb; 
+			border-color: #ebebeb; 
+		}
+		&.slick-active button.btn.btn-secondary { 
+			background-color: #525252; 
+			border-color: #525252; 
+		}
+	}
+}

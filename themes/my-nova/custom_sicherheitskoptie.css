@@ -1,0 +1,2836 @@
+/*
+ * Platz für eigene Änderungen direkt als CSS
+ * Die hier gemachten Änderungen überschreiben ggfs. andere Styles, da diese Datei als letzte geladen wird.
+ */
+
+
+/* Variables */
+
+:root {
+    --beauty-main-bg-color: #841853;
+    --hair-main-bg-color: #e69e0d;
+    --medical-main-bg-color: #000000;
+    --beauty-second-bg-color: #9e2965;
+    --hair-second-bg-color: #e69e0d;
+    --medical-second-bg-color: #000000;
+    --main-text-color-grey: #525252;
+    --hair-tertiary-bg-color: #de9b17;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+}
+
+body .productbox-price {
+    font-family: Poppins, sans-serif;
+}
+
+body #footer .productlist-filter-headline {
+    font-family: Poppins, sans-serif;
+}
+
+
+/* Font size adaptions END */
+
+
+/* Links */
+
+body[color-theme="1563"] a:hover {
+    color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1837"] a:hover {
+    color: var(--medical-main-bg-color);
+}
+
+body[color-theme="217"] a:hover {
+    color: var(--hair-main-bg-color);
+}
+
+body[color-theme="1563"] aside .nav-panel>.nav>.active>.nav-link {
+    border-bottom: 0.125rem solid var(--beauty-main-bg-color);
+    margin-bottom: 0.375rem;
+}
+
+body[color-theme="1837"] aside .nav-panel>.nav>.active>.nav-link {
+    border-bottom: 0.125rem solid var(--medical-main-bg-color);
+    margin-bottom: 0.375rem;
+}
+
+body[color-theme="217"] aside .nav-panel>.nav>.active>.nav-link {
+    border-bottom: 0.125rem solid var(--hair-main-bg-color);
+    margin-bottom: 0.375rem;
+}
+
+
+/*Navigation Icons*/
+
+body[color-theme="1563"] .nav-link:hover:not(.dropdown-item):not(.btn) {
+    color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1563"] header .navbar-nav>.nav-item>.nav-link::before {
+    border-color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1837"] .nav-link:hover:not(.dropdown-item):not(.btn) {
+    color: var(--medical-main-bg-color);
+}
+
+body[color-theme="1837"] header .navbar-nav>.nav-item>.nav-link::before {
+    border-color: var(--medical-main-bg-color);
+}
+
+body[color-theme="1837"] .first-layer-menu-list .nav-item.active .nav-link {
+    color: white;
+}
+
+body[color-theme="217"] .nav-link:hover:not(.dropdown-item):not(.btn) {
+    color: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"] header .navbar-nav>.nav-item>.nav-link::before {
+    border-color: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"] .first-layer-menu-list .nav-item.active .nav-link {
+    color: white;
+}
+
+
+/* End Navigation Icons */
+
+
+/* Sidebar */
+
+body[color-theme="1563"] .noUi-horizontal .noUi-connect {
+    background-color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1563"] .noUi-horizontal .noUi-handle {
+    background: var(--beauty-main-bg-color);
+    box-shadow: 0 0 0 5px rgba(200, 121, 156, 0.5);
+}
+
+body[color-theme="1837"] .noUi-horizontal .noUi-connect {
+    background-color: var(--medical-main-bg-color)
+}
+
+body[color-theme="1837"] .noUi-horizontal .noUi-handle {
+    background: var(--medical-main-bg-color) box-shadow: 0 0 0 5px rgba(48, 217, 183, 0.5);
+}
+
+body[color-theme="217"] .noUi-horizontal .noUi-connect {
+    background-color: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"] .noUi-horizontal .noUi-handle {
+    background: var(--hair-main-bg-color);
+    box-shadow: 0 0 0 5px rgba(239, 91, 91, 0.5);
+}
+
+
+/* End Sidebar */
+
+
+/* Buttons */
+
+#footer #social-media-wrapper .btn-icon-beautek {
+    border-color: transparent;
+    color: #fff;
+}
+
+#footer #social-media-wrapper .btn-icon-beautek:hover {
+    color: var(--beauty-main-bg-color);
+}
+
+
+/* Menu START */
+
+
+/* Category START */
+
+.navbar-nav .dropdown-menu.show {
+    position: absolute;
+}
+
+
+/* Category END */
+
+
+/* Mobil */
+
+.offcanvas-first-layer .first-layer-menu-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+
+/* Menu END */
+
+.shop-first-layer-navigation {
+    display: flex;
+    align-items: end;
+}
+
+.shop-first-layer-navigation .first-layer-menu-list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+
+/* Footer Adaptions */
+
+footer#footer {
+    padding-top: 0;
+}
+
+footer#footer .row#footer-top {
+    border-bottom: 2px solid white;
+    margin-bottom: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 25px 0;
+}
+
+footer#footer .productlist-filter-headline {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+footer#footer .nav-item a {
+    color: #fff;
+}
+
+footer#footer .footer-beautek-logo {
+    max-width: 35px;
+    height: auto;
+}
+
+#footer #copyright {
+    background-color: transparent;
+    color: #fff;
+}
+
+#footer .footnote-vat a,
+.kk-slider-item {
+    color: #fff;
+    text-decoration: none;
+}
+
+#footer .footer-social-media {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+#footer #social-media-wrapper.footer-additional-wrapper li {
+    margin-bottom: 0;
+}
+
+
+/* Beauty Header START */
+
+body[color-theme="1563"] .shop-first-layer-navigation .first-layer-menu-list .nav-item .nav-link:hover {
+    color: #c8799c;
+}
+
+body[color-theme="1563"] .shop-first-layer-navigation .first-layer-menu-list .nav-item.active .nav-link:hover {
+    color: white;
+}
+
+body[color-theme="1563"] #header-top-bar {
+    color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1563"] #header-top-bar a.nav-link {
+    color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1563"] #header-top-bar a.nav-link:hover {
+    color: #c8799c;
+}
+
+body[color-theme="1563"] header a:hover:not(.dropdown-item):not(.btn) {
+    color: #c8799c;
+}
+
+
+/* Beauty Header END */
+
+
+/* Beauty footer */
+
+body[color-theme="1563"] footer#footer {
+    background: #c8799c;
+}
+
+body[color-theme="1563"] footer#footer .nav-item a:hover {
+    color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1563"] footer#footer .box-linkgroup a {
+    color: #fff;
+}
+
+body[color-theme="1563"] #footer #social-media-wrapper .btn-icon-beautek:hover {
+    color: #c8799c;
+}
+
+body[color-theme="1563"] footer#footer .footnote-vat a:hover {
+    color: #c8799c;
+    text-decoration: underline;
+}
+
+
+/* Main Logo */
+
+body[color-theme="1837"] #shop-logo {
+    content: url("/media/image/opc/lg/Logos/BEAUTEK_logo_mint_RGB.svg");
+}
+
+body[color-theme="217"] #shop-logo {
+    content: url("/media/image/opc/lg/Logos/BEAUTEK_logo_black_RGB.svg");
+}
+
+body[color-theme="1837"] #shop-logo {
+    height: 1.3rem !important;
+    width: auto !important;
+}
+
+body[color-theme="217"] #shop-logo {
+    height: 1.3rem !important;
+    width: auto !important;
+}
+
+@media (min-width: 992px) {
+    body[color-theme="1837"] #shop-logo {
+        height: 50px !important;
+        width: 180px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    body[color-theme="217"] #shop-logo {
+        height: 50px !important;
+        width: 180px !important;
+    }
+}
+
+
+/*Medical header START*/
+
+body[color-theme="1837"] .shop-first-layer-navigation .first-layer-menu-list .nav-item .nav-link:hover {
+    color: #131313;
+}
+
+body[color-theme="1837"] #header-top-bar {
+    color: var(--medical-main-bg-color)
+}
+
+body[color-theme="1837"] #header-top-bar a.nav-link {
+    color: var(--medical-main-bg-color)
+}
+
+body[color-theme="1837"] #header-top-bar a.nav-link:hover {
+    color: #131313;
+}
+
+body[color-theme="1837"] header a:hover:not(.dropdown-item):not(.btn) {
+    color: var(--medical-main-bg-color)
+}
+
+
+/*Medical header END*/
+
+
+/* Medical footer */
+
+body[color-theme="1837"] footer#footer {
+    background: var(--medical-main-bg-color);
+}
+
+body[color-theme="1837"] footer#footer .footnote-vat a:hover {
+    color: #525252;
+    text-decoration: underline;
+}
+
+body[color-theme="1837"] #footer #social-media-wrapper .btn-icon-beautek:hover {
+    color: #525252;
+}
+
+body[color-theme="1837"] footer#footer .footer-beautek-logo {
+    content: url("/media/image/opc/lg/Logos/beautek_icon_mint_rgb.png");
+}
+
+
+/* Hair Header START */
+
+body[color-theme="217"] .shop-first-layer-navigation .first-layer-menu-list .nav-item .nav-link:hover {
+    color: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"] .shop-first-layer-navigation .first-layer-menu-list .nav-item.active .nav-link:hover {
+    color: white;
+    background-color: var(--hair-tertiary-bg-color);
+}
+
+body[color-theme="1563"] .shop-first-layer-navigation .first-layer-menu-list .nav-item.active .nav-link:hover,
+body[color-theme="1563"] .shop-first-layer-navigation .first-layer-menu-list .nav-item.active .nav-link {
+    color: white;
+}
+
+body[color-theme="1563"] .topbar-main {
+    color: var(--hair-second-bg-color);
+}
+
+body[color-theme="217"] #header-top-bar {
+    color: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"] #header-top-bar a.nav-link {
+    color: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"] #header-top-bar a.nav-link:hover {
+    color: white;
+}
+
+body[color-theme="217"] header a:hover:not(.dropdown-item):not(.btn) {
+    color: var(--hair-tertiary-bg-color);
+}
+
+
+/* Hair Header END */
+
+
+/* Hair footer */
+
+body[color-theme="217"] footer#footer {
+    background: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"] footer#footer .productlist-filter-headline {
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+body[color-theme="217"] footer#footer .nav-item a:hover {
+    /* color: var(--hair-main-bg-color); */
+    font-weight: bold;
+}
+
+body[color-theme="217"] footer#footer .box-linkgroup a {
+    color: #fff;
+}
+
+body[color-theme="217"] #footer #social-media-wrapper .btn-icon-beautek:hover {
+    color: var(--hair-tertiary-bg-color);
+}
+
+body[color-theme="217"] footer#footer .footnote-vat a:hover {
+    color: var(--hair-second-bg-color);
+    text-decoration: underline;
+}
+
+body[color-theme="217"] footer#footer .footer-beautek-logo {
+    content: url("/media/image/opc/lg/Logos/beautek_icon_white_rgb.png");
+}
+
+#footer #social-media-wrapper {
+    display: flex;
+}
+
+@media (max-width: 576px) {
+    #footer #social-media-wrapper {
+        justify-content: center !important;
+    }
+    #footer #copyright {
+        text-align: center;
+        font-size: 0.825rem;
+    }
+    #footer .footnote-vat {
+        text-align: center;
+        font-size: 0.825rem;
+    }
+}
+
+
+/* Verhalten von Medizin und Kosmetik und Friseur
+a) Active button in Navbar
+b) Kontakt & Beratung */
+
+body[color-theme="217"] #shop-nav .kontakt .nav-link:hover,
+body[color-theme="217"] .shop-first-layer-navigation .first-layer-menu-list .nav-item.active .nav-link:hover {
+    color: white;
+}
+
+body[color-theme="1837"] #shop-nav .kontakt .nav-link:hover,
+body[color-theme="1837"] .shop-first-layer-navigation .first-layer-menu-list .nav-item.active .nav-link:hover {
+    color: white;
+}
+
+body[color-theme="1563"] #shop-nav .kontakt .nav-link:hover,
+body[color-theme="1563"] .shop-first-layer-navigation .first-layer-menu-list .nav-item.active .nav-link:hover {
+    color: white;
+}
+
+
+/* Product-box START */
+
+.productbox-inner .productbox-images.list-gallery {
+    filter: brightness(0.94);
+    background: #f3f3f3;
+}
+
+
+/* Product-box END */
+
+
+/* Buttons START */
+
+.beautek-outline-white .btn {
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    transition: all 0.125s;
+    background: transparent;
+    padding: 10px 20px;
+}
+
+.beautek-outline-white .btn:hover {
+    color: var(--hair-main-bg-color);
+    background: white;
+    border-color: white;
+}
+
+
+/*  Beauty Button primary */
+
+body[color-theme="1563"] .btn-primary {
+    background: var(--beauty-main-bg-color);
+    border-color: var(--beauty-main-bg-color);
+    color: white;
+}
+
+body[color-theme="1563"] .btn-primary:hover {
+    background: var(--beauty-second-bg-color);
+    color: white;
+}
+
+
+/* Medical Button primary */
+
+body[color-theme="1837"] .btn-primary {
+    background: var(--medical-main-bg-color);
+    border-color: var(--medical-second-bg-color);
+    color: white;
+}
+
+body[color-theme="1837"] .btn-primary:hover {
+    background: var(--medical-second-bg-color);
+    color: white;
+}
+
+
+/* Hair Button primary */
+
+body[color-theme="217"] .btn-primary {
+    background: var(--hair-main-bg-color);
+    border-color: var(--hair-second-bg-color);
+    color: white;
+}
+
+body[color-theme="217"] .btn-primary:hover {
+    background: var(--hair-second-bg-color);
+    color: white;
+}
+
+@media (max-width: 576px) {
+    .beautek-outline-white .btn {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
+
+
+/* Buttons END */
+
+
+/* Badges START */
+
+body[color-theme="1563"] .badge-primary {
+    background: var(--beauty-main-bg-color);
+    color: #fff;
+}
+
+body[color-theme="1563"] .badge-primary:hover {
+    color: white;
+    background: var(--beauty-second-bg-color);
+}
+
+body[color-theme="1837"] .badge-primary {
+    background: var(--medical-main-bg-color);
+}
+
+body[color-theme="1837"] .badge-primary:hover {
+    color: white;
+}
+
+body[color-theme="217"] .badge-primary {
+    background: var(--hair-main-bg-color);
+    color: #fff;
+}
+
+body[color-theme="217"] .badge-primary:hover {
+    color: var(--main-text-color-grey);
+}
+
+
+/* Badges END */
+
+
+/* Product detail */
+
+body[color-theme="1563"] #result-wrapper .nav-link.active {
+    border-color: var(--beauty-main-bg-color);
+    color: var(--main-text-color-grey);
+    cursor: default;
+}
+
+body[color-theme="1563"] #result-wrapper .nav-link.active:after {
+    border-color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1837"] #result-wrapper .nav-link.active {
+    border-color: var(--medical-main-bg-color);
+    color: var(--main-text-color-grey);
+    cursor: default;
+}
+
+body[color-theme="1837"] #result-wrapper .nav-link.active:after {
+    border-color: var(--medical-main-bg-color);
+}
+
+body[color-theme="217"] #result-wrapper .nav-link.active {
+    border-color: var(--hair-main-bg-color);
+    color: var(--main-text-color-grey);
+    cursor: default;
+}
+
+body[color-theme="217"] #result-wrapper .nav-link.active:after {
+    border-color: var(--hair-main-bg-color);
+}
+
+body[color-theme="1563"] #product-configurator .nav-link.active {
+    background-color: var(--beauty-main-bg-color);
+    color: #fff;
+}
+
+body[color-theme="1837"] #product-configurator .nav-link.active {
+    background-color: var(--medical-main-bg-color);
+    color: #fff;
+}
+
+body[color-theme="217"] #product-configurator .nav-link.active {
+    background-color: var(--hair-main-bg-color);
+    color: #fff;
+}
+
+body[color-theme="1563"] .modal-header .close:hover {
+    background: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1837"] .modal-header .close:hover {
+    background: var(--medical-main-bg-color);
+}
+
+body[color-theme="217"] .modal-header .close:hover {
+    background: var(--hair-main-bg-color);
+}
+
+img.google-svg {
+    height: 60px;
+}
+
+
+/* Product detail END */
+
+
+/* Forms START */
+
+body[color-theme="1563"] .form-control:focus {
+    border-color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1837"] .form-control:focus {
+    border-color: var(--medical-main-bg-color);
+}
+
+body[color-theme="217"] .form-control:focus {
+    border-color: var(--hair-main-bg-color);
+}
+
+
+/* Forms END */
+
+
+/* Breadcrumb START */
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: "\203A";
+}
+
+
+/* Breadcrumb END */
+
+
+/************************************
+/* Artikel  - Ribbons */
+
+
+/*************************************/
+
+.ribbon-2 {
+    background-color: #000;
+    color: #fff;
+}
+
+.ribbon-2::before {
+    border-right-color: #666666;
+}
+
+
+/***************************************/
+
+
+/* Detailseite - Konfigurator - Beginn */
+
+
+/***************************************/
+
+:root {
+    --main-cfg: #841853;
+}
+
+#product-configurator .cfg-headline {
+    padding: 1rem;
+}
+
+#cfg-container-tab-panes.tab-content {
+    height: auto;
+    margin: 0;
+    padding-right: 0;
+    border-bottom: 0;
+}
+
+#cfg-container .config-sidebar .config-sidebar-wrapper {
+    position: sticky;
+    top: 156px;
+    padding: 0;
+    border: 1px solid #ebebeb;
+}
+div#product-configuration-sidebar .productdetails-details-rate {
+    padding: 15px;
+}
+#cfg-container .config-sidebar .config-sidebar-wrapper .custom-config-title {
+    background-color: var(--main-cfg);
+    padding: 1rem;
+    color: #fff;
+}
+
+#cfg-container .cfg-group .cfg-group-info.sticky-top {
+    position: relative;
+    z-index: 1;
+}
+
+#cfg-container .cfg-group {
+    padding: 0 1rem;
+    border: 1px solid #ebebeb;
+    margin-bottom: 0.5rem;
+}
+
+#cfg-container #cfg-accordion>div.cfg-group:last-of-type {
+    margin-bottom: 0;
+}
+
+#cfg-container .cfg-group .hr-sect {
+    justify-content: start;
+    margin-right: -1rem;
+    margin-left: -1rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    background-color: var(--main-cfg);
+    position: relative;
+}
+
+#cfg-container .cfg-group .hr-sect:hover {
+    cursor: pointer;
+}
+
+#cfg-container .cfg-group .hr-sect>span {
+    position: absolute;
+    right: 1rem;
+    color: #fff;
+}
+
+#cfg-container .cfg-group .hr-sect>span .fa-chevron-down {
+    display: block;
+}
+
+/* #cfg-container .cfg-group .hr-sect>span .fa-chevron-up {
+    display: none;
+}
+
+#cfg-container .cfg-group.active .hr-sect>span .fa-chevron-down {
+    display: none;
+}
+*/
+#cfg-container .cfg-group.active .hr-sect>span .fa-chevron-up {
+    display: block;
+}
+
+#cfg-container .cfg-group .hr-sect::before {
+    display: none;
+}
+
+#cfg-container .cfg-group .hr-sect::after {
+    display: none;
+}
+
+#cfg-container .cfg-group .hr-sect button.btn-link {
+    pointer-events: none;
+    color: #fff;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+#cfg-container .cfg-group .hr-sect button.btn-link:after {
+    display: none;
+}
+
+#cfg-container .cfg-group .hr-sect button.btn-link:disabled {
+    color: #fff;
+    opacity: 1;
+}
+
+#cfg-container .cfg-group-info .badge {
+    font-size: 1rem;
+}
+
+
+/*.cfg-group.js-cfg-group .collapse.js-cfg-group-collapse {
+	display: block !important;
+}*/
+
+.cfg-group.js-cfg-group .sticky-bottom {
+    display: none;
+}
+
+#cfg-tab-pane-summary #add-to-cart {
+    margin-top: 1rem;
+    padding: 0 1rem 1rem 1rem;
+}
+
+@media (min-width: 992px) {
+    #cfg-tab-pane-summary #add-to-cart>.row.basket-form-inline {
+        margin-bottom: 0;
+    }
+    #cfg-tab-pane-summary #add-to-cart>.row>div {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #cfg-tab-pane-summary #add-to-cart>.row>div:first-of-type {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    #cfg-container-tab-panes.tab-content {
+        margin-bottom: 1rem;
+    }
+}
+
+.cfg-group .cfg-swatch:checked~.custom-control-label .config-item {
+    border-color: var(--main-cfg);
+}
+
+.cfg-group .cfg-swatch:checked~.custom-control-label .config-item .badge-circle {
+    display: flex;
+    background-color: var(--main-cfg);
+    border-color: var(--main-cfg);
+}
+
+
+/*************************************/
+
+
+/* Detailseite - Konfigurator - Ende */
+
+
+/*************************************/
+
+@media (max-width: 991.98px) {
+    header .navbar-nav .nav-link {
+        justify-content: left;
+        /*ermöglicht dass Bild und Kategoriename  nebeneinander sitzen*/
+    }
+    img+.nav-mobile-heading {
+        margin-left: -1.5rem;
+        /*Verschiebung des Kategorienamens nach links als Kompensation für breite Kategoriebilder in Wawi*/
+    }
+    .navbar-mobile-category_image {
+        margin-left: -2rem;
+        margin-top: -0.7rem;
+        max-height: 30px;
+    }
+    header .navbar-nav .nav-link::after {
+        margin-left: auto;
+        /* Verschiebt den Navbar Link nach rechts außen*/
+    }
+    .navbar-nav .nav-item,
+    header .navbar-nav .nav-link {
+        padding-top: 0.5rem;
+        /*Verkleinerung des Abstandes der einzelnen Elemente*/
+    }
+    .categories-recursive-link {
+        display: flex;
+    }
+    .categories-recursive-link>.text-truncate.d-block {
+        margin-left: -1.5rem;
+    }
+}
+
+
+/*************************************/
+
+
+/* Shop Navigaton Kosmetik Friseur Medizin in entsprechenden Farben*/
+
+
+/*************************************/
+
+
+/* Kosmetik */
+
+.first-layer-menu-list li:nth-child(1).active {
+    background-color: var(--beauty-main-bg-color);
+    color: white;
+    /* Kosmetik Reiter in mobilem Nav Menü erscheint in den Company Farben */
+}
+
+.first-layer-menu-list li:nth-child(1).active:hover {
+    background-color: var(--beauty-second-bg-color);
+    color: white;
+    /* Bei Hover ändert sich der aktive Button zur entsprechenden Second Color */
+}
+
+
+/* Friseur */
+
+[color-theme="217"] .first-layer-menu-list li:active {
+    background-color: var(--hair-main-bg-color) !important;
+    color: white;
+    /* Friseur Reiter in mobilem Nav Menü erscheint in den Company Farben */
+}
+
+.first-layer-menu-list li:nth-child(2).active:hover {
+    background-color: black;
+    color: white;
+    /* Bei Hover ändert sich der aktive Button zur entsprechenden Second Color */
+}
+
+
+/* Medizin */
+
+[color-theme="1837"] .offcanvas-first-layer .first-layer-menu-list li:nth-child(3).active.nav-item {
+    background-color: var(--medical-main-bg-color);
+    /* Friseur Reiter in mobilem Nav Menü erscheint in den Company Farben */
+}
+
+.first-layer-menu-list li:nth-child(3).active:hover {
+    background-color: var(--medical-main-bg-color);
+    color: white;
+    /* Bei Hover ändert sich der aktive Button zur entsprechenden Second Color */
+}
+
+
+/* Für alle Kategorien */
+
+body[color-theme="1837"] .shop-first-layer-navigation .first-layer-menu-list .nav-item .nav-link:hover {
+    color: var(--medical-main-bg-color) !important;
+}
+
+body[color-theme="1837"] .shop-first-layer-navigation .first-layer-menu-list .nav-item .nav-link:hover.active {
+    color: white !important;
+}
+
+
+/* Beautek Cookie Banner - Border - Radius */
+
+.centerCat__AcB {
+    border-radius: none;
+}
+
+.button__xUR {
+    min-height: 40px;
+}
+
+body h1 {
+    font-weight: 700;
+}
+
+.productbox-title a,
+.sub-categories a,
+.info-essential .a {
+    text-decoration: none;
+}
+
+.productbox-inner .productbox-title {
+    margin-top: 0.5rem;
+}
+
+[color-theme="217"].eotTLL {
+    background-color: var(--hair-main-bg-color);
+}
+
+[color-theme="1837"].eotTLL {
+    background-color: var(--medical-main-bg-color);
+}
+
+
+/* Entferne die Link Striche  */
+
+.product-wrapper-product>a {
+    text-decoration: none;
+}
+
+.item-slider-price {
+    margin-top: 0.3rem;
+}
+
+span.item-slider-desc.text-clamp-2 {
+    margin-top: 0.5rem;
+}
+
+.mobile-container {
+    padding: 0;
+}
+
+
+/* Powerslider Buttons mobil anpassen */
+
+.mobileslider_container .button-arrow {
+    display: block !important;
+}
+
+.kk-powerslide .button-arrow {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    margin: -25px 0;
+    position: absolute;
+    background-size: 18px auto;
+    cursor: pointer;
+    opacity: 0.6;
+    -moz-transition: opacity 0.2s ease-out;
+    -webkit-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+}
+
+@media screen and (max-width: 992px) {
+    h1 {
+        font-size: 1.275rem;
+    }
+}
+
+body[color-theme="1563"] .mobileslider_container .button-arrow:hover {
+    background-color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1563"] .kk-powerslide .button-arrow {
+    background-color: var(--beauty-main-bg-color);
+    color: white;
+}
+
+body[color-theme="1837"] .mobileslider_container .button-arrow:hover {
+    background-color: var(--medical-main-bg-color);
+}
+
+body[color-theme="1837"] .kk-powerslide .button-arrow {
+    background-color: var(--medical-main-bg-color);
+    color: white;
+}
+
+body[color-theme="217"] .mobileslider_container .button-arrow:hover {
+    background-color: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"] .kk-powerslide .button-arrow {
+    background-color: var(--hair-main-bg-color);
+    color: white;
+}
+
+.kk-powerslide .slides {
+    background: white;
+}
+
+
+/* Discount Button CI anpassen */
+
+body[color-theme="1563"] .discount .btn {
+    color: black;
+    background-color: white;
+}
+
+
+/* Konfigurator Farbe anpassen */
+
+body[color-theme="1563"][data-page="1"] #product-configurator .hr-sect {
+    background-color: white;
+    border: 1px solid var(--beauty-main-bg-color);
+}
+
+body[color-theme="1563"][data-page="1"] #product-configurator .hr-sect>span,
+body[color-theme="1563"][data-page="1"] #product-configurator .hr-sect>button,
+body[color-theme="1563"][data-page="1"] #product-configurator .hr-sect>button:disabled {
+    color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1563"][data-page="1"] .alert-success {
+    color: var(--beauty-main-bg-color);
+}
+
+
+/* Friseur */
+
+body[color-theme="217"][data-page="1"] #product-configurator .hr-sect {
+    background-color: white;
+    border: 1px solid var(--hair-main-bg-color);
+}
+
+body[color-theme="217"][data-page="1"] #product-configurator .hr-sect>span,
+body[color-theme="217"][data-page="1"] #product-configurator .hr-sect>button,
+body[color-theme="217"][data-page="1"] #product-configurator .hr-sect>button:disabled {
+    color: var(--hair-main-bg-color);
+}
+
+body[color-theme="217"][data-page="1"] .alert-success {
+    color: var(--hair-main-bg-color);
+}
+
+
+/* Medical */
+
+body[color-theme="1837"][data-page="1"] #product-configurator .hr-sect {
+    background-color: white;
+    border: 1px solid var(--medical-main-bg-color);
+}
+
+body[color-theme="1837"][data-page="1"] #product-configurator .hr-sect>span,
+body[color-theme="1837"][data-page="1"] #product-configurator .hr-sect>button,
+body[color-theme="1837"][data-page="1"] #product-configurator .hr-sect>button:disabled {
+    color: var(--medical-main-bg-color);
+}
+
+body[color-theme="1837"][data-page="1"] .alert-success {
+    color: var(--medical-main-bg-color);
+}
+
+
+/* Button Text anzeigen von In den Warenkorb */
+
+#add-to-cart .btn .btn-basket-check span {
+    display: inline-block;
+}
+
+
+/* Zentrierung des Konfigurators Mobil */
+
+@media screen and (max-width: 520px) {
+    .product-configurator-parent {
+        display: flex;
+        justify-content: center;
+    }
+    /* Whitespace entfernen */
+    .product-detail-image-preview-bar {
+        margin-top: -1rem;
+        margin-bottom: 0rem;
+    }
+    .slick-dots {
+        margin: 0.5rem 0 0;
+    }
+}
+
+
+/* Border um Produktfotos heller machen */
+
+.carousel-thumbnails .slick-slide {
+    border-color: #bebebe;
+}
+
+
+/* Whitespace entfernen Produktseite */
+
+@media screen and (max-width: 767.98px) {
+    #product-offer .product-info .stock-information {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+
+/* Whitespace entfernen Produktseite */
+
+@media (min-width: 992px) {
+    #content-wrapper:not(.has-fluid) {
+        padding-top: 0;
+    }
+}
+
+
+/* Verschieben von Subkategorie Bildern von mittig zu linksbündig */
+
+@media (min-width: 992px) {
+    header .submenu-headline-image {
+        margin-left: -5rem;
+    }
+    .navbar-mobile-category_image {
+        margin-left: -2rem;
+        max-height: 20px;
+        max-width: 50px;
+        margin-bottom: 5px;
+    }
+}
+
+.align-self-end {
+    margin-top: -1rem;
+}
+
+
+/* Slide Buttons  */
+
+.kk-powerslide .slide .content {
+    padding: 1em;
+    position: absolute;
+    z-index: 100;
+}
+
+.opc-Button .slide-button {
+    padding: 0.5rem 1rem !important;
+    min-width: 12rem !important;
+}
+
+.kk-powerslide .content.bottom-left {
+    left: 1.5% !important;
+}
+
+.kk-powerslide .content.bottom-right {
+    right: 6.5% !important;
+}
+
+
+/* Kosmetik */
+
+body[color-theme="1563"] .slide-button {
+    background-color: var(--beauty-main-bg-color);
+    color: white;
+    border-color: white;
+}
+
+body[color-theme="1563"] .slide-button:hover {
+    background-color: white;
+    color: var(--beauty-main-bg-color);
+    border-color: white;
+}
+
+
+/* Friseure */
+
+body[color-theme="217"] .slide-button {
+    background-color: var(--hair-main-bg-color);
+    color: white;
+    border-color: white;
+    min-width: 5rem;
+}
+
+body[color-theme="217"] .slide-button:hover {
+    background-color: white;
+    color: var(--hair-main-bg-color);
+    border-color: white;
+}
+
+
+/* Medizin */
+
+body[color-theme="1837"] .slide-button {
+    background-color: var(--medical-main-bg-color);
+    color: white;
+    border-color: white;
+    min-width: 5rem;
+}
+
+body[color-theme="1837"] .slide-button:hover {
+    background-color: white;
+    color: var(--medical-main-bg-color);
+    border-color: white;
+}
+
+
+/* Discount Button - Hover Farbe ausschalten */
+
+body[color-theme="1563"] .discount .btn.btn-primary:hover {
+    color: black;
+    background-color: white;
+    border-color: #841853;
+}
+
+
+/* Meta Bar Anordnung */
+
+.meta-bar {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+@media screen and (max-width: 992px) {
+    .meta-bar .meta-opening:first-of-type {
+        display: block !important;
+    }
+    .meta-bar a {
+        display: none !important;
+        /* Notwendig da sonst das Telefonsymbol weiter erscheint. Alle weiteren Elemente werden automatisch ausgeblendet */
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .meta-bar>* {
+        font-size: 12px;
+    }
+}
+
+
+/* Meta Bar Language Dropper */
+
+body>div .language-dropdown {
+    padding: 0;
+    position: absolute;
+    right: 0;
+}
+
+body>div .language-dropdown a,
+body>div .language-dropdown a:hover {
+    color: white !important;
+}
+
+
+/* Meta Bar Color */
+
+body[color-theme="1563"]#meta-bar {
+   /* background-color: #841853 !important; */
+   background-color: #fff;
+}
+
+body[color-theme="1563"]#meta-bar>div>.meta-bar>*:nth-child(odd) {
+    color: white !important;
+}
+
+body[color-theme="1563"]#meta-bar>div>.meta-bar>*:nth-child(even) {
+    color: rgb(255, 227, 227) !important;
+}
+
+body[color-theme="217"]#meta-bar {
+    background-color: var(--hair-second-bg-color) !important;
+}
+
+
+/* body[color-theme="217"]#meta-bar>div>.meta-bar>*:nth-child(odd) {
+    color: white !important;
+} */
+
+
+/* body[color-theme="217"]#meta-bar>div>.meta-bar>*:nth-child(even) {
+    color: var(--hair-secondary-bg-color) !important;
+} */
+
+body[color-theme="1837"]#meta-bar {
+    background-color: var(--medical-second-bg-color) !important;
+}
+
+
+/* body[color-theme="1837"]#meta-bar>div>div>*:nth-child(odd) {
+    color: var(--medical-secondary-bg-color) !important;
+} */
+
+body[color-theme="1837"]#meta-bar>div>div>*:nth-child(even) {
+    color: white !important;
+}
+
+
+/* Checkout Aussehen von Bezahlungsmethoden  */
+
+#checkout .custom-control-label {
+    display: flex;
+}
+
+.paypal-logo-sofort {
+    height: 24px !important;
+}
+
+.checkout-payment-method .custom-control.custom-radio.custom-control-inline label {
+    margin-left: 1rem;
+}
+
+.checkout-payment-method .custom-control {
+    display: block !important;
+}
+
+.checkout-payment-method {
+    margin-left: 1rem;
+    max-width: 90%;
+    padding: 0;
+}
+
+
+/* Navbar Subcategories Active Link Fix (Nur unterstrichen und nicht farbig hinterlegt */
+
+[color-theme="1563"] header .navbar-nav li.nav-item.active {
+    background-color: transparent !important;
+}
+
+
+/* Navbar Subcategories Unterstrich dünner machen */
+
+header .navbar-nav>.nav-item>.nav-link::before {
+    bottom: 8px;
+    border-width: 0 0 0.125rem !important;
+}
+
+
+/* Meta Bar wird doppelt ausgezeigt */
+
+#shop-nav .meta-bar {
+    display: none !important;
+}
+
+.adaptive-configurator_wrapper {
+    padding-left: 0;
+}
+
+.adaptive-configurator {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ebebeb;
+}
+.container-fluid.container-fluid-xl.fixed-search.fixed-top.smoothscroll-top-search {
+    background: #fff;
+    padding: 10px 15px;
+}
+.adaptive-configurator .text-wrapper {
+    min-width: 50%;
+}
+
+.adaptive-configurator p {
+    margin-bottom: 0;
+}
+
+.adaptive-configurator .input-group-wrapper .input-group {
+    max-width: 80%;
+}
+
+.adaptive-configurator .input-group-wrapper {
+    min-width: 50%;
+}
+
+.adaptive-configurator_wrapper:nth-of-type(3) {
+    margin-top: 1rem;
+}
+
+.product-matrix-submit {
+    min-width: 18.5rem;
+}
+
+.adaptive-configurator .btn-basket-check {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.shopping-cart_span {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+
+/* Youtube Icon unten ändern */
+
+.btn-youtube>.fa-youtube {
+    font-size: 1.8em;
+    margin-top: 0.25em;
+}
+
+
+/* Variationsnachricht weniger verwirrend machen (kein Rot (warnung!)) */
+
+.variation .badge-danger {
+    background-color: grey;
+}
+
+.variation.custom-control-label:nth-child(2):has(+.badge-danger) {
+    text-decoration: line-through;
+}
+
+
+/* CSS Selektor - Cross Selling Visual Changes */
+
+.zubehoer-quantity {
+    accent-color: var(--beauty-main-bg-color) !important;
+}
+
+
+/* Mega Menu */
+
+
+/* Zentriert die Bilder und setzt den dirty fix zurück wodurch die Bilder zentriert erscheinen sollten, sie aber nicht vollstöndig waren*/
+
+@media screen and (min-width: 992px) {
+    /* header .navbar-nav .subcategory-wrapper .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } */
+    header .navbar-nav .subcategory-wrapper .nav-item .text-truncate.d-block {
+        text-align: center;
+    }
+    header .submenu-headline-image {
+        margin: auto;
+        max-height: 50px;
+        max-width: 100px;
+        margin-bottom: 16px;
+    }
+}
+
+
+/* .product-wrapper-product img {
+        transition: all .2s ease-in-out;
+    }
+
+    .product-wrapper-product:hover img {
+        transition: scale(1.1);
+    } */
+
+
+/* Links in Filter/Produktübersicht */
+
+body[color-theme="1563"] .productbox-inner:hover a,
+body[color-theme="1563"] .product-wrapper-product:hover span[itemprop="name"] {
+    color: var(--beauty-main-bg-color);
+    font-weight: 500;
+}
+
+body[color-theme="1837"] .productbox-inner:hover a,
+body[color-theme="1837"] .product-wrapper-product:hover span[itemprop="name"] {
+    color: var(--medical-main-bg-color);
+    font-weight: 500;
+}
+
+body[color-theme="217"] .productbox-inner:hover a,
+body[color-theme="217"] .product-wrapper-product:hover span[itemprop="name"] {
+    font-weight: 500;
+    color: var(--hair-main-bg-color);
+}
+
+
+/* Produktseite - Produktinfo nach rechts verschieben bei ausreichendem Bildschirminhalt */
+
+
+/* Gibt den Produktbildern mehr raum */
+
+@media screen and (min-width: 992px) {
+    .product-info-inner {
+        margin-left: 0rem;
+    }
+}
+
+.product-offer div#add-to-cart {
+    margin-top: 40px!important;
+}
+/* Produktseite Slick-Slider Anordnung */
+
+.carousel-thumbnails .slick-slide {
+    border-radius: 10px;
+    border-width: 1px;
+}
+a.btn.cart-dropdown-next.btn-outline-primary.btn-sm.btn-block {
+    color: #333;
+}
+a.btn.cart-dropdown-next.btn-outline-primary.btn-sm.btn-block:hover {
+    color: #fff;
+}
+.is-checkout div#checkout {
+    padding-top: 40px;
+}
+div#gallery_preview_wrapper div#gallery_preview .inner {
+    border-radius: 10px;
+}
+body[color-theme="1563"] .carousel-thumbnails .slick-slide {
+    border-color: var(--beauty-secondary-bg-color);
+}
+
+body[color-theme="1837"] .carousel-thumbnails .slick-slide {
+    border-color: var(--medical-secondary-bg-color);
+}
+
+body[color-theme="217"] .carousel-thumbnails .slick-slide {
+    border-color: var(--hair-secondary-bg-color);
+}
+
+
+/* Phone Button in Fixed Search Leiste */
+
+.search-form-phone-wrapper {
+    display: flex;
+    flex-direction: row;
+   /* width: 95%; */
+    flex-shrink: 0;
+}
+
+.main-search .input-group {
+    flex-wrap: nowrap !important;
+}
+
+.search-wrapper {
+    flex: 2;
+}
+
+.search-wrapper .input-group {
+    flex-wrap: nowrap;
+}
+
+.search-wrapper .form-control.ac_input {
+    font-size: 16px;
+}
+
+.phone-button {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.phone-button {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    margin: 0 1rem 0 auto;
+    max-width: 64px;
+}
+
+.phone-button a {
+    display: block;
+    border-radius: 50px;
+    width: 42px;
+    height: 42px;
+    display: block !important;
+    position: inherit;
+}
+
+#meta-bar[color-theme="1563"] .phone-button a {
+    background-color: var(--beauty-main-bg-color);
+}
+
+#meta-bar[color-theme="1837"] .phone-button a {
+    background-color: var(--medical-main-bg-color);
+}
+
+#meta-bar[color-theme="217"] .phone-button a {
+    background-color: var(--hair-main-bg-color);
+}
+
+.phone-button svg {
+    color: white;
+    position: absolute;
+    top: 26%;
+    left: 27%;
+}
+
+#search-header-mobile-fixed {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group .input-group-append button[type="submit"].btn-secondary {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+body[color-theme="1563"] header .twitter-typeahead,
+body[color-theme="1563"] header .input-group-append .btn {
+    border-color: #841853;
+}
+
+body[color-theme="210"] header .twitter-typeahead,
+body[color-theme="210"] header .input-group-append .btn {
+    border-color: #841853;
+}
+
+
+/* Adressänderungsvorschlag Endereco Design ändern */
+
+.endereco-address-predictions__label {
+    font-family: "Montserrat";
+}
+
+body[color-theme="1563"] .endereco-modal__header-main {
+    color: var(--beauty-secondary-bg-color);
+}
+
+body[color-theme="1837"] .endereco-modal__header-main {
+    color: var(--medical-secondary-bg-color);
+}
+
+body[color-theme="217"] .endereco-modal__header-main {
+    color: var(--hair-secondary-bg-color);
+}
+
+
+/* Aktionscoupon abstand Checkout*/
+
+#kupon {
+    margin-right: 10px;
+    border-radius: 25px;
+}
+
+
+/* Checkout Alignment AGB und Checkbox dazu */
+
+.checkout-confirmation-legal-notice {
+    display: flex;
+    justify-content: right;
+}
+
+.checkout-confirmation-legal-notice+div {
+    display: flex;
+    justify-content: right;
+}
+.col.displayoptions a#ed_gallery,.col.displayoptions a#ed_list {
+    margin-left: 8px;
+}
+label.custom-control-label[for="CheckBox_19"] {
+    font-weight: 700;
+}
+ .btc_contact-section {
+	padding: 30px 0px;
+	max-width: 100%;
+}
+
+.btc_section-title {
+	font-size: 2rem;
+	font-weight: 700;
+	color: #000;
+	margin-bottom: 0px;
+}
+
+.btc_contact-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+	align-items: center;
+}
+
+.btc_contact-items {
+	display: block;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.btc_contact-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 15px;
+	padding: 0;
+}
+
+.btc_contact-icon {
+	width: 45px;
+	height: 45px;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+h4.btc_sub_section-title {
+    color: #666666;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 9px;
+	margin-bottom: 30px;
+}
+a.btc_contact-item.btc_contact-link.question.custom-question.btc_contact-details {
+    margin-bottom: 20px;
+}
+.btc_contact-icon svg {
+	width: 45px;
+	height: 45px;
+	fill: #000;
+}
+
+.btc_contact-details {
+	flex: 1;
+	color: #000;
+    font-weight: 300;
+}
+
+.btc_contact-label {
+    font-size: 16px;
+    color: #841853;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 700;
+}
+
+.btc_contact-link {
+	color: #333;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 500;
+	display: inline-block;
+	transition: color 0.3s ease;
+}
+
+.btc_contact-link:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+.btc_profile-section {
+	text-align: center;
+	padding: 20px;
+	background: #f7f7f7;
+	border-radius: 5px;
+}
+
+.btc_profile-image-wrapper {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto 20px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.btc_profile-image-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.btc_profile-name {
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: #333;
+	margin-bottom: 5px;
+}
+
+.btc_profile-title {
+	font-size: 0.95rem;
+	color: #666;
+}
+.btc_contact-items a.btc_contact-item {
+    display: flex;
+    background: #8418532b;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btc_contact-items a.btc_contact-item:hover{
+    background: #f7f7f7;	
+}
+@media (max-width: 768px) {
+	.btc_contact-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.btc_section-title {
+		font-size: 1.6rem;
+	}
+
+	.btc_profile-section {
+		order: -1;
+	}
+}
+
+@media (max-width: 480px) {
+	.btc_contact-section {
+		padding: 30px 15px;
+	}
+
+	.btc_contact-item {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.btc_contact-icon {
+		width: 40px;
+		height: 40px;
+	}
+
+	.btc_contact-icon svg {
+		width: 30px;
+		height: 30px;
+	}
+}
+@media screen and (max-width: 768px) {
+    .checkout-confirmation-legal-notice {
+        display: flex;
+        justify-content: center;
+    }
+    .checkout-confirmation-legal-notice+div {
+        display: flex;
+        justify-content: center;
+    }
+	.phone-button {
+		margin: 0 0rem 0 auto;
+		max-width: max-content;
+	}
+}
+
+.checkout-confirmation .checkout-confirmation-legal-notice {
+    margin-bottom: 0;
+}
+
+
+/* Warenkorb Notify  */
+
+.kk-notifier {
+    margin-bottom: 2rem;
+}
+
+
+/* css plugin */
+
+.css-bundle-flexbox-item:nth-child(1),
+.css-bundle-flexbox-item:nth-child(2),
+.css-bundle-flexbox-item:nth-child(3) {
+    display: none !important;
+}
+
+.css-bundle-flexbox-item {
+    border: none !important;
+}
+
+.css-bundle-flexbox-panel {
+    gap: 1rem;
+}
+
+.panel-bundle .panel-title {
+    font-weight: 700;
+}
+
+body[color-theme="1563"] .panel-bundle .panel-title,
+.zubehoer-bundle .css-zubehoer-icon-plus {
+    color: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1837"] .panel-bundle .panel-title,
+.zubehoer-bundle .css-zubehoer-icon-plus {
+    color: var(--medical-main-bg-color);
+}
+
+body[color-theme="217"] .panel-bundle .panel-title,
+.zubehoer-bundle .css-zubehoer-icon-plus {
+    color: var(--hair-main-bg-color);
+}
+
+.bundle-wrapper {
+    border: 2px dotted #bd7e9b;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+section.panel-bundle {
+    border: none !important;
+}
+
+.css-bundle-flexbox-panel {
+    justify-content: flex-start !important;
+}
+/*
+.carousel{
+	display:block;
+	overflow: hidden;
+}
+
+#image_wrapper.fullscreen .carousel{
+	display:block;	
+}
+*/
+/* CSS Plugin Bundle Popup */
+
+.css-popover-content {
+    display: flex;
+    height: 100%;
+    position: relative;
+    width: auto;
+}
+
+.zub-image {
+    flex: 0 0 50%;
+    max-width: 100%;
+}
+
+.flex-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Make Product Page Gallery Left Sticky */
+
+@media screen and (min-width: 768px) {
+    .product-gallery #image_wrapper {
+        position: sticky;
+        top: 0;
+    }
+}
+
+.dropdown-cart-item {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.nav-icons+li.language-dropdown.nav-item {
+    display: none !important;
+}
+
+
+/* Verhindere Hoverfarbe Arrow von Slick Slider auf Product Page */
+
+#gallery_preview button::hover {
+    background-color: transparent !important;
+}
+
+
+/* Fix dass bei Hover über dem Produktbild in der Kategorieübersicht sie nicht darunter dargestellt werden  */
+
+.productbox-image .second-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#meta-bar>div:first-of-type {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+}
+.basket .basket-items .row.cart-items-body button.btn.cart-items-delete-button {
+    background: transparent!important;
+    color: #841853!important;
+    text-decoration: none;
+}
+#image_wrapper .gallery-with-action-main .product-detail-image-preview-bar {
+    margin-top: 10px;
+}
+div#gallery_preview_wrapper div#gallery_preview {
+    display: block;
+}
+div#gallery_preview_wrapper div#gallery_preview button.slick-prev.slick-arrow,div#gallery_preview_wrapper div#gallery_preview button.slick-next.slick-arrow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+	background: #ffffffb0;
+}
+div#gallery_preview_wrapper div#gallery_preview button.slick-next.slick-arrow {
+	right:0;
+	Left:auto;
+}
+#cfg-container .cfg-group .hr-sect.h3 {
+    padding: 10px 15px;
+    background: #ebebeb !important;
+    color: #333;
+    border-color: #ebebeb !important;
+}
+#meta-bar[color-theme="1563"]>div:first-of-type {
+    background: #841853;
+}
+
+#meta-bar[color-theme="1837"]>div:first-of-type {
+    background: var(--medical-second-bg-color) !important;
+}
+
+#meta-bar[color-theme="217"]>div:first-of-type {
+    background: var(--hair-second-bg-color) !important;
+}
+
+
+/* Suchleiste kleiner machen um Platz zu schaffen für Ausstellung */
+
+.search-wrapper {
+    max-width: max-content;
+}
+
+.search-wrapper .twitter-typeahead {
+    max-width: 100%;
+}
+
+.search-wrapper .input-group {
+    width: 100%;
+    justify-content: right;
+    flex-wrap: nowrap;
+}
+
+.kontakt>a {
+    position: relative;
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    color: #fff;
+    border-radius: 2rem;
+    padding: 0;
+    padding-right: 2rem;
+    padding-left: 1rem;
+}
+
+body[color-theme="1563"] .kontakt>a {
+    background: var(--beauty-main-bg-color);
+}
+
+body[color-theme="1837"] .kontakt>a {
+    background: var(--medical-second-bg-color);
+}
+
+body[color-theme="217"] .kontakt>a {
+    background: var(--hair-second-bg-color);
+}
+
+.kontakt {
+    position: relative;
+}
+
+.kontakt a::after {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    background-image: url("data:image/svg+xml,%3Csvg fill='white' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 20 20' style='enable-background:new 0 0 20 20;' xml:space='preserve'%3E%3Cpath d='M16.9,8.7l-6-6c-0.5-0.5-1.4-0.5-1.9,0l-6,6c-0.5,0.5-0.5,1.4,0,1.9c0.4,0.4,1.1,0.5,1.6,0.2v5.6c0,0.7,0.6,1.3,1.3,1.3h1.1 c0.4,0,0.7-0.1,0.9-0.4c0.3-0.3,0.4-0.6,0.4-0.9l0-3.5l3.1,0l0,3.5c0,0.7,0.6,1.3,1.3,1.3H14c0.7,0,1.3-0.6,1.3-1.3v-5.6 c0.2,0.1,0.4,0.2,0.7,0.2c0.3,0,0.7-0.1,0.9-0.4C17.5,10.1,17.5,9.2,16.9,8.7z'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+#cfg-container .cfg-group .cfg-group-info.sticky-top {
+    top: 0!important;
+}
+.col.config-sidebar .productdetails-details-rate {
+    margin-bottom: 0!important;
+    border-bottom: none!important;
+}
+.accordions .custom-accordion>section.panel.panel-default .panel-heading:after{
+    content: "" !important;
+    width: 10px;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 9.57 16.31'%3E%3Cg%3E%3Cpolygon points='9.57 1.41 8.15 0 0 8.15 8.15 16.31 9.57 14.89 2.83 8.15 9.57 1.41'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-size: contain;
+    transform: rotate(-90deg);
+	display: inline-block;
+}
+.accordions .custom-accordion>section.panel.panel-default .panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	padding-left: 0;
+    padding-right: 0 !important;
+}
+.accordions .custom-accordion.active>section.panel.panel-default .panel-heading:after {
+    transform: rotate(90deg);
+}
+.accordions .custom-accordion:hover{
+    background:#dddddd8f !important;
+}
+.accordions .custom-accordion.active{
+    background:#fff !important;	
+}
+.row.col-12.stock-information.stock-information-p.no-gutters>.col.col-sm-1 {
+    flex: 0 0 60px;
+    max-width: 60px;
+}
+.vaiation-wrapper label.swatches-image {
+    width: 100%;
+}
+.row.col-12.stock-information.stock-information-p.no-gutters>.col.col-sm-11 {
+    flex: 0 0 calc(100% - 60px);
+    max-width: calc(100% - 60px);
+}
+.product-info .product-info-inner .product-info-firstrow {
+    display: block!important;
+}
+.row.productlist-page-nav-header-m.productlist-page-nav.no-gutters {
+    justify-content: space-between;
+    align-items: center;
+}
+div#product-list .productbox-show-variations .productbox-variations {
+    display: none;
+}
+.row.productlist-page-nav.no-gutters ul.pagination {
+    align-items: center;
+}
+.row.productlist-page-nav.no-gutters ul.pagination i.fas {
+    font-size: 23px;
+}
+.row.productlist-page-nav.no-gutters {
+    align-items: center;
+    justify-content: space-between;
+}
+.row.productlist-page-nav-header-m.productlist-page-nav.no-gutters .col.productlist-item-info.productlist-item-border {
+    margin-left: auto;
+    margin-right: 18px;
+}
+header #search .form-icon input.form-control[type="text"]{
+	width: 301px;
+}
+#image_wrapper.fullscreen .slick-slider .slick-list {
+    margin: 0 auto;
+}
+.accordions .custom-accordion>section.panel.panel-default+.svg-holder {
+    display: none;
+}
+.form-control.ac_input.tt-hint {
+    min-width: 190px;
+}
+
+.form-control {
+    height: calc(1.5em + 1rem + 2px);
+}
+
+header #search .form-icon>.input.group {
+    flex-wrap: no-wrap;
+}
+
+header #search .form-icon .input-group-append .btn,
+header .search-form-wrapper-fixed .main-search .input-group .input-group-append .btn {
+    padding: 0.5rem 0.9375rem;
+}
+
+#header-top-bar {
+    display: none !important;
+}
+
+header {
+    padding-top: 1rem;
+}
+nav.navbar {
+    height: auto;
+}
+header .form-control, header .form-control:focus {
+    color: #525252!important;
+}
+li.breadcrumb-item.breadcrumb-backtolist {
+    display: none;
+}
+form#buy_form button.btn.btn-hidden-default {
+    display: none;
+}
+form#cart-form button.btn.btn-hidden-default.btn-hidden,form#buy_form button.btn.js-cfg-validate.btn-hidden-default.btn-hidden {
+    display: none;
+}
+.row.productlist-page-nav.no-gutters ul.pagination {
+    align-items: center;
+    margin-bottom: 0;
+}
+.basket .basket-heading {
+    margin-bottom: 1rem;
+    margin-top: 15px;
+}
+body[color-theme="1563"] .btn.btn-outline-primary {
+    /* color: #fff; */
+    color: #841853; 
+} 
+.product-slider-Booster .slick-list .slick-track {
+    margin: 0 auto;
+}
+.product-slider-Booster 
+ .hr-sect.h2 {
+    text-align: center;
+    margin-top: 56px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.slick-track:before, .slick-track:after {
+    content: "";
+    display: table;
+}
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+body {
+	background: #fff;
+}
+#image_wrapper .gallery-with-action-main .col.product-detail-image-topbar {
+    display: none;
+}
+#image_wrapper.fullscreen .gallery-with-action-main .col.product-detail-image-topbar {
+    display: block;
+}
+body[color-theme="1563"] .btn.btn-outline-primary {
+    color: #841853;
+}
+.kk-usp.kk-usp-icon-left .kk-usp-item-inner {
+    justify-content: center;
+}
+div#panel-edit-coupon {
+    border: none;
+    min-height: auto;
+}
+div#panel-edit-coupon .card-body {
+    /* border: none!important; */
+    padding: 0;
+}
+div#panel-edit-coupon.active .card-body {
+    padding: 15px;
+}
+#cstmPayPal {
+    margin-bottom: 0;
+}
+.slick-track {
+    display: flex!important;
+    flex-wrap: nowrap;
+}
+body[data-page="1"] #content-wrapper {
+    overflow-x: visible!important;
+}
+body #image_wrapper:not(.fullscreen) #gallery .slick-list{
+    overflow: hidden!important;
+}
+div#product-offer {
+    margin-bottom: 50px;
+}
+@media (min-width: 1200px) {
+	tbody.summary td.cfg-summary-item .col.text-nowrap-util.col-2 {
+		flex: 0 0 50px;
+		max-width: 50px;
+	}
+	tbody.summary td.cfg-summary-item  .col.word-break.col-7 {
+		flex: 0 0 calc(100% - (25% + 60px));
+		max-width: calc(100% - (25% + 60px));
+		padding: 0;
+	}
+	.trust-elements-wrap .rezensionen {
+		display: flex;
+		align-items: flex-end;
+	}
+	#cstmPayPal .banner-top .banner-top-inner {
+		display: flex;
+	}
+	body[data-page="1"] #result-wrapper .custom-detail .trust-elements-wrap {
+		margin-top: 0;
+	}
+    #search .form-icon input.form-control,
+    header #search .form-icon .tt-menu,
+    header .search-form-wrapper-fixed .main-search .input-group input.form-control,
+    header .search-form-wrapper-fixed .main-search .input-group .tt-menu {
+        min-width: 50px !important;
+    }
+} 
+
+@media (min-width:1025px) {
+	.product-configuration-sidebar-wrapper {
+		top: 163px;
+		max-height: calc(100vh - 193px);
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	.cstm-contact-banner .top-text {
+		padding-left: 32px;
+	}
+	#cstmPayPal .banner-top .banner-top-inner button {
+		padding-left: 0;
+	}
+}
+@media (min-width: 992px) {
+	li.nav-item.nav-scrollbar-item.dropdown {
+		position: inherit;
+	}
+	.navbar-nav .dropdown-menu {
+		width: 100%;
+	}
+	header .navbar-nav .dropdown .nav-item {
+		text-align: center;
+	}
+	header .navbar-nav .dropdown .nav-item {
+		margin: 20px 0;
+	}
+	header .navbar-nav .dropdown .nav-item a.categories-recursive-link {
+		font-weight: 700;
+	}
+}
+
+@media (max-width: 1024px) {
+    header .kontakt>a {
+        padding-right: 1.7rem !important;
+        /* padding-right: 2rem; */
+    }
+	.cstm-contact-banner .top-img img {
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 18px;
+	}
+    .search-wrapper .input-group {
+        width: 100%;
+        justify-content: left;
+    }
+    header .nav-right {
+        font-size: 14px !important;
+    }
+	body {
+		overflow-x: hidden;
+	}
+}
+
+@media (max-width: 1380px) {
+    .search-wrapper .twitter-typeahead {
+        max-width: 58%;
+    }
+    #search {
+        max-width: 240px;
+        margin-right: 0;
+    }
+	.first-layer-menu-list .nav-link{
+		padding: 0.5rem .75rem;
+	}
+}
+
+@media (max-width: 1230px) {
+    #header-top-bar {
+        display: block !important;
+    }
+    .ausstellung {
+        display: none;
+    }
+    .kontakt {
+        display: none;
+    }
+    .search-wrapper .twitter-typeahead {
+        max-width: 100%;
+    }
+    #search {
+        max-width: 260px;
+    }
+    .search-wrapper {
+        max-width: 260px;
+    }
+    header {
+        padding-top: 0rem;
+    }
+}
+
+@media (max-width: 1016px) {
+    #header-top-bar {
+        display: none !important;
+    }
+    .ausstellung {
+        display: block;
+    }
+    .kontakt {
+        display: block;
+    }
+    .search-wrapper .twitter-typeahead {
+        max-width: 100%;
+    }
+}
+@media (max-width: 991px) {
+	.cstm-footer .payment-container .payments-holder {
+		justify-content: center;
+	}
+	header#jtl-nav-wrapper {
+		padding-bottom: 15px;
+	}
+	.search-form-phone-wrapper {
+		justify-content: space-between;
+		width: 100%;
+	}
+	ul.slick-dots {
+		display: none!important;
+	}
+	.nav-scrollbar .nav-item {
+		position: static;
+	}
+	button#burger-menu {
+		margin-right: 11px;
+	}
+	img+.nav-mobile-heading {
+		margin-right: auto;
+	}
+	.product-info .accordions,.product-info div#add-to-cart {
+		padding: 0 15px;
+	}
+	#cstmPayPal {
+		margin-bottom: 0;
+	}
+	.product-info div#add-to-cart .row.basket-form-inline {
+		margin-bottom: 10px!important;
+	}
+	header .navbar-collapse {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: block;
+		height: 100vh !important;
+		-webkit-overflow-scrolling: touch;
+		max-width: 16.875rem;
+		transition: all 0.2s ease-in-out;
+		z-index: 1050;
+		width: 100%;
+		background: #ffffff;
+	  }
+	  header .navbar-collapse:not(.show) {
+		transform: translateX(-100%);
+	  }
+	  header .navbar-nav {
+		transition: all 0.2s ease-in-out;
+	  }
+	  header .navbar-nav .nav-item, header .navbar-nav .nav-link {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	  }
+	  header .navbar-nav .nav-link {
+		margin-top: -1rem;
+		margin-bottom: -1rem;
+		margin-left: -1rem;
+		margin-right: -1rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	  }
+	  header .navbar-nav .nav-link::after {
+		content: '\f054' !important;
+		font-family: "Font Awesome 5 Free" !important;
+		font-weight: 900;
+		margin-left: 0.5rem;
+		margin-top: 0;
+		font-size: 0.75em;
+	  }
+	  header .navbar-nav .nav-item.dropdown > .nav-link > .product-count {
+		display: none;
+	  }
+	  header .navbar-nav .nav-item:not(.dropdown) .nav-link::after {
+		display: none;
+	  }
+	  header .navbar-nav .dropdown-menu {
+		position: absolute;
+		left: 100%;
+		top: 0;
+		box-shadow: none;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	  }
+	  header .navbar-nav .dropdown-menu:not(.show) {
+		display: none;
+	  }
+	  header .navbar-nav .dropdown-body {
+		margin: 0;
+	  }
+	  header .navbar-nav .nav {
+		flex-direction: column;
+	  }
+	  header .nav-mobile-header {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	  }
+	  header .nav-mobile-header > .row {
+		height: 3.125rem;
+	  }
+	  header .nav-mobile-header .nav-mobile-header-hr {
+		margin-top: 0;
+		margin-bottom: 0;
+	  }
+	  header .nav-mobile-body {
+		height: calc(100vh - 3.125rem);
+		height: calc(var(--vh, 1vh) * 100 - 3.125rem);
+		overflow-y: auto;
+		position: relative;
+	  }
+	  header .nav-scrollbar-inner {
+		overflow: visible;
+	  }
+	  header .nav-right {
+		font-size: 1rem;
+	  }
+	  header .nav-right .dropdown-menu {
+		width: 100%;
+	  }
+}
+
+@media (max-width: 755px) {
+    .ausstellung {
+        display: none;
+    }
+}
+
+@media (max-width: 580px) {
+    .kontakt {
+        display: none;
+    }
+    .input-group-append button[name="search"] {
+        padding: 0.75rem 1rem !important;
+    }
+}
+
+@media (max-width: 1019px) and (min-width: 992px) {
+    .toggler-logo-wrapper {
+        padding-top: 54px;
+    }
+}
+
+
+/* Ios Zoom Fix for Input Fields */
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select,
+    textarea,
+    input {
+        font-size: 16px;
+    }
+}
+
+
+/*  */
+
+.input-group-append button[name="search"] {
+    padding: 0 1rem !important;
+}
+
+
+/* Produktseite Telefonbuttons*/
+
+.row.stock-information {
+    display: flex;
+    flex-direction: row;
+}
+
+.row.stock-information .question-on-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.row.stock-information .question-on-item button:first-of-type {
+    padding-left: 0;
+}
+
+#easycreditExample {
+    display: none;
+}
+
+
+/* header same color as meta bar  */
+
+body[color-theme="1563"].div:first-of-type {
+    background: var(--beauty-second-bg-color);
+}
+
+body[color-theme="1837"].div:first-of-type {
+    background: var(--medical-second-bg-color);
+}
+
+body[color-theme="217"].div:first-of-type {
+    background: var(--hair-second-bg-color);
+}
+
+.ribbon-black-week {
+    position: absolute;
+    z-index: 1;
+    top: -0.5rem;
+    left: -1rem;
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    padding: 0.25rem 0rem;
+}
+
+.ribbon-2::before {
+    content: none;
+}
+
+.ribbon.ribbon-2 {
+    padding: 0.25rem 0.5rem;
+    background-color: #c01614 !important;
+    box-shadow: none;
+    left: 0.5rem;
+    top: 0.5rem;
+}
+#image_wrapper.fullscreen .slick-slider{
+
+}
+
+/*Sprachauswahl Dropdown Farbe ändern*/
+
+body[color-theme="1563"].language-dropdown .dropdown-menu a.active {
+    color: white;
+    background: var(--beauty-second-bg-color);
+}
+
+body[color-theme="1837"].language-dropdown .dropdown-menu a.active {
+    color: white;
+    background: var(--medical-second-bg-color);
+}
+
+body[color-theme="217"].language-dropdown .dropdown-menu a.active {
+    color: white;
+    background: var(--hair-second-bg-color);
+}
+
+
+/* Zahlmethoden Anpassung 01/24 */
+
+#za_ppc_sofort-fields {
+    display: none !important;
+}
+
+#za_ppc_sofort.selected #za_ppc_sofort-fields {
+    display: block !important;
+}
+
+div#slider-partslist .hr-sect.h2 {
+    text-align: center;
+    font-weight: 700;
+}
+div#slider-partslist 
+ .slick-track {
+    margin: 0 auto;
+}
+.product-wrapper-product>a:hover{
+	font-weight:normal;
+}
+/* AGB Bestellvorgang Anpassung 01/24 */
+
+.checkout-confirmation-legal-notice,
+.snippets-checkbox-wrapper .custom-checkbox {
+    font-size: 1rem;
+}
+
+.checkout-confirmation-legal-notice p,
+.checkout-confirmation-legal-notice a {
+    margin-bottom: 0;
+    color: #841853;
+}
+
+
+/* coupon Bestellvorgang Anpassung 01/24 */
+
+#panel-edit-coupon .card-body {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: all 0.3s;
+}
+
+#panel-edit-coupon.active .card-body {
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+#panel-edit-coupon .card-header {
+    cursor: pointer;
+    position: relative;
+}
+
+#panel-edit-coupon .card-header::after {
+    transition: all 0.3s;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    width: 18px;
+    height: 20px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 352 192'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23841853;%7D%3C/style%3E%3C/defs%3E%3Cpath id='Down_Arrow' class='cls-1' d='m176,192c-4.09,0-8.19-1.56-11.31-4.69L4.69,27.31C-1.56,21.06-1.56,10.94,4.69,4.69s16.38-6.25,22.62,0l148.69,148.69L324.69,4.69c6.25-6.25,16.38-6.25,22.62,0s6.25,16.38,0,22.62l-160,160c-3.12,3.12-7.22,4.69-11.31,4.69h0Z'/%3E%3C/svg%3E");
+}
+
+#panel-edit-coupon.active .card-header::after {
+    transition: all 0.3s;
+    transform: rotate(180deg);
+    transform-origin: 38% 28%;
+}
+
+
+/* Anpassung Panel: Noch Fragen, rufen sie mich direkt an 08/24 */
+
+#cstmPayPal .banner-top {
+    padding-left: 1rem;
+}
+
+
+/* Anpassung Meta Bar - Friseur Black */
+
+.meta-bar {
+    color: white;
+}
+
+body[color-theme="1563"] button[type="submit"] {
+    background: var(--beauty-second-bg-color);
+}
+
+body[color-theme="1563"] button[type="submit"] {
+    background: var(--beauty-second-bg-color);
+	color:#fff!important;
+}
+
+body[color-theme="1837"] button[type="submit"] {
+    background: var(--medical-second-bg-color);
+}
+
+body[color-theme="217"] button[type="submit"] {
+    background: var(--hair-second-bg-color);
+}
+
+body[color-theme="1563"] div[data-toggle="product-actions"] button[type="submit"] {
+    background: none !important;
+}
+
+a.btn.btn-primary.btn-sm.btn-block[title="Zum Warenkorb"] {
+    padding: 0.75rem 0.25rem;
+}
+
+
+/* Service & Versand Akkordeon nach unten verschieben */
+.accordions {
+    display: flex;
+    flex-direction: column;
+}
+#product-service {
+    order: 99;
+}

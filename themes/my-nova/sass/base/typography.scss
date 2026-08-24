@@ -1,0 +1,93 @@
+@include font-face(
+  "Poppins",
+  $nova-theme-path-child + "/base/fonts/poppins/poppins-v20-latin-300",
+  "Poppins" "Poppins",
+  normal,
+  300,
+  "",
+  woff2 woff
+);
+@include font-face(
+  "Poppins",
+  $nova-theme-path-child + "/base/fonts/poppins/poppins-v20-latin-regular",
+  "Poppins" "Poppins",
+  normal,
+  400,
+  "",
+  woff2 woff
+);
+@include font-face(
+  "Poppins",
+  $nova-theme-path-child + "/base/fonts/poppins/poppins-v20-latin-500",
+  "Poppins" "Poppins",
+  normal,
+  500,
+  "",
+  woff2 woff
+);
+@include font-face(
+  "Poppins",
+  $nova-theme-path-child + "/base/fonts/poppins/poppins-v20-latin-600",
+  "Poppins" "Poppins",
+  normal,
+  600,
+  "",
+  woff2 woff
+);
+@include font-face(
+  "Poppins",
+  $nova-theme-path-child + "/base/fonts/poppins/poppins-v20-latin-700",
+  "Poppins" "Poppins",
+  normal,
+  700,
+  "",
+  woff2 woff
+);
+
+@include font-face(
+  "Raleway",
+  $nova-theme-path-child + "/base/fonts/raleway/raleway-v28-latin-regular",
+  "Raleway" "Raleway",
+  normal,
+  400,
+  "",
+  woff2 woff
+);
+@include font-face(
+  "Raleway",
+  $nova-theme-path-child + "/base/fonts/raleway/raleway-v28-latin-600",
+  "Raleway" "Raleway",
+  normal,
+  600,
+  "",
+  woff2 woff
+);
+@include font-face(
+  "Raleway",
+  $nova-theme-path-child + "/base/fonts/raleway/raleway-v28-latin-700",
+  "Raleway" "Raleway",
+  normal,
+  700,
+  "",
+  woff2 woff
+);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.productlist-filter-headline,
+.h4,
+.h5,
+.h6 {
+  font-family: Poppins, Montserrat, sans-serif;
+}
+
+body {
+  font-family: Raleway, Montserrat, sans-serif;
+}

@@ -1,0 +1,111 @@
+//
+// Platz für eigene Style Angaben in SCSS-Notation
+//
+// Alle Änderungen hier müssen anschließend mit einem SCSS-Compiler
+// (z.B. dem JTL-Theme-Editor Plugin) nach my-nova.css kompiliert werden
+// --------------------------------------------------
+
+// Lädt Core-Funktionen
+@import "../../../../NOVA/themes/base/sass/functions";
+
+// Lädt "my-nova"-Variablen. Hier können Variablen aus Bootstrap und dem clear-Theme überschrieben werden.
+@import "variables";
+
+// Lädt Style Angaben des clear-Themes
+@import "../../../../NOVA/themes/clear/sass/allstyles";
+
+// my-nova Theme
+// Hier können alle Style-Angaben notiert werden, die nur Auswirkungen auf dieses Theme haben
+// -----------------------------------------------------
+
+@import "layout/header";
+@import "layout/footer";
+
+@import "base/typography";
+@import "base/_carousel";
+
+@import "components/buttons";
+@import "components/breadcrumb";
+@import "components/kk-powerslide";
+@import "components/slick-slider";
+
+@import "pages/productdetail";
+@import "pages/productlist";
+@import "pages/checkout";
+
+// -----------------------------------------------------
+// Kreativkarussell Dropper-Style Import
+// Nachfolgend werden die Dropper Styles importiert
+// -----------------------------------------------------
+
+@import "components/dropper/wolke";
+@import "components/dropper/wonderlift";
+@import "components/dropper/naggura";
+@import "components/dropper/swop";
+@import "components/dropper/enbio";
+@import "components/dropper/custom_paypal_banner";
+@import "components/dropper/impressionen";
+@import "components/dropper/payments";
+
+.opc-Container.container-fluid,
+body[data-page="1"] #result-wrapper > .container-fluid {
+  max-width: rem(1650px);
+}
+
+// Marc Änderungen
+
+// #demo {
+// -webkit-box-shadow: 5px 5px 15px 5px #000000;
+// box-shadow: 5px 5px 15px 5px #000000;
+// }
+
+$primary: #841853;
+$secondary: #c8799c;
+
+$beauty-primary: #841853;
+$beauty-primary-nh: 841853;
+// $beauty-secondary:#9e2965;
+$beauty-secondary: #c8799c;
+
+$hair-primary: #e69e0d;
+$hair-primary-nh: e69e0d;
+// $hair-secondary:#f16f6f;
+$hair-secondary: #e69e0d;
+
+$medical-primary: #000000;
+$medical-primary-nh: #000000;
+// $medical-secondary:#3edbb8;
+$medical-secondary: #000000;
+
+$text-color: #525252;
+$black: #000;
+
+[color-theme="1563"] header .nav-item.active:not(.nav-scrollbar-item) {
+  background-color: $beauty-secondary !important;
+  color: white;
+}
+body[color-theme="1563"] div[data-toggle="product-actions"] button[type="submit"] {
+    background-color: none !important;
+    color: #841853;
+}
+
+body[color-theme="1563"] div[data-toggle="product-actions"] button[type="submit"]:hover {
+    background-color: #841853 !important;
+    color: white;
+}
+
+[color-theme="217"] header .nav-item.active:not(.nav-scrollbar-item) {
+  background-color: $hair-secondary !important;
+  color: white;
+}
+
+[color-theme="1837"] header .nav-item.active:not(.nav-scrollbar-item) {
+  background-color: $medical-primary !important;
+  color: white;
+}
+
+
+.vaiation-wrapper label.swatches-image{
+	width: 50%;
+	margin: auto;
+}
